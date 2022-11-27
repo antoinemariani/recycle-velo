@@ -1,0 +1,7 @@
+# config/meta.yml
+
+meta_product_name: "re:Cycle"
+meta_title: "re:Cycle - redonnez vie à vos vieux vélos et changez votre façon de vous déplacer !"
+meta_description: "re:Cycle est un service d'aide à la réparation de vélos et à la conversion aux mobilités douces."
+meta_image: "preview-logo.png" # should exist in `app/assets/images/`
+twitter_account: "@recycle-velo"  # required for Twitter Cards
