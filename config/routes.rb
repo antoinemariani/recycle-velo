@@ -5,4 +5,17 @@ Rails.application.routes.draw do
 
   # Defines the root path route ("/")
   # root "articles#index"
+
+  # DASHBOARD
+  get '/profile', to: "dashboards#profile"
+
+  # BIKES
+  resources :bikes do
+    resources :chains
+    resources :wheels
+    resources :brakes
+    member do
+      get :results
+    end
+  end
 end
