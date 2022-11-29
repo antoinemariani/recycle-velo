@@ -7,7 +7,7 @@ class BikesController < ApplicationController
 
   def show
     @chain = Chain.new
-    @chain.bike = @bike
+    #@chain.bike = @bike
   end
 
   def new

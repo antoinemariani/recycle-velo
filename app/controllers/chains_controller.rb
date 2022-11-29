@@ -11,9 +11,7 @@ class ChainsController < ApplicationController
 
   def create
     @chain = Chain.new(chain_params)
-    @chain.user = current_user
     @chain.bike = @bike
-    redirect_to bike_path(@bike)
     if @chain.save!
       redirect_to bike_path(@bike)
     else
@@ -42,10 +40,10 @@ class ChainsController < ApplicationController
   private
 
   def chain_params
-    params.require(:chain).permit(:bike_id, :state, :broken, :rust, :derail, :chainlink)
+    params.require(:chain).permit(:state, :broken, :rust, :derail, :chainlink)
   end
 
   def set_bike
-    @bike = Bike.find(params[:id])
+    @bike = Bike.find(params[:bike_id])
   end
 end

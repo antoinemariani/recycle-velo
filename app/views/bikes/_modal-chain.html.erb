@@ -16,24 +16,24 @@
           ...
           <div>
 
-            <%= simple_form_for [@bike, @chain] do |c| %>
+            <%= simple_form_for [bike, @chain] do |f| %>
             <strong> QUESTION 1 : ETAT GLOBAL ? </strong> <br>
             <strong> Détail : </strong> Lorem ipsum dolor sit, amet consectetur adipisicing elit. Laborum mollitia ea quos explicabo reprehenderit nam, sunt asperiores, atque aliquid dolor dignissimos qui itaque voluptas fuga. Asperiores eum cumque aliquid totam! <br>
-              <%= c.input :state, :collection => %w[Bon Moyen Usé Mauvais]%>
+              <%= f.input :state, :collection => %w[Bon Moyen Usé Mauvais]%>
             <strong> QUESTION 2 :</strong> <br>
             <strong> Détail : </strong> Lorem ipsum dolor sit, amet consectetur adipisicing elit. Laborum mollitia ea quos explicabo reprehenderit nam, sunt asperiores, atque aliquid dolor dignissimos qui itaque voluptas fuga. Asperiores eum cumque aliquid totam! <br>
-              <%= c.input :broken %>
+              <%= f.input :broken %>
             <strong> QUESTION 3 : </strong> <br>
             <strong> Détail : </strong> Lorem ipsum dolor sit, amet consectetur adipisicing elit. Laborum mollitia ea quos explicabo reprehenderit nam, sunt asperiores, atque aliquid dolor dignissimos qui itaque voluptas fuga. Asperiores eum cumque aliquid totam! <br>
-              <%= c.input :rust %>
+              <%= f.input :rust %>
             <strong> QUESTION 4 : </strong> <br>
             <strong> Détail : </strong> Lorem ipsum dolor sit, amet consectetur adipisicing elit. Laborum mollitia ea quos explicabo reprehenderit nam, sunt asperiores, atque aliquid dolor dignissimos qui itaque voluptas fuga. Asperiores eum cumque aliquid totam! <br>
-              <%= c.input :derail %>
+              <%= f.input :derail %>
             <strong> QUESTION 5 : ETAT des maillons de la chaine ? </strong> <br>
             <strong> Détail : </strong> Lorem ipsum dolor sit, amet consectetur adipisicing elit. Laborum mollitia ea quos explicabo reprehenderit nam, sunt asperiores, atque aliquid dolor dignissimos qui itaque voluptas fuga. Asperiores eum cumque aliquid totam! <br>
-              <%= c.input :chainlink, :collection => ["Graissés et bien assemblés", 'Non graissé et assemblés', 'correct mais, plus ou moins alignés', 'Usé et non-alignés'] %>
+              <%= f.input :chainlink, :collection => ["Graissés et bien assemblés", 'Non graissé et assemblés', 'correct mais, plus ou moins alignés', 'Usé et non-alignés'] %>
 
-              <%= c.submit "Enregistrer", data: {turbo_confirm: "Are you sure?"}%>
+              <%= f.submit "Enregistrer", data: {turbo_confirm: "Are you sure?"}%>
             <% end %>
 
           </div>
