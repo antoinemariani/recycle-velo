@@ -1,14 +1,14 @@
 <div class="">
 
-  <div class="">
+  <div class="container-provisoire">
 
-    <div class="">
+    <div class="container-provisoire-infos">
       <h1>Show bike id : <%= @bike.id %></h1>
       <h2> name : <%= @bike.name  %></h2>
       <p> current_user : <%= current_user %></p>
     </div>
 
-    <div class="">
+    <div class="container-provisoire-infos">
       <span> Model : <%= @bike.model %></span>
       <br>
       <span> Brand : <%= @bike.brand %></span>
@@ -18,12 +18,10 @@
 
   <br>
 
-  <div class="">
+  <div class="container-provisoire-white">
 
-    <div class="">
-      <button class="btn btn-outline-warning">CHAIN Prob</button>
-    </div>
-
+    <%= render "modal-chain", bike: @bike %>
+    <p><%= @chain.state %></p>
   </div>
 
 </div>

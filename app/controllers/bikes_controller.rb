@@ -1,11 +1,14 @@
 class BikesController < ApplicationController
-  before_action :set_params, only: %I[show edit update destroy]
+  before_action :set_bike, only: %I[show edit update destroy]
 
   def index
     @bikes = Bike.all
   end
 
-  def show; end
+  def show
+    @chain = Chain.new
+    @chain.bike = @bike
+  end
 
   def new
     @bike = Bike.new
@@ -13,7 +16,7 @@ class BikesController < ApplicationController
 
   def create
     @bike = Bike.new(bike_params)
-    # @bike.user = current_user
+    @bike.user = current_user
     @bike.save!
     redirect_to bike_path(@bike)
   end
@@ -21,6 +24,7 @@ class BikesController < ApplicationController
   def edit; end
 
   def update
+    @bike.user = current_user
     @bike.update!(bike_params)
     redirect_to bike_path(@bike)
   end
@@ -36,7 +40,7 @@ class BikesController < ApplicationController
     params.require(:bike).permit(:name, :model, :brand)
   end
 
-  def set_params
+  def set_bike
     @bike = Bike.find(params[:id])
   end
 end
