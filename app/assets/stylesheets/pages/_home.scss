@@ -1,1 +1,106 @@
 // Specific CSS for your home-page
+
+
+// GENERAL //
+
+.spacer {
+  width: 100%;
+  height: 0px;
+  border: 1px solid #FFFFFF;
+  margin: 40px 0px;
+}
+
+p {
+  font-weight: 400;
+  font-size: 14px;
+  line-height: 21px;
+}
+
+h1 {
+  font-weight: 700;
+  font-size: 48px;
+  line-height: 72px;
+}
+
+h2 {
+  font-weight: 600;
+  font-size: 26px;
+  line-height: 39px;
+  margin: 20px 0px;
+}
+
+h3 {
+  font-weight: 500;
+  font-size: 18px;
+  line-height: 27px;
+}
+
+.container {
+  align-self: center;
+}
+
+.btn {
+  border-radius: 20px;
+  color: white;
+}
+
+// TOP BANNER //
+
+.rc-banner {
+  width: 100vw;
+  height: 80vh;
+}
+
+#top-banner {
+  background: linear-gradient(180deg, rgba(33, 33, 33, 0.6) 0%, rgba(33, 33, 33, 0.6) 100%), url("home-banner.jpg");
+  background-size: cover;
+  background-position: bottom;
+  align-items: flex-end;
+}
+
+#top-banner>.container {
+  height: 100%;
+  align-items: flex-end;
+  display: flex;
+}
+
+.rc-banner-text {
+  width: 100%;
+  vertical-align: bottom;
+  margin-bottom: 100px;
+  color: white;
+}
+
+// SECOND BANNER //
+
+#second-banner {
+  background-color: $orange;
+}
+
+#second-banner>.container {
+  height: 100%;
+  align-items: center;
+  display: flex;
+}
+
+.presentation-title {
+  margin: 10px 40px 10px 10px;
+  flex-grow: 2;
+  justify-content:flex-start;
+}
+
+.presentation-details {
+  flex-grow: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.details-category {
+  flex-grow: 1;
+}
+
+.details-category > .spacer {
+  border: 1px solid black;
+}
