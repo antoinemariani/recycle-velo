@@ -1,6 +1,15 @@
+
+// Le Wagon default navbar
+
 .navbar-lewagon {
   justify-content: space-between;
-  background: white;
+  width: 100%;
+  background: transparent;
+  position: absolute;
+  box-shadow: none;
+  padding: 12px 30px;
+  color: white;
+  border-bottom: 1px solid rgba($color: #FFFFFF, $alpha: .1);
 }
 
 .navbar-lewagon .navbar-collapse {
@@ -10,3 +19,111 @@
 .navbar-lewagon .navbar-brand img {
   width: 40px;
 }
+
+.navbar-brand, .nav-link {
+  color: white;
+}
+
+.navbar-brand:hover, .nav-link:hover {
+  color: $orange;
+  transition: color 0.15s ease-in-out, background-color 0.15s ease-in-out, border-color 0.15s ease-in-out;
+}
+
+// // re:cycle navbar
+
+// /* Navbar */
+// .navbar-recycle {
+//   /* Auto layout */
+//   display: flex;
+//   flex-direction: row;
+//   justify-content: center;
+//   align-items: center;
+//   padding: 10px;
+//   gap: 10px;
+
+//   position: absolute;
+//   width: 1440px;
+//   height: 100px;
+//   left: 0px;
+//   top: 0px;
+
+// }
+
+// /* h2 - title */
+// .navbar-recycle-title {
+//   /* Auto layout */
+//   display: flex;
+//   flex-direction: row;
+//   justify-content: center;
+//   align-items: center;
+//   padding: 0px 50px 0px 110px;
+//   gap: 10px;
+
+//   width: 269px;
+//   height: 39px;
+
+//   /* Inside auto layout */
+//   flex: none;
+//   order: 0;
+//   flex-grow: 0;
+// }
+
+// /* h3 */
+// .navbar-recycle > h3 {
+//   /* Auto layout */
+//   display: flex;
+//   flex-direction: row;
+//   justify-content: center;
+//   align-items: center;
+//   padding: 0px;
+//   gap: 10px;
+
+//   width: 116px;
+//   height: 80px;
+
+//   /* Inside auto layout */
+//   flex: none;
+//   order: 0;
+//   flex-grow: 0;
+// }
+
+// /* navbar-elements */
+// .navbar-recycle-elements {
+//   /* Auto layout */
+//   display: flex;
+//   flex-direction: row;
+//   justify-content: flex-end;
+//   align-items: center;
+//   padding: 0px 110px 0px 50px;
+//   gap: 20px;
+
+//   width: 1141px;
+//   height: 80px;
+
+
+//   /* Inside auto layout */
+//   flex: none;
+//   order: 1;
+//   align-self: stretch;
+//   flex-grow: 1;
+// }
+
+// /* icons */
+// .navbar-recycle-elements > .icon {
+//   /* Auto layout */
+//   display: flex;
+//   flex-direction: row;
+//   justify-content: center;
+//   align-items: center;
+//   padding: 0px 0px 0px 50px;
+//   gap: 20px;
+
+//   width: 170px;
+//   height: 80px;
+
+
+//   /* Inside auto layout */
+//   flex: none;
+//   order: 4;
+//   flex-grow: 0;
+// }
