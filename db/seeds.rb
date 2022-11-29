@@ -42,6 +42,11 @@ c = 1
 60.times do
   puts "Creating chain #{c}"
   chain = Chain.new(
+    state: Faker::Quote.jack_handey,
+    broken: Faker::Boolean.boolean,
+    rust: Faker::Boolean.boolean,
+    derail: Faker::Boolean.boolean,
+    chainlink: Faker::Quote.jack_handey,
     bike_id: Bike.all.sample.id
   )
   chain.save!
