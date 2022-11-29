@@ -1,5 +1,5 @@
 class BikesController < ApplicationController
-  before_action :set_params, only: %I[show edit update destroy]
+  before_action :set_params, only: %I[show edit update destroy results]
 
   def index
     @bikes = Bike.all
@@ -29,6 +29,8 @@ class BikesController < ApplicationController
     @bike.destroy!
     redirect_to bikes_path, status: :see_other
   end
+
+  def results; end
 
   private
 
