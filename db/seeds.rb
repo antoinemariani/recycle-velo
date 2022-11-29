@@ -39,7 +39,7 @@ end
 
 # CREATING 20 CHAINS
 c = 1
-20.times do
+60.times do
   puts "Creating chain #{c}"
   chain = Chain.new(
     bike_id: Bike.all.sample.id
