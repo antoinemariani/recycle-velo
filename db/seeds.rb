@@ -8,6 +8,11 @@
 
 require 'faker'
 
+ChainsDiag.destroy_all
+Chain.destroy_all
+Bike.destroy_all
+User.destroy_all
+
 # CREATING 30 USERS
 u = 1
 30.times do
@@ -31,7 +36,7 @@ b = 1
     name: Faker::Games::SuperMario.character,
     model: Faker::Vehicle.manufacture,
     brand: Faker::Vehicle.make,
-    user_id: User.all.sample.id
+    user: User.all.sample
   )
   bike.save!
   b += 1
@@ -39,7 +44,7 @@ end
 
 # CREATING 20 CHAINS
 c = 1
-60.times do
+20.times do
   puts "Creating chain #{c}"
   chain = Chain.new(
     state: Faker::Quote.jack_handey,
@@ -47,7 +52,7 @@ c = 1
     rust: Faker::Boolean.boolean,
     derail: Faker::Boolean.boolean,
     chainlink: Faker::Quote.jack_handey,
-    bike_id: Bike.all.sample.id
+    bike: Bike.all.sample
   )
   chain.save!
   c += 1
