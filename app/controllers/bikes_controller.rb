@@ -8,7 +8,7 @@ class BikesController < ApplicationController
 
   def show
     @chain = Chain.new
-    # @chain.bike = @bike
+    @chains = Chain.all
   end
 
   def create
