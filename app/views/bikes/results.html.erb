@@ -1,6 +1,35 @@
-<h1>Résultat du diagnostique</h1>
-<% if Chain.where(bike_id: @bike.id) %>
-  <h3>Révise la chaîne du vélo</h2>
-  <p>La chaîne de ton vélo est peut-être mal graissée ou un maillon a éventuellement sauté.</p>
-  <button type="button" class="btn btn-outline-info">En savoir plus</button>
-<% end %>
+<div class="banner-top">
+  <div class="p-5">
+    <h1>Résultat de votre diagnostique:</h1>
+    <div class="d-flex justify-content-around p-0.5">
+      <% if Chain.where(bike_id: @bike.id) %>
+        <div class="card p-0.5" style="width: 17rem;">
+          <img class="card-img-top" src="https://images.unsplash.com/photo-1440614116582-fdd09892ede4?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=870&q=80" alt="Card image cap">
+          <div class="card-body">
+            <h5 class="card-title">Révise la chaîne du vélo</h5>
+            <p class="card-text">La chaîne de ton vélo est peut-être mal graissée ou un maillon a éventuellement sauté.</p>
+            <a href="#" class="btn btn-warning">En savoir plus</a>
+          </div>
+        </div>
+      <% end %>
+
+<%# FAKE CARDS EN ATTENDANT SADDLE ET WHEEL %>
+<div class="card" style="width: 18rem;">
+  <img class="card-img-top" src="..." alt="Card image cap">
+  <div class="card-body">
+    <h5 class="card-title">Card title</h5>
+    <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+    <a href="#" class="btn btn-primary">Go somewhere</a>
+  </div>
+</div>
+<div class="card" style="width: 18rem;">
+  <img class="card-img-top" src="..." alt="Card image cap">
+  <div class="card-body">
+    <h5 class="card-title">Card title</h5>
+    <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+    <a href="#" class="btn btn-primary">Go somewhere</a>
+  </div>
+</div>
+    </div>
+  </div>
+</div>
