@@ -80,6 +80,7 @@ h3 {
 
 #second-banner {
   background-color: $orange;
+  color: $yellow;
 }
 
 #second-banner>.container {
@@ -107,5 +108,5 @@ h3 {
 }
 
 .details-category > .spacer {
-  border: 1px solid black;
+  border: 1px solid $yellow;
 }
