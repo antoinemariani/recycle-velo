@@ -2,23 +2,20 @@ class BikesController < ApplicationController
   before_action :set_bike, only: %I[show edit update destroy results]
 
   def index
-    @bikes = Bike.all
+    @bikes = Bike.where(user: current_user)
+    @bike = Bike.new
   end
 
   def show
     @chain = Chain.new
-    #@chain.bike = @bike
-  end
-
-  def new
-    @bike = Bike.new
+    # @chain.bike = @bike
   end
 
   def create
     @bike = Bike.new(bike_params)
     @bike.user = current_user
     @bike.save!
-    redirect_to bike_path(@bike)
+    redirect_to bikes_path
   end
 
   def edit; end
