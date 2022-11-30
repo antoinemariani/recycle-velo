@@ -1,15 +1,23 @@
 
-// Le Wagon default navbar
+// Homepage navbar
 
 .navbar-lewagon {
   justify-content: space-between;
   width: 100%;
-  background: transparent;
-  position: absolute;
   box-shadow: none;
   padding: 12px 30px;
   color: white;
-  border-bottom: 1px solid rgba($color: #FFFFFF, $alpha: .1);
+  // border-bottom: 1px solid rgba($color: #FFFFFF, $alpha: .1);
+  background-color: rgba($color: $orange, $alpha: .8);
+  transition: 0.5s background-color ease;
+}
+
+.navbar-lewagon-transparent {
+  background-color: transparent;
+}
+
+.navbar-lewagon:hover {
+  background-color: rgba($color: $orange, $alpha: .8);
 }
 
 .navbar-lewagon .navbar-collapse {
@@ -25,9 +33,29 @@
 }
 
 .navbar-brand:hover, .nav-link:hover {
-  color: $orange;
+  color: $yellow;
   transition: color 0.15s ease-in-out, background-color 0.15s ease-in-out, border-color 0.15s ease-in-out;
 }
+
+// Other pages navbar
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 // // re:cycle navbar
 
