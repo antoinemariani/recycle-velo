@@ -39,9 +39,14 @@ h3 {
   align-self: center;
 }
 
-.btn {
+.start-button {
   border-radius: 20px;
   color: white;
+}
+
+.start-button:hover {
+  color: $yellow;
+  background-color: rgb(255, 72, 0);
 }
 
 // TOP BANNER //

@@ -1,0 +1,34 @@
+<div class="container">
+  <div class="bikes-banner">
+
+
+    <h3> Ajoute un nouveau vélo à diagnostiquer : </h3>
+
+    <%= simple_form_for @bike do |f| %>
+    <%= f.input :name, label: "Nom de ton vélo (celui que tu souhaites, pour le retrouver plus tard)" %>
+    <%= f.input :model, label: "Modèle du vélo (si tu le connais)" %>
+    <%= f.input :brand, label: "Marque du vélo (si visible)" %>
+    <%= f.submit %>
+    <% end %>
+
+    <br>
+    <h3> Ou bien choisis un vélo parmi ceux que tu as déjà : </h3>
+    <div>
+      <% @bikes.each do |bike| %>
+          <%= simple_form_for bike, method: "get" do |f| %>
+            <div class="card">
+              <p><%= bike.name %></p>
+              <p><%= bike.model %></p>
+              <p><%= bike.brand %></p>
+              <%= f.submit "Diagnostiquer" %>
+            </div>
+            <br>
+          <% end %>
+      <% end %>
+    </div>
+
+
+    <%# <%= link_to "Commencer", bike_path(@bike), class: "btn btn-primary" %>
+
+  </div>
+</div>
