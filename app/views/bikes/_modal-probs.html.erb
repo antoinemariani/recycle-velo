@@ -21,31 +21,18 @@
                                 <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                               </div>
                               <div class="modal-body">
-                                ...
                                 <div>
 
                                   <%= simple_form_for [bike, @chain] do |f| %>
-                                    <strong> QUESTION 1 : ETAT GLOBAL ? </strong> <br>
-                                    <strong> Détail : </strong> Lorem ipsum dolor sit, amet consectetur adipisicing elit. Laborum mollitia ea quos explicabo reprehenderit nam, sunt asperiores, atque aliquid dolor dignissimos qui itaque voluptas fuga. Asperiores eum cumque aliquid totam! <br>
-                                      <%= f.input :state, :collection => %w[Bon Moyen Usé Mauvais]%>
-                                    <strong> QUESTION 2 :</strong> <br>
-                                    <strong> Détail : </strong> Lorem ipsum dolor sit, amet consectetur adipisicing elit. Laborum mollitia ea quos explicabo reprehenderit nam, sunt asperiores, atque aliquid dolor dignissimos qui itaque voluptas fuga. Asperiores eum cumque aliquid totam! <br>
-                                      <%= f.input :broken %>
-                                    <strong> QUESTION 3 : </strong> <br>
-                                    <strong> Détail : </strong> Lorem ipsum dolor sit, amet consectetur adipisicing elit. Laborum mollitia ea quos explicabo reprehenderit nam, sunt asperiores, atque aliquid dolor dignissimos qui itaque voluptas fuga. Asperiores eum cumque aliquid totam! <br>
-                                      <%= f.input :rust %>
-                                    <strong> QUESTION 4 : </strong> <br>
-                                    <strong> Détail : </strong> Lorem ipsum dolor sit, amet consectetur adipisicing elit. Laborum mollitia ea quos explicabo reprehenderit nam, sunt asperiores, atque aliquid dolor dignissimos qui itaque voluptas fuga. Asperiores eum cumque aliquid totam! <br>
-                                      <%= f.input :derail %>
-                                    <strong> QUESTION 5 : ETAT des maillons de la chaine ? </strong> <br>
-                                    <strong> Détail : </strong> Lorem ipsum dolor sit, amet consectetur adipisicing elit. Laborum mollitia ea quos explicabo reprehenderit nam, sunt asperiores, atque aliquid dolor dignissimos qui itaque voluptas fuga. Asperiores eum cumque aliquid totam! <br>
-                                      <%= f.input :chainlink, :collection => ["Graissés et bien assemblés", 'Non graissé et assemblés', 'correct mais, plus ou moins alignés', 'Usé et non-alignés'] %>
-
-                                      <%= f.submit "Enregistrer", data: {turbo_confirm: "Are you sure?"}%>
+                                    <%= f.input :state, as: :radio_buttons, label: "État général de la chaîne et du dérailleur", :collection => ["bon", "moyen", "mauvais"] %>
+                                    <%= f.input :broken, as: :radio_buttons, label: "La chaîne est-elle cassée?", :collection => ["oui", "non"] %>
+                                    <%= f.input :rust, as: :radio_buttons, label: "La chaîne et le dérailleur sont-ils rouillés?", :collection => ["oui", "non"] %>
+                                    <%= f.input :derail, as: :radio_buttons, label: "La chaîne a-t-elle déraillé?", :collection => ["oui, je n'arrive pas à la remettre", "oui, elle déraille dès que je la remets", "oui, elle déraille régulièrement", "oui, mais je sais la remettre", "non"] %>
+                                    <%= f.input :chainlink, as: :radio_buttons, label: "Les maillons de la chaîne sont-ils tous en bon état et attachés les uns aux autres?", :collection => ["oui", "un maillon semble cassé", "la chaîne n’est plus fermée ou est en plusieurs morceaux"] %>
+                                    <%= f.submit "Enregistrer", class: "btn btn-primary", data: {turbo_confirm: "Are you sure?"}%>
                                   <% end %>
 
                                 </div>
-                                ...
                               <div class="modal-footer">
                                 <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Fermer</button>
                               </div>

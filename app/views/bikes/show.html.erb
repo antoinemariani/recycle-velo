@@ -10,7 +10,7 @@
           <div class="">
             <h1>Show bike id : <%= @bike.id %></h1>
             <h2> name : <%= @bike.name  %></h2>
-            <p> current_user : <%= current_user %></p>
+            <p> current_user : <%= current_user.first_name %><%= current_user.last_name %></p>
           </div>
 
           <div class="">
@@ -30,10 +30,7 @@
           </div>
       </div>
 
-
-      <% now = DateTime.now.day.to_i%>
-      <% last = Chain.last.created_at.day.to_i%>
-      <% if now < last %>
+      <% if (!Chain.where(bike: @bike).exists?) || (Chain.where(bike: @bike).last.created_at.to_date != Date.today) %>
         <%= render "modal-probs", bike: @bike %>
       <% else %>
         <%= render "modal-error-day", bike: @bike %>
