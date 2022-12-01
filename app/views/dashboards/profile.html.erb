@@ -1,0 +1,28 @@
+<div class="container pt-5">
+<h1>Bonjour, <%= current_user.first_name %> <%= current_user.last_name %> !</h1>
+  <div class="row pt-3">
+    <div class="col-sm">
+      <img src="" alt="">
+      <p><strong>Nom : </strong><br>
+      <%= current_user.first_name %> <%= current_user.last_name %>
+      <p><strong>Email :</strong><br>
+      <%= current_user.email %>
+      <br>
+    </div>
+    <div class="col-sm">
+    <div class="bikes d-flex align-items-center">
+    <% @bikes.each do |bike|%>
+      <div class="card ms-3" style="width: 17rem;">
+        <img class="card-img-top" src="https://www.numerama.com/wp-content/uploads/2019/05/test-velo-mad-in-france-1.jpg" alt="Card image cap">
+        <div class="card-body " style="flex-grow:1">
+          <h5 class="card-title"><%= bike.name%></h5>
+          <p class="card-text">Model: <%= bike.model%></p>
+          <p class="card-text">Marque: <%= bike.brand%></p>
+          <a href="#" class="btn btn-primary">Voir ses diagnostiques</a>
+        </div>
+      </div>
+      <%end%>
+    </div>
+    </div>
+  </div>
+</div>
