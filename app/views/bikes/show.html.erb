@@ -1,4 +1,6 @@
 
+<div>
+
   <div class="container-top">
       <h1>🚴‍♂️🚴‍♂️🚴‍♂️ Votre vélo est en mode réparation 🚴‍♂️🚴‍♂️🚴‍♂️</h1>
 
@@ -19,11 +21,24 @@
             <span> Brand : <%= @bike.brand %></span>
           </div>
           <br>
+          <h5>La Mécanique du jours : </h5>
           <div class="d-flex flex-wrap">
-            <%@chains.each do |c| %>
               <div class="prob-infos">
-                <h3><%= c.id %></h3>
-                <p><%= c.created_at %></p>
+                <% chain = Chain.where(bike: @bike) %>
+                <h3>Chaine</h3>
+                <p><%= chain.last.created_at.to_date %></p>
+                <button><%= link_to "Edit",  edit_bike_chain_path(@bike) %></button>
+              </div>
+          </div>
+          <br>
+          <h5>Historique de la Mécanique de votre vélo : </h5>
+          <div class="d-flex flex-wrap">
+            <% sum = 1 %>
+            <% Chain.where(bike: @bike).all.each do |c| %>
+              <div class="prob-infos">
+                <h3>Prob n° <%= sum %></h3>
+                <% sum += 1 %>
+                <p><%= c.created_at.to_date %></p>
                 <button><%= link_to "Edit",  edit_bike_chain_path(c) %></button>
               </div>
             <% end %>
@@ -36,3 +51,5 @@
         <%= render "modal-error-day", bike: @bike %>
       <% end %>
   </div>
+
+</div>
