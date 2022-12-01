@@ -9,6 +9,10 @@ class BikesController < ApplicationController
   def show
     @chain = Chain.new
     @chains = Chain.all
+    @wheel = Wheel.new
+    @wheels = Wheel.all
+    @brake = Brake.new
+    @brakes = Brake.all
   end
 
   def create
