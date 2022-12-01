@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2022_12_01_102010) do
+ActiveRecord::Schema[7.0].define(version: 2022_12_01_151643) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
@@ -52,6 +52,30 @@ ActiveRecord::Schema[7.0].define(version: 2022_12_01_102010) do
     t.index ["user_id"], name: "index_bikes_on_user_id"
   end
 
+  create_table "brakes", force: :cascade do |t|
+    t.bigint "bike_id", null: false
+    t.string "braking"
+    t.string "handle"
+    t.string "pad"
+    t.string "wire"
+    t.string "squeak"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["bike_id"], name: "index_brakes_on_bike_id"
+  end
+
+  create_table "brakes_diags", force: :cascade do |t|
+    t.bigint "brake_id", null: false
+    t.string "braking"
+    t.string "handle"
+    t.string "pad"
+    t.string "wire"
+    t.string "squeak"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["brake_id"], name: "index_brakes_diags_on_brake_id"
+  end
+
   create_table "chains", force: :cascade do |t|
     t.bigint "bike_id", null: false
     t.string "state"
@@ -91,9 +115,37 @@ ActiveRecord::Schema[7.0].define(version: 2022_12_01_102010) do
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end
 
+  create_table "wheels", force: :cascade do |t|
+    t.string "puncture"
+    t.string "bent"
+    t.string "spoke"
+    t.string "noise"
+    t.string "tyre"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.bigint "bike_id", null: false
+    t.index ["bike_id"], name: "index_wheels_on_bike_id"
+  end
+
+  create_table "wheels_diags", force: :cascade do |t|
+    t.bigint "wheel_id", null: false
+    t.string "puncture"
+    t.string "bent"
+    t.string "spoke"
+    t.string "noise"
+    t.string "tyre"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["wheel_id"], name: "index_wheels_diags_on_wheel_id"
+  end
+
   add_foreign_key "active_storage_attachments", "active_storage_blobs", column: "blob_id"
   add_foreign_key "active_storage_variant_records", "active_storage_blobs", column: "blob_id"
   add_foreign_key "bikes", "users"
+  add_foreign_key "brakes", "bikes"
+  add_foreign_key "brakes_diags", "brakes"
   add_foreign_key "chains", "bikes"
   add_foreign_key "chains_diags", "chains"
+  add_foreign_key "wheels", "bikes"
+  add_foreign_key "wheels_diags", "wheels"
 end
