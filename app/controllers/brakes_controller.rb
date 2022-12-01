@@ -54,7 +54,7 @@ class BrakesController < ApplicationController
 
   def create_brakes_diag(brake)
     @brakes_diag = BrakesDiag.new(
-      brake: brake,
+      brake:,
       braking: braking_diag(brake),
       handle: handle_diag(brake),
       pad: pad_diag(brake),

@@ -54,7 +54,7 @@ class WheelsController < ApplicationController
 
   def create_wheels_diag(wheel)
     @wheels_diag = WheelsDiag.new(
-      wheel: wheel,
+      wheel:,
       puncture: puncture_diag(wheel),
       bent: bent_diag(wheel),
       spoke: spoke_diag(wheel),

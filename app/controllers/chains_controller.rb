@@ -54,7 +54,7 @@ class ChainsController < ApplicationController
 
   def create_chains_diag(chain)
     @chains_diag = ChainsDiag.new(
-      chain: chain,
+      chain:,
       state: state_diag(chain),
       broken: broken_diag(chain),
       rust: rust_diag(chain),
