@@ -23,16 +23,19 @@
             <%@chains.each do |c| %>
               <div class="prob-infos">
                 <h3><%= c.id %></h3>
-                <%= link_to "Edit",  edit_bike_chain_path(c) %>
+                <p><%= c.created_at %></p>
+                <button><%= link_to "Edit",  edit_bike_chain_path(c) %></button>
               </div>
             <% end %>
           </div>
       </div>
 
-      <div class="container-probs">
 
+      <% now = DateTime.now.day.to_i%>
+      <% last = Chain.last.created_at.day.to_i%>
+      <% if now < last %>
         <%= render "modal-probs", bike: @bike %>
-
-      </div>
-
+      <% else %>
+        <%= render "modal-error-day", bike: @bike %>
+      <% end %>
   </div>
