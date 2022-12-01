@@ -1,27 +1,38 @@
-<div class="">
 
-  <div class="container-provisoire">
-
-    <div class="container-provisoire-infos">
-      <h1>Show bike id : <%= @bike.id %></h1>
-      <h2> name : <%= @bike.name  %></h2>
-      <p> current_user : <%= current_user %></p>
-    </div>
-
-    <div class="container-provisoire-infos">
-      <span> Model : <%= @bike.model %></span>
-      <br>
-      <span> Brand : <%= @bike.brand %></span>
-    </div>
+  <div class="container-top">
+      <h1>🚴‍♂️🚴‍♂️🚴‍♂️ Votre vélo est en mode réparation 🚴‍♂️🚴‍♂️🚴‍♂️</h1>
 
   </div>
 
-  <br>
+  <div class="container-global">
 
-  <div class="container-provisoire-white">
+      <div class="container-infos">
+          <div class="">
+            <h1>Show bike id : <%= @bike.id %></h1>
+            <h2> name : <%= @bike.name  %></h2>
+            <p> current_user : <%= current_user.first_name %><%= current_user.last_name %></p>
+          </div>
 
-    <%= render "modal-chain", bike: @bike %>
-    <p><%= @chain.state %></p>
+          <div class="">
+            <span> Model : <%= @bike.model %></span>
+            <br>
+            <span> Brand : <%= @bike.brand %></span>
+          </div>
+          <br>
+          <div class="d-flex flex-wrap">
+            <%@chains.each do |c| %>
+              <div class="prob-infos">
+                <h3><%= c.id %></h3>
+                <p><%= c.created_at %></p>
+                <button><%= link_to "Edit",  edit_bike_chain_path(c) %></button>
+              </div>
+            <% end %>
+          </div>
+      </div>
+
+      <% if (!Chain.where(bike: @bike).exists?) || (Chain.where(bike: @bike).last.created_at.to_date != Date.today) %>
+        <%= render "modal-probs", bike: @bike %>
+      <% else %>
+        <%= render "modal-error-day", bike: @bike %>
+      <% end %>
   </div>
-
-</div>
