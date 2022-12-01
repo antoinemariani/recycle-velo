@@ -21,15 +21,8 @@
             <span> Brand : <%= @bike.brand %></span>
           </div>
           <br>
-          <h5>La Mécanique du jours : </h5>
-          <div class="d-flex flex-wrap">
-              <div class="prob-infos">
-                <% chain = Chain.where(bike: @bike) %>
-                <h3>Chaine</h3>
-                <p><%= chain.last.created_at.to_date %></p>
-                <button><%= link_to "Edit",  edit_bike_chain_path(@bike) %></button>
-              </div>
-          </div>
+          <h5>La Mécanique du jour : </h5>
+            <%= render "chain-card", bike: @bike unless Chain.where(bike: @bike).empty? %>
           <br>
           <h5>Historique de la Mécanique de votre vélo : </h5>
           <div class="d-flex flex-wrap">
