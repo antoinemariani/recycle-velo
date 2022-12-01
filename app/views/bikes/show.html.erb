@@ -39,7 +39,19 @@
       </div>
 
       <% if (!Chain.where(bike: @bike).exists?) || (Chain.where(bike: @bike).last.created_at.to_date != Date.today) %>
-        <%= render "modal-probs", bike: @bike %>
+        <%= render "modal-chains", bike: @bike %>
+      <% else %>
+        <%= render "modal-error-day", bike: @bike %>
+      <% end %>
+
+      <% if (!Brake.where(bike: @bike).exists?) || (Brake.where(bike: @bike).last.created_at.to_date != Date.today) %>
+        <%= render "modal-brakes", bike: @bike %>
+      <% else %>
+        <%= render "modal-error-day", bike: @bike %>
+      <% end %>
+
+      <% if (!Wheel.where(bike: @bike).exists?) || (Wheel.where(bike: @bike).last.created_at.to_date != Date.today) %>
+        <%= render "modal-wheels", bike: @bike %>
       <% else %>
         <%= render "modal-error-day", bike: @bike %>
       <% end %>
