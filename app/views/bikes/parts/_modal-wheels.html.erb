@@ -1,12 +1,12 @@
                   <div class="card">
                       <div class="inner">
-                        <img class="card-img-top" src="https://images.unsplash.com/photo-1525207106105-b340f7384b30?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=687&q=80" alt="wheel">
+                        <%= image_tag "wheel-detail.jpg", class: "card-img-top", alt: "Roues et pneus" %>
                       </div>
                       <div class="card-body">
                         <h5 class="card-title">Roues & Pneus</h5>
-                        <p class="card-text">Tu penses que tu as des problèmes de roues ? N'hésites pas et click sur le bouton en bas pour découvrir notre liste exhaustive de problèmes potentiels qui nous permettra de te fournir un diagnostique et des solutions adaptées.</p>
+                        <p class="card-text">Une crevaison, une roue voilée, des bruits inhabituels? C'est par ici que cela se passe!</p>
                         <!-- Button trigger modal -->
-                        <a href="#" class="btn btn-warning" data-bs-toggle="modal" data-bs-target="#wheelModal">Problèmes avec tes roues ? </a>
+                        <a href="#" class="btn btn-warning text-white" data-bs-toggle="modal" data-bs-target="#wheelModal">Remplir</a>
                         <!-- Modal -->
                         <div class="modal fade" id="wheelModal" tabindex="-1" aria-labelledby="wheelModalLabel" aria-hidden="true">
                           <div class="modal-dialog modal-xl modal-dialog-scrollable">
@@ -42,12 +42,11 @@
                                                 label: "Les pneus sont-ils présents et bien tenus dans les jantes?
                                                         Si oui, ont-ils des trous, déchirures, coupures à leur surface?",
                                                 collection: ["les pneus sont dans les jantes et en état correct", "j’observe des coupures, déchirures ou trous dans les pneus", "un ou plusieurs pneus ne tient pas dans la jante"] %>
-                                    <%= f.submit "Enregistrer", class: "btn btn-primary", data: {turbo_confirm: "Are you sure?"}%>
-                                  <% end %>
-
                                 </div>
                               </div>
                               <div class="modal-footer">
+                                    <%= f.submit "Enregistrer", class: "btn btn-primary", data: {turbo_confirm: "Are you sure?"}%>
+                                  <% end %>
                                 <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Fermer</button>
                               </div>
                             </div>
