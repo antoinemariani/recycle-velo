@@ -1,0 +1,39 @@
+<div class="card">
+    <div class="inner">
+      <img class="card-img-top" src="https://images.unsplash.com/photo-1525207106105-b340f7384b30?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=687&q=80" alt="chaine">
+    </div>
+    <div class="card-body">
+      <h5 class="card-title">Chaine</h5>
+      <p class="card-text">Tu penses que tu as des problèmes de chaines ? N'hésites pas et click sur le bouton en bas pour découvrir notre liste exhaustive de problèmes potentiels qui nous permettra de te fournir un diagnostique et des solutions adaptées.</p>
+      <!-- Button trigger modal -->
+      <a href="#" class="btn btn-warning" data-bs-toggle="modal" data-bs-target="#chainModal">Prob de chaine ? </a>
+      <!-- Modal -->
+      <div class="modal fade" id="chainModal" tabindex="-1" aria-labelledby="chainModalLabel" aria-hidden="true">
+        <div class="modal-dialog modal-xl modal-dialog-scrollable">
+          <div class="modal-content">
+            <div class="modal-header">
+              <h5 class="modal-title" id="chainModalLabel">Quels sont vos problèmes sur votre chaine ? </h5>
+              <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+              <div>
+
+                <%= simple_form_for [bike, @chain] do |f| %>
+                  <%= f.input :state, as: :radio_buttons, label: "État général de la chaîne et du dérailleur", :collection => ["bon", "moyen", "mauvais"] %>
+                  <%= f.input :broken, as: :radio_buttons, label: "La chaîne est-elle cassée?", :collection => ["oui", "non"] %>
+                  <%= f.input :rust, as: :radio_buttons, label: "La chaîne et le dérailleur sont-ils rouillés?", :collection => ["oui", "non"] %>
+                  <%= f.input :derail, as: :radio_buttons, label: "La chaîne a-t-elle déraillé?", :collection => ["oui, je n'arrive pas à la remettre", "oui, elle déraille dès que je la remets", "oui, elle déraille régulièrement", "oui, mais je sais la remettre", "non"] %>
+                  <%= f.input :chainlink, as: :radio_buttons, label: "Les maillons de la chaîne sont-ils tous en bon état et attachés les uns aux autres?", :collection => ["oui", "un maillon semble cassé", "la chaîne n’est plus fermée ou est en plusieurs morceaux"] %>
+                  <%= f.submit "Enregistrer", class: "btn btn-primary", data: {turbo_confirm: "Are you sure?"}%>
+                <% end %>
+
+              </div>
+            </div>
+            <div class="modal-footer">
+              <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Fermer</button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+</div>

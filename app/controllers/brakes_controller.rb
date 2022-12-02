@@ -1,5 +1,6 @@
 class BrakesController < ApplicationController
-  before_action :set_bike, only: %i[index show create]
+  before_action :set_bike, only: %i[index show update create]
+  before_action :set_brake, only: %i[update]
 
   def index
     @brakes = @bike.brakes
@@ -24,14 +25,7 @@ class BrakesController < ApplicationController
     end
   end
 
-  def edit
-    @brake = Brake.find(params[:id])
-  end
-
   def update
-    @brake = Brake.find(params[:id])
-    @brake.user = current_user
-    @brake.bike = @bike
     @brake.update!(brake_params)
     redirect_to bike_path(@bike)
   end
@@ -46,6 +40,10 @@ class BrakesController < ApplicationController
 
   def brake_params
     params.require(:brake).permit(:braking, :handle, :pad, :wire, :squeak)
+  end
+
+  def set_brake
+    @brake = Brake.find(params[:id])
   end
 
   def set_bike

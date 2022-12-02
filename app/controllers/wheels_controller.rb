@@ -1,5 +1,6 @@
 class WheelsController < ApplicationController
-  before_action :set_bike, only: %i[index show create]
+  before_action :set_bike, only: %i[index show update create]
+  before_action :set_wheel, only: %i[update]
 
   def index
     @wheels = @bike.wheels
@@ -24,14 +25,7 @@ class WheelsController < ApplicationController
     end
   end
 
-  def edit
-    @wheel = Wheel.find(params[:id])
-  end
-
   def update
-    @wheel = Wheel.find(params[:id])
-    @wheel.user = current_user
-    @wheel.bike = @bike
     @wheel.update!(wheel_params)
     redirect_to bike_path(@bike)
   end
@@ -46,6 +40,10 @@ class WheelsController < ApplicationController
 
   def wheel_params
     params.require(:wheel).permit(:puncture, :bent, :spoke, :noise, :tyre)
+  end
+
+  def set_wheel
+    @wheel = Wheel.find(params[:id])
   end
 
   def set_bike
