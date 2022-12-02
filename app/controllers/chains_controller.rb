@@ -1,6 +1,6 @@
 class ChainsController < ApplicationController
-  before_action :set_bike, only: %i[index show update create]
-  before_action :set_chain, only: %i[update]
+  before_action :set_bike, only: %i[index show edit update create]
+  before_action :set_chain, only: %i[edit update]
 
   def index
     @chains = @bike.chains
@@ -9,6 +9,8 @@ class ChainsController < ApplicationController
   def show
     @chain = Chain.find(params[:id])
   end
+
+  def edit; end
 
   def create
     @chain = Chain.new(chain_params)

@@ -1,6 +1,6 @@
 class BrakesController < ApplicationController
-  before_action :set_bike, only: %i[index show update create]
-  before_action :set_brake, only: %i[update]
+  before_action :set_bike, only: %i[index show edit update create]
+  before_action :set_brake, only: %i[edit update]
 
   def index
     @brakes = @bike.brakes
@@ -9,6 +9,8 @@ class BrakesController < ApplicationController
   def show
     @brake = Brake.find(params[:id])
   end
+
+  def edit; end
 
   def create
     @brake = Brake.new(brake_params)
