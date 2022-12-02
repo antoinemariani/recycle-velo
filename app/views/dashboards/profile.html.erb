@@ -1,22 +1,26 @@
 
 
-<div class="container__profile">
-  <div class="header__wrapper">
+<div class="container-profile">
+  <div class="header-wrapper">
     <header></header>
-    <div class="cols__container">
-      <div class="left__col">
-        <div class="img__container">
-          <img src="https://images.unsplash.com/photo-1633332755192-727a05c4013d?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1160&q=80" alt="image profile user photo">
+    <div class="cols-container">
+      <div class="left-col">
+        <div class="img-container">
+            <% if current_user.photo.key %>
+              <%= cl_image_tag current_user.photo.key, crop: :thumb, gravity: :face%>
+            <% else %>
+              <%= image_tag "profil-image-default" %>
+            <% end %>
           <span></span>
         </div>
-        <h2>First Last name</h2>
-        <p>email adresse</p>
-        <p>A définir ....? </p>
+        <h2>🚴‍♂️ Hello, <%= current_user.first_name %> <%= current_user.last_name %> 🚴‍♂️</h2>
+        <p>＠ email : <%= current_user.email %> </p>
+        <%# <p>A définir .... </p> %>
 
         <ul class="about">
-          <li><span>10</span>Vélos</li>
-          <li><span>26</span>Diagnostiques</li>
-          <li><span>39</span>A définir</li>
+          <li><span><%= current_user.bikes.size %></span>Vélos</li>
+          <li><span><%= current_user.bikes.chain.size %></span>Diagnostiques</li>
+          <li><span>5</span>Réparations</li>
         </ul>
 
         <div class="content">
@@ -29,20 +33,29 @@
           </ul>
         </div>
       </div>
-      <div class="right__col">
+      <div class="right-col">
         <nav>
           <ul>
             <li><a href="#">Mes Vélos</a></li>
             <li><a href="#">Mes Shops</a></li>
             <li><a href="#">groupes</a></li>
           </ul>
-          <button>Ajouter un Vélo</button>
+          <button> <%= link_to "Ajouter un Vélo", bikes_path %></button>
         </nav>
         <div class="photos">
-          <img src="https://images.unsplash.com/photo-1485965120184-e220f721d03e?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1470&q=80" alt="vélo photo">
-          <img src="https://images.unsplash.com/photo-1593764592116-bfb2a97c642a?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=718&q=80" alt="vélo photo">
-          <img src="https://images.unsplash.com/photo-1604344929197-c89e3ef3c25b?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=687&q=80" alt="vélo photo">
-          <img src="https://images.unsplash.com/photo-1571333250630-f0230c320b6d?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1470&q=80" alt="vélo photo">
+          <% current_user.bikes.each do |b| %>
+            <% if b.photo.key %>
+              <div>
+                <%= cl_image_tag b.photo.key%>
+                <h5><%= b.name %></h5>
+              </div>
+            <% else %>
+              <div class="card-bike">
+                <h5><%= b.name %></h5>
+                <%= image_tag "https://images.unsplash.com/photo-1485965120184-e220f721d03e?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1470&q=80"%>
+              </div>
+            <% end %>
+          <% end %>
         </div>
       </div>
     </div>

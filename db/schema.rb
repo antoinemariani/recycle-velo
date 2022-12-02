@@ -79,9 +79,9 @@ ActiveRecord::Schema[7.0].define(version: 2022_12_01_151643) do
   create_table "chains", force: :cascade do |t|
     t.bigint "bike_id", null: false
     t.string "state"
-    t.string "broken"
-    t.string "rust"
-    t.string "derail"
+    t.boolean "broken"
+    t.boolean "rust"
+    t.boolean "derail"
     t.string "chainlink"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
