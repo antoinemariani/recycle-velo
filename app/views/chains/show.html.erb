@@ -4,12 +4,12 @@
 <div class="container pt-3 text-center">
 
   <div class="container pt-5"></div>
-    <div class="cards d-flex justify-content-around">
+    <div class="cards-chain d-flex justify-content-around">
     <% @diag.each do |problem| %>
       <%# check if problem != nil %>
       <% if problem %>
         <div class="card" style="width: 18rem;">
-          <div class="card-body pb-2">
+          <div class="card-body-chain pb-2">
             <p class="card-text"><%= problem %></p>
             <a href="#" class="btn btn-primary">Regarder un tuto</a>
           </div>

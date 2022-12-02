@@ -24,12 +24,12 @@
                   <%= f.input :rust, as: :radio_buttons, label: "La chaîne et le dérailleur sont-ils rouillés?", :collection => ["oui", "non"] %>
                   <%= f.input :derail, as: :radio_buttons, label: "La chaîne a-t-elle déraillé?", :collection => ["oui, je n'arrive pas à la remettre", "oui, elle déraille dès que je la remets", "oui, elle déraille régulièrement", "oui, mais je sais la remettre", "non"] %>
                   <%= f.input :chainlink, as: :radio_buttons, label: "Les maillons de la chaîne sont-ils tous en bon état et attachés les uns aux autres?", :collection => ["oui", "un maillon semble cassé", "la chaîne n’est plus fermée ou est en plusieurs morceaux"] %>
+                  <%= f.submit "Enregistrer", class: "btn btn-primary", data: {turbo_confirm: "Are you sure?"}%>
+                <% end %>
 
               </div>
             </div>
             <div class="modal-footer">
-                  <%= f.submit "Enregistrer", class: "btn btn-primary", data: {turbo_confirm: "Are you sure?"}%>
-                <% end %>
               <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Fermer</button>
             </div>
           </div>
