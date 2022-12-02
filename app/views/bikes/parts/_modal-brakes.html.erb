@@ -1,0 +1,39 @@
+<div class="card">
+    <div class="inner">
+    <%= image_tag "brake-detail.jpg", class: "card-img-top", alt: "Freinage" %>
+    </div>
+    <div class="card-body">
+      <h5 class="card-title">Freinage</h5>
+      <p class="card-text">Renseigne tes problèmes de freinage, plaquettes et autres grincements ici.</p>
+      <!-- Button trigger modal -->
+      <a href="#" class="btn btn-warning text-white" data-bs-toggle="modal" data-bs-target="#brakeModal">Remplir</a>
+      <!-- Modal -->
+      <div class="modal fade" id="brakeModal" tabindex="-1" aria-labelledby="brakeModalLabel" aria-hidden="true">
+        <div class="modal-dialog modal-xl modal-dialog-scrollable">
+          <div class="modal-content">
+            <div class="modal-header">
+              <h5 class="modal-title" id="brakeModalLabel">Quels sont vos problèmes de freinage ? </h5>
+              <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+              <div>
+
+                <%= simple_form_for [bike, @brake] do |f| %>
+                  <%= f.input :braking, as: :radio_buttons, label: "Votre vélo freine-t-il?", :collection => ["il freine bien", "il freine mal", "il ne freine pas du tout"] %>
+                  <%= f.input :handle, as: :radio_buttons, label: "Les poignées de frein fonctionnent-elles?", :collection => ["oui", "non"] %>
+                  <%= f.input :pad, as: :radio_buttons, label: "Y’a-t-il des plaquettes de frein sur chaque roue?", :collection => ["oui", "non"] %>
+                  <%= f.input :wire, as: :radio_buttons, label: "Les poignées de freins actionnent-elles bien chacune un cable de freinage?", :collection => ["oui", "non", "je ne sais pas"] %>
+                  <%= f.input :squeak, as: :radio_buttons, label: "Vos freins grincent-ils?", :collection => ["oui", "non", "je ne sais pas, je n’ai pas encore roulé avec le vélo"] %>
+
+              </div>
+            </div>
+            <div class="modal-footer">
+                  <%= f.submit "Enregistrer", class: "btn btn-primary", data: {turbo_confirm: "Are you sure?"}%>
+                <% end %>
+              <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Fermer</button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+</div>

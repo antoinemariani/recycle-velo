@@ -1,0 +1,12 @@
+<div class="bike-infos">
+
+  <div class="card-product">
+    <%= image_tag "avatar-default.jpg" %>
+    <div class="card-product-infos ms-4" style="flex-grow:1">
+      <h2>Votre vélo : <%= @bike.name  %></h2>
+      <h3>Modèle : <%= @bike.brand %> - <em><%= @bike.model %></em></h3>
+    </div>
+    <%= link_to "Terminé? Obtenez votre diagnostic", results_bike_path(@bike), class: "btn btn-success rounded text-white me-3" %>
+  </div>
+
+</div>

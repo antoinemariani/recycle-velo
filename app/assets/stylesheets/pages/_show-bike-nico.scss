@@ -1,41 +1,37 @@
 .container-top {
   height: 200px;
   align-items: center;
-  background-size: cover;
-  background-position: center;
   padding-top: 4rem;
-  padding-left: 3rem;
-  padding-right: 3rem;
-  background-color: $orange;
+  background-color: #EE5007;
   display: flex;
-  align-content: space-around;
   justify-content: center;
 }
 
-.container-global{
-  display: flex;
-  flex-direction: row;
-  background-color: white;
-  padding: 3rem;
-  justify-content: center;
-}
+// .container-global{
+//   display: flex;
+//   flex-direction: row;
+//   background-color: white;
+//   padding: 3rem;
+//   justify-content: center;
+// }
 
 .container-infos{
+  padding-top: 200px;
   flex-direction: column;
   width: 40%;
 }
 
-.container-probs{
-  height: 500px;
-  flex-direction: column;
-  // height: 70vh;
-}
+// .container-probs{
+//   height: 500px;
+//   flex-direction: column;
+//   // height: 70vh;
+// }
 
 .prob-infos{
   width: 125px;
   // height: 130px;
   border: 1px solid grey;
-  background-image: linear-gradient(0deg, rgba(0, 0, 0, 0.3), rgba(0, 0, 0, 0.3)), url(https://images.unsplash.com/photo-1475666675596-cca2035b3d79?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=2940&q=80) ;
+  background-image: linear-gradient(0deg, rgba(0, 0, 0, 0.3), rgba(0, 0, 0, 0.3)), url(https://images.unsplash.com/photo-1421429167374-8fc8ab6d0f66?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1470&q=80) ;
   object-fit: cover;
   overflow: hidden;
   background-position: center;
@@ -57,12 +53,6 @@
   // text-shadow: 1px 1px 2px black;
 }
 
-
-.cards{
-  display: grid;
-  grid-template-columns: 1fr 1fr 1fr;
-}
-
 // ----------
 .inner{
   overflow: hidden;
@@ -76,4 +66,115 @@
 }
 .inner:hover img{
   transform: scale(1.5);
+}
+
+
+
+// Bike Schema
+
+.bike-schema {
+  background-image: url("bike-schema");
+  background-position: center;
+  background-size: contain;
+  background-repeat: no-repeat;
+  height: 50vh;
+  width: 100%;
+  margin: 0 auto;
+}
+
+.bike-button {
+  background: rgba($color: $orange, $alpha: 0.47);
+  border: 1px solid $orange;
+  border-radius: 50%;
+  width: 24px;
+  height: 24px;
+  transition: 0.3s ease-in-out;
+}
+
+.bike-button:hover {
+  background: rgba($color: $orange, $alpha: 0.9);
+  width: 32px;
+  height: 32px;
+}
+
+#button-chains {
+  position: relative;
+  left: 23%;
+  top: 70%;
+}
+
+#button-wheels {
+  position: relative;
+  left: 80%;
+  top: 70%;
+}
+
+#button-brakes {
+  position: relative;
+    left: 60%;
+    top: 1%;
+}
+
+
+// Card Grid
+
+.cards {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  grid-gap: 16px;
+  padding-top: 24px;
+  padding-bottom: 24px;
+}
+
+.card-text {
+  flex-grow: 1;
+}
+
+.card-body {
+  display: flex;
+  align-items: flex-start;
+  flex-direction: column;
+}
+
+#edit-card {
+  border: 3px solid green;
+}
+
+#edit-card:hover {
+  opacity: 1;
+}
+
+// Smallest device
+@media (min-width: 100px) and (max-width: 575px) {
+  .cards {
+    grid-template-columns: 1fr;
+  }
+}
+
+// Small devices (landscape phones, 576px and up)
+@media (min-width: 576px) {
+  .cards {
+    grid-template-columns: 1fr;
+  }
+}
+
+// Medium devices (tablets, 768px and up)
+@media (min-width: 768px) {
+  .cards {
+    grid-template-columns: 1fr 1fr;
+  }
+}
+
+// Large devices (desktops, 992px and up)
+@media (min-width: 992px) {
+  .cards {
+    grid-template-columns: 1fr 1fr 1fr;
+  }
+}
+
+// Extra large devices (large desktops, 1200px and up)
+@media (min-width: 1200px) {
+  .cards {
+    grid-template-columns: 1fr 1fr 1fr;
+  }
 }

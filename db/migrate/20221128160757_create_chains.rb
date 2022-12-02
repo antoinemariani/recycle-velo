@@ -3,9 +3,9 @@ class CreateChains < ActiveRecord::Migration[7.0]
     create_table :chains do |t|
       t.references :bike, null: false, foreign_key: true
       t.string :state
-      t.boolean :broken
-      t.boolean :rust
-      t.boolean :derail
+      t.string :broken
+      t.string :rust
+      t.string :derail
       t.string :chainlink
 
       t.timestamps

@@ -1,0 +1,39 @@
+<div class="card">
+    <div class="inner">
+      <%= image_tag "chain-detail.jpg", class: "card-img-top", alt: "Chaine" %>
+    </div>
+    <div class="card-body">
+      <h5 class="card-title">Chaine</h5>
+      <p class="card-text">Rouille, maillons cassés, déraillages : même pas peur ! Dis-nous tout ici, on s'occupe du reste.</p>
+      <!-- Button trigger modal -->
+      <a href="#" class="btn btn-warning text-white" data-bs-toggle="modal" data-bs-target="#chainModal">Remplir</a>
+      <!-- Modal -->
+      <div class="modal fade" id="chainModal" tabindex="-1" aria-labelledby="chainModalLabel" aria-hidden="true">
+        <div class="modal-dialog modal-xl modal-dialog-scrollable">
+          <div class="modal-content">
+            <div class="modal-header">
+              <h5 class="modal-title" id="chainModalLabel">Quels sont vos problèmes sur votre chaine ? </h5>
+              <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+              <div>
+
+                <%= simple_form_for [bike, @chain] do |f| %>
+                  <%= f.input :state, as: :radio_buttons, label: "État général de la chaîne et du dérailleur", :collection => ["bon", "moyen", "mauvais"] %>
+                  <%= f.input :broken, as: :radio_buttons, label: "La chaîne est-elle cassée?", :collection => ["oui", "non"] %>
+                  <%= f.input :rust, as: :radio_buttons, label: "La chaîne et le dérailleur sont-ils rouillés?", :collection => ["oui", "non"] %>
+                  <%= f.input :derail, as: :radio_buttons, label: "La chaîne a-t-elle déraillé?", :collection => ["oui, je n'arrive pas à la remettre", "oui, elle déraille dès que je la remets", "oui, elle déraille régulièrement", "oui, mais je sais la remettre", "non"] %>
+                  <%= f.input :chainlink, as: :radio_buttons, label: "Les maillons de la chaîne sont-ils tous en bon état et attachés les uns aux autres?", :collection => ["oui", "un maillon semble cassé", "la chaîne n’est plus fermée ou est en plusieurs morceaux"] %>
+
+              </div>
+            </div>
+            <div class="modal-footer">
+                  <%= f.submit "Enregistrer", class: "btn btn-primary", data: {turbo_confirm: "Are you sure?"}%>
+                <% end %>
+              <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Fermer</button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+</div>

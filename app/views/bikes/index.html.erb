@@ -5,10 +5,10 @@
     <h3> Ajoute un nouveau vélo à diagnostiquer : </h3>
 
     <%= simple_form_for @bike do |f| %>
-    <%= f.input :name, label: "Nom de ton vélo (celui que tu souhaites, pour le retrouver plus tard)" %>
-    <%= f.input :model, label: "Modèle du vélo (si tu le connais)" %>
-    <%= f.input :brand, label: "Marque du vélo (si visible)" %>
-    <%= f.submit %>
+    <%= f.input :name, label: "Nom de ton vélo (celui que tu souhaites, pour le retrouver plus tard)", input_html: {class: "bg-white"} %>
+    <%= f.input :model, label: "Modèle du vélo (si tu le connais)", input_html: {class: "bg-white"} %>
+    <%= f.input :brand, label: "Marque du vélo (si visible)", input_html: {class: "bg-white"} %>
+    <%= f.submit class: "btn btn-warning text-white rounded" %>
     <% end %>
 
     <br>
@@ -16,11 +16,19 @@
     <div>
       <% @bikes.each do |bike| %>
           <%= simple_form_for bike, method: "get" do |f| %>
-            <div class="card">
-              <p><%= bike.name %></p>
-              <p><%= bike.model %></p>
-              <p><%= bike.brand %></p>
-              <%= f.submit "Diagnostiquer" %>
+            <div class="card-product p-3 m-3 rounded">
+              <% if bike.photo.attached? %>
+                <%= cl_image_tag bike.photo.key %>
+              <% else %>
+                <%= image_tag "avatar-default.jpg" %>
+              <% end %>
+              <div class="card-product-infos">
+                <h2><%= bike.name  %></h2>
+                <p><%= bike.brand %> - <em><%= bike.model %></em></p>
+              </div>
+                <%= f.submit "Diagnostiquer", class: "btn btn-warning text-white  roundedme-2" %>
+            </div>
+
             </div>
             <br>
           <% end %>

@@ -1,38 +1,31 @@
 
-  <div class="container-top">
-      <h1>🚴‍♂️🚴‍♂️🚴‍♂️ Votre vélo est en mode réparation 🚴‍♂️🚴‍♂️🚴‍♂️</h1>
+<div>
 
+  <div class="container" style="padding-top:100px;">
+      <h2>🚴‍♂️🚴‍♂️🚴‍♂️ Votre vélo est en mode réparation 🚴‍♂️🚴‍♂️🚴‍♂️</h2>
+      <%# <%= link_to "Terminé? Obtenez votre diagnostic", results_bike_path(@bike), class: "btn btn-success rounded text-white" %>
   </div>
 
-  <div class="container-global">
+  <div class="container">
 
-      <div class="container-infos">
-          <div class="">
-            <h1>Show bike id : <%= @bike.id %></h1>
-            <h2> name : <%= @bike.name  %></h2>
-            <p> current_user : <%= current_user.first_name %><%= current_user.last_name %></p>
-          </div>
+      <%= render "bike-infos", bike: @bike %>
 
-          <div class="">
-            <span> Model : <%= @bike.model %></span>
-            <br>
-            <span> Brand : <%= @bike.brand %></span>
-          </div>
-          <br>
-          <div class="d-flex flex-wrap">
-            <%@chains.each do |c| %>
-              <div class="prob-infos">
-                <h3><%= c.id %></h3>
-                <p><%= c.created_at %></p>
-                <button><%= link_to "Edit",  edit_bike_chain_path(c) %></button>
-              </div>
-            <% end %>
-          </div>
+      <div class="bike-schema">
+        <div class="bike-button" id="button-chains" data-bs-toggle="modal" data-bs-target="#chainModal" data-controller="popover" data-bs-toggle="popover" data-bs-trigger="hover" data-bs-placement="right" data-bs-content="Chaîne & Transmission">
+        </div>
+
+        <div class="bike-button" id="button-wheels" data-bs-toggle="modal" data-bs-target="#wheelModal" data-controller="popover" data-bs-toggle="popover" data-bs-trigger="hover" data-bs-placement="right" data-bs-content="Roues & Pneus"></div>
+
+        <div class="bike-button" id="button-brakes" data-bs-toggle="modal" data-bs-target="#brakeModal" data-controller="popover" data-bs-toggle="popover" data-bs-trigger="hover" data-bs-placement="right" data-bs-content="Système de freinage"></div>
       </div>
 
-      <% if (!Chain.where(bike: @bike).exists?) || (Chain.where(bike: @bike).last.created_at.to_date != Date.today) %>
-        <%= render "modal-probs", bike: @bike %>
-      <% else %>
-        <%= render "modal-error-day", bike: @bike %>
-      <% end %>
+      <div class="cards">
+        <% @parts = [Chain, Brake, Wheel] %>
+        <%= render "bikes/parts/parts-preview-conditional", bike: @bike, parts: @parts %>
+      </div>
+
+      <%= render "diag-history", bike: @bike %>
+
   </div>
+
+</div>

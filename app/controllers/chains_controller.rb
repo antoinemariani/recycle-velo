@@ -1,5 +1,6 @@
 class ChainsController < ApplicationController
-  before_action :set_bike, only: %i[index show create]
+  before_action :set_bike, only: %i[index show edit update create]
+  before_action :set_chain, only: %i[edit update]
 
   def index
     @chains = @bike.chains
@@ -11,6 +12,8 @@ class ChainsController < ApplicationController
     @diag = ChainsDiag.where(chain_id: params[:id])[0]
     @diag = @diag.values_at(:state,:broken, :rust, :derail, :chainlink)
   end
+
+  def edit; end
 
   def create
     @chain = Chain.new(chain_params)
@@ -27,14 +30,7 @@ class ChainsController < ApplicationController
     end
   end
 
-  def edit
-    @chain = Chain.find(params[:id])
-  end
-
   def update
-    @chain = Chain.find(params[:id])
-    @chain.user = current_user
-    @chain.bike = @bike
     @chain.update!(chain_params)
     redirect_to bike_path(@bike)
   end
@@ -51,13 +47,17 @@ class ChainsController < ApplicationController
     params.require(:chain).permit(:state, :broken, :rust, :derail, :chainlink)
   end
 
+  def set_chain
+    @chain = Chain.find(params[:id])
+  end
+
   def set_bike
     @bike = Bike.find(params[:bike_id])
   end
 
   def create_chains_diag(chain)
     @chains_diag = ChainsDiag.new(
-      chain: chain,
+      chain:,
       state: state_diag(chain),
       broken: broken_diag(chain),
       rust: rust_diag(chain),

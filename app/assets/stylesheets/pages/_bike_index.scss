@@ -1,8 +1,18 @@
 
 .bikes-banner {
+  min-height: 150vh;
   padding-top: 100px;
   display: flex;
   flex-direction: column;
-  justify-content: center;
   align-items: center;
+}
+
+.bike-infos {
+  margin-top: 24px;
+  margin-bottom: 24px;
+}
+
+.bike-infos > .card-product {
+  padding-left: 12px;
+  padding-right: 12px;
 }

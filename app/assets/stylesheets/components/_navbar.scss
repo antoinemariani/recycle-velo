@@ -8,7 +8,7 @@
   padding: 12px 30px;
   color: white;
   // border-bottom: 1px solid rgba($color: #FFFFFF, $alpha: .1);
-  background-color: rgba($color: $orange, $alpha: .8);
+  background-color: rgba($color: $orange, $alpha: 1);
   transition: 0.5s background-color ease;
 }
 
@@ -17,7 +17,7 @@
 }
 
 .navbar-lewagon:hover {
-  background-color: rgba($color: $orange, $alpha: .8);
+  background-color: rgba($color: $orange, $alpha: 1);
 }
 
 .navbar-lewagon .navbar-collapse {

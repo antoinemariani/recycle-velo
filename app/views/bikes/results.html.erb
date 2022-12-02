@@ -1,35 +1,37 @@
-<<div class="banner-top">
-  <div class="p-5">
-    <h1>Résultat de votre diagnostique:</h1>
-    <div class="d-flex justify-content-around p-0.5">
-      <% if Chain.where(bike_id: @bike.id) %>
-        <div class="card p-0.5" style="width: 17rem;">
-          <img class="card-img-top" src="https://images.unsplash.com/photo-1440614116582-fdd09892ede4?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=870&q=80" alt="Card image cap">
+<<div class="container" style="min-height:150vh; padding-top: 100px">
+    <h2 id="congrats">Félicitations ! Nous avons un résultat de diagnostic pour votre vélo : </h2>
+    <div class="d-flex justify-content-around pt-5">
+      <% if Chain.where(bike: @bike).last %>
+        <div class="card me-2" style="width: 17rem;">
+          <%= image_tag "chain-detail.jpg", class: "card-img-top", alt: "Chaine" %>
           <div class="card-body">
             <h5 class="card-title">Révise la chaîne du vélo</h5>
             <p class="card-text">La chaîne de ton vélo est peut-être mal graissée ou un maillon a éventuellement sauté.</p>
-            <a href="#" class="btn btn-warning">En savoir plus</a>
+            <%= link_to "Entretenir ma chaîne", bike_chain_path(@bike, @bike.chains.last), class: "btn btn-warning text-white" %>
           </div>
         </div>
       <% end %>
 
-<%# FAKE CARDS EN ATTENDANT SADDLE ET WHEEL %>
-<div class="card" style="width: 18rem;">
-  <img class="card-img-top" src="..." alt="Card image cap">
-  <div class="card-body">
-    <h5 class="card-title">Card title</h5>
-    <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-    <a href="#" class="btn btn-primary">Go somewhere</a>
-  </div>
-</div>
-<div class="card" style="width: 18rem;">
-  <img class="card-img-top" src="..." alt="Card image cap">
-  <div class="card-body">
-    <h5 class="card-title">Card title</h5>
-    <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-    <a href="#" class="btn btn-primary">Go somewhere</a>
-  </div>
-</div>
+      <% if Wheel.where(bike: @bike).last %>
+        <div class="card me-2" style="width: 17rem;">
+          <%= image_tag "wheel-detail.jpg", class: "card-img-top", alt: "Roues et pneus" %>
+          <div class="card-body">
+            <h5 class="card-title">Répare tes pneus</h5>
+            <p class="card-text">Tout va bien au niveau des roues, mais quelques réparations sont à prévoir au niveau des pneus</p>
+            <%= link_to "Voir les réparations", bike_wheel_path(@bike, @bike.wheels.last), class: "btn btn-warning text-white" %>
+          </div>
+        </div>
+      <% end %>
+
+      <% if Brake.where(bike: @bike).last %>
+        <div class="card me-2" style="width: 17rem;">
+          <%= image_tag "brake-detail.jpg", class: "card-img-top", alt: "Freinage" %>
+          <div class="card-body">
+            <h5 class="card-title">Règle tes freins</h5>
+            <p class="card-text">Tes freins méritent quelques réglages simples, regardons ensemble le détail - pas d'inquiétude, c'est facile !</p>
+            <%= link_to "En savoir plus", bike_brake_path(@bike, @bike.brakes.last), class: "btn btn-warning text-white" %>
+          </div>
+        </div>
+      <% end %>
     </div>
-  </div>
 </div>

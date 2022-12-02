@@ -1,0 +1,8 @@
+<div class="d-flex flex-wrap">
+    <div class="prob-infos">
+      <%= chain = Chain.where(bike: @bike) %>
+      <h3>Chaine</h3>
+      <p><%= chain.last.created_at.to_date %></p>
+      <button><%= link_to "Edit",  edit_bike_chain_path(@bike) %></button>
+    </div>
+</div>
