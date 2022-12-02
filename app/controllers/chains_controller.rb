@@ -8,6 +8,9 @@ class ChainsController < ApplicationController
 
   def show
     @chain = Chain.find(params[:id])
+    # afficher le résultat du diagnostique
+    @diag = ChainsDiag.where(chain_id: params[:id])[0]
+    @diag = @diag.values_at(:state,:broken, :rust, :derail, :chainlink)
   end
 
   def edit; end
