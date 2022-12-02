@@ -10,7 +10,7 @@
         <h3>Prob n° <%= sum %></h3>
         <% sum += 1 %>
         <p><%= c.created_at.to_date %></p>
-        <button><%= link_to "Edit",  edit_bike_chain_path(c) %></button>
+        <button><%= link_to "Edit",  edit_bike_chain_path(@bike, c) %></button>
       </div>
     <% end %>
   </div>

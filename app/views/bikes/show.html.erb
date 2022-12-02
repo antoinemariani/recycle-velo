@@ -3,7 +3,7 @@
 
   <div class="container" style="padding-top:100px;">
       <h2>🚴‍♂️🚴‍♂️🚴‍♂️ Votre vélo est en mode réparation 🚴‍♂️🚴‍♂️🚴‍♂️</h2>
-      <%= link_to "Terminé? Obtenez votre diagnostic", results_bike_path(@bike), class: "btn btn-warning rounded text-white" %>
+      <%# <%= link_to "Terminé? Obtenez votre diagnostic", results_bike_path(@bike), class: "btn btn-success rounded text-white" %>
   </div>
 
   <div class="container">
@@ -11,9 +11,12 @@
       <%= render "bike-infos", bike: @bike %>
 
       <div class="bike-schema">
-        <div class="bike-button" id="button-chains" data-bs-toggle="modal" data-bs-target="#chainModal"></div>
-        <div class="bike-button" id="button-wheels" data-bs-toggle="modal" data-bs-target="#wheelModal"></div>
-        <div class="bike-button" id="button-brakes" data-bs-toggle="modal" data-bs-target="#brakeModal"></div>
+        <div class="bike-button" id="button-chains" data-bs-toggle="modal" data-bs-target="#chainModal" data-controller="popover" data-bs-toggle="popover" data-bs-trigger="hover" data-bs-placement="right" data-bs-content="Chaîne & Transmission">
+        </div>
+
+        <div class="bike-button" id="button-wheels" data-bs-toggle="modal" data-bs-target="#wheelModal" data-controller="popover" data-bs-toggle="popover" data-bs-trigger="hover" data-bs-placement="right" data-bs-content="Roues & Pneus"></div>
+
+        <div class="bike-button" id="button-brakes" data-bs-toggle="modal" data-bs-target="#brakeModal" data-controller="popover" data-bs-toggle="popover" data-bs-trigger="hover" data-bs-placement="right" data-bs-content="Système de freinage"></div>
       </div>
 
       <div class="cards">

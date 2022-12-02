@@ -2,7 +2,6 @@
   <% if (!part.where(bike: @bike).exists?) || (part.where(bike: @bike).last.created_at.to_date != Date.today) %>
     <%= render "bikes/parts/modal-#{part.name.downcase}s", bike: @bike %>
   <% else %>
-    <%# <%= render "bikes/parts/modal-error-day", bike: @bike %>
     <%= render "bikes/parts/edit-#{part.name.downcase}s", bike: @bike, "#{part.name.downcase}".to_sym => part.where(bike: @bike).last %>
   <% end %>
 <% end %>
