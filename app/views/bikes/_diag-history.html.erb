@@ -1,0 +1,16 @@
+<h3>Votre diagnostic en cours: </h3>
+    <%= render "chain-card", bike: @bike unless Chain.where(bike: @bike).empty? %>
+  <br>
+
+  <h3>Votre historique de diagnostic :</h3>
+  <div class="d-flex flex-wrap">
+    <% sum = 1 %>
+    <% Chain.where(bike: @bike).all.each do |c| %>
+      <div class="prob-infos">
+        <h3>Prob n° <%= sum %></h3>
+        <% sum += 1 %>
+        <p><%= c.created_at.to_date %></p>
+        <button><%= link_to "Edit",  edit_bike_chain_path(c) %></button>
+      </div>
+    <% end %>
+  </div>

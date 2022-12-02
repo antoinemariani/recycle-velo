@@ -7,24 +7,25 @@
   justify-content: center;
 }
 
-.container-global{
-  display: flex;
-  flex-direction: row;
-  background-color: white;
-  padding: 3rem;
-  justify-content: center;
-}
+// .container-global{
+//   display: flex;
+//   flex-direction: row;
+//   background-color: white;
+//   padding: 3rem;
+//   justify-content: center;
+// }
 
 .container-infos{
+  padding-top: 200px;
   flex-direction: column;
   width: 40%;
 }
 
-.container-probs{
-  height: 500px;
-  flex-direction: column;
-  // height: 70vh;
-}
+// .container-probs{
+//   height: 500px;
+//   flex-direction: column;
+//   // height: 70vh;
+// }
 
 .prob-infos{
   width: 125px;
@@ -52,12 +53,6 @@
   // text-shadow: 1px 1px 2px black;
 }
 
-
-.cards{
-  display: grid;
-  grid-template-columns: 1fr 1fr 1fr;
-}
-
 // ----------
 .inner{
   overflow: hidden;
@@ -71,4 +66,97 @@
 }
 .inner:hover img{
   transform: scale(1.5);
+}
+
+
+
+// Bike Schema
+
+.bike-schema {
+  background-image: url("bike-schema");
+  background-position: center;
+  background-size: contain;
+  background-repeat: no-repeat;
+  height: 50vh;
+  width: 100%;
+  margin: 0 auto;
+}
+
+.bike-button {
+  background: rgba($color: $orange, $alpha: 0.47);
+  border: 1px solid $orange;
+  border-radius: 50%;
+  width: 24px;
+  height: 24px;
+  transition: 0.3s ease-in-out;
+}
+
+.bike-button:hover {
+  background: rgba($color: $orange, $alpha: 0.9);
+  width: 32px;
+  height: 32px;
+}
+
+#button-chains {
+  position: relative;
+  left: 23%;
+  top: 70%;
+}
+
+#button-wheels {
+  position: relative;
+  left: 80%;
+  top: 70%;
+}
+
+#button-brakes {
+  position: relative;
+    left: 60%;
+    top: 1%;
+}
+
+
+// Card Grid
+
+.cards {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  grid-gap: 16px;
+  padding-top: 24px;
+  padding-bottom: 24px;
+}
+
+// Smallest device
+@media (min-width: 100px) and (max-width: 575px) {
+  .cards {
+    grid-template-columns: 1fr;
+  }
+}
+
+// Small devices (landscape phones, 576px and up)
+@media (min-width: 576px) {
+  .cards {
+    grid-template-columns: 1fr;
+  }
+}
+
+// Medium devices (tablets, 768px and up)
+@media (min-width: 768px) {
+  .cards {
+    grid-template-columns: 1fr 1fr;
+  }
+}
+
+// Large devices (desktops, 992px and up)
+@media (min-width: 992px) {
+  .cards {
+    grid-template-columns: 1fr 1fr 1fr;
+  }
+}
+
+// Extra large devices (large desktops, 1200px and up)
+@media (min-width: 1200px) {
+  .cards {
+    grid-template-columns: 1fr 1fr 1fr;
+  }
 }

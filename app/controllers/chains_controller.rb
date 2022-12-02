@@ -1,5 +1,6 @@
 class ChainsController < ApplicationController
-  before_action :set_bike, only: %i[index show create]
+  before_action :set_bike, only: %i[index show update create]
+  before_action :set_chain, only: %i[update]
 
   def index
     @chains = @bike.chains
@@ -24,14 +25,7 @@ class ChainsController < ApplicationController
     end
   end
 
-  def edit
-    @chain = Chain.find(params[:id])
-  end
-
   def update
-    @chain = Chain.find(params[:id])
-    @chain.user = current_user
-    @chain.bike = @bike
     @chain.update!(chain_params)
     redirect_to bike_path(@bike)
   end
@@ -46,6 +40,10 @@ class ChainsController < ApplicationController
 
   def chain_params
     params.require(:chain).permit(:state, :broken, :rust, :derail, :chainlink)
+  end
+
+  def set_chain
+    @chain = Chain.find(params[:id])
   end
 
   def set_bike

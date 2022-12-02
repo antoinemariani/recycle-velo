@@ -1,8 +1,3 @@
-<div class="container-probs">
-
-    <div class="container">
-              <div class="row">
-                <div class="cards">
                   <div class="card">
                       <div class="inner">
                         <img class="card-img-top" src="https://images.unsplash.com/photo-1525207106105-b340f7384b30?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=687&q=80" alt="wheel">
@@ -17,13 +12,13 @@
                           <div class="modal-dialog modal-xl modal-dialog-scrollable">
                             <div class="modal-content">
                               <div class="modal-header">
-                                <h5 class="modal-title" id="wheelModalLabel">Quels sont vos problèmes de freinage ? </h5>
+                                <h5 class="modal-title" id="wheelModalLabel">Quels sont vos problèmes de roues & pneus ? </h5>
                                 <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                               </div>
                               <div class="modal-body">
                                 <div>
 
-                                  <%= simple_form_for [bike, @wheel] do |f| %>
+                                  <%= simple_form_for [bike, wheel], method: :patch do |f| %>
                                     <%= f.input :puncture,
                                                 as: :radio_buttons,
                                                 label: "Vos pneus sont-ils bien gonflés?
@@ -51,6 +46,7 @@
                                   <% end %>
 
                                 </div>
+                              </div>
                               <div class="modal-footer">
                                 <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Fermer</button>
                               </div>
@@ -59,8 +55,3 @@
                         </div>
                       </div>
                   </div>
-                </div>
-              </div>
-    </div>
-
-</div>
