@@ -20,7 +20,7 @@
               <% if bike.photo.attached? %>
                 <%= cl_image_tag bike.photo.key %>
               <% else %>
-                <%= image_tag "avatar-default" %>
+                <%= image_tag "avatar-default.jpg" %>
               <% end %>
               <div class="card-product-infos">
                 <h2><%= bike.name  %></h2>
