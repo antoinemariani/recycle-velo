@@ -15,6 +15,7 @@
         </div>
         <h2>🚴‍♂️ Hello, <%= current_user.first_name %> <%= current_user.last_name %> 🚴‍♂️</h2>
         <p>email : <%= current_user.email %> </p>
+        <p>username : <%= current_user.username %></p>
         <%# <p>A définir .... </p> %>
 
         <ul class="about">
@@ -27,36 +28,14 @@
           <p>J'adore le vélo, mais je ne sais pas du tout les réparer... j'aimerais en savoir un peu plus, je me suis donc inscrit sur re:cycle dans l'espoir d'apprendre des techniques de réparation !</p>
 
           <ul>
-            <li><i class="fab fa-printerest"></i>Link 1</li> <!-- possible lien avec un fab (icone texte)-->
-            <li><i class="fab fa-printerest"></i>Link 2</li> <!-- possible lien avec un fab (icone texte)-->
-            <li><i class="fab fa-printerest"></i>Link 3</li> <!-- possible lien avec un fab (icone texte)-->
+            <li><button class="button-profile">Rechercher un pack répare</button></li> <!-- possible lien avec un fab (icone texte)-->
+            <li><button class="button-profile">Trouver un Recycler</button></li> <!-- possible lien avec un fab (icone texte)-->
+            <li><button class="button-profile">Rechercher un magasin</button></li> <!-- possible lien avec un fab (icone texte)-->
           </ul>
         </div>
       </div>
       <div class="right-col">
-        <nav>
-          <ul>
-            <li><a href="#">Mes Vélos</a></li>
-            <li><a href="#">Mes Shops</a></li>
-            <li><a href="#">groupes</a></li>
-          </ul>
-          <button> <%= link_to "Ajouter un Vélo", bikes_path %></button>
-        </nav>
-        <div class="photos">
-          <% current_user.bikes.each do |b| %>
-            <% if b.photo.key %>
-              <div>
-                <%= cl_image_tag b.photo.key%>
-                <h5><%= b.name %></h5>
-              </div>
-            <% else %>
-              <div class="card-bike">
-                <h5><%= b.name %></h5>
-                <%= image_tag "https://images.unsplash.com/photo-1485965120184-e220f721d03e?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1470&q=80"%>
-              </div>
-            <% end %>
-          <% end %>
-        </div>
+        <%= render "navs-tabs", bikes: @bike%>
       </div>
     </div>
   </div>

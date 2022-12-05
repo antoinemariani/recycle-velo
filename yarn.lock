@@ -345,6 +345,11 @@ cross-spawn@^7.0.3:
     shebang-command "^2.0.0"
     which "^2.0.1"
 
+domhelpers@^0.1.0:
+  version "0.1.0"
+  resolved "https://registry.yarnpkg.com/domhelpers/-/domhelpers-0.1.0.tgz#8308e1ad5fd689e44c725d152f48ce82a7c2147a"
+  integrity sha512-VZYqemdYgtxO3oI3L9o3Zdf9GmQAiFV9SP3Sccf7cVbEQtMrYBENyWnrW61Ejnsv4KldzzLs0UjHNbemTff8ZA==
+
 electron-to-chromium@^1.4.251:
   version "1.4.284"
   resolved "https://registry.yarnpkg.com/electron-to-chromium/-/electron-to-chromium-1.4.284.tgz#61046d1e4cab3a25238f6bf7413795270f125592"
@@ -543,6 +548,11 @@ mime-types@^2.1.27:
   dependencies:
     mime-db "1.52.0"
 
+mout@^0.11.0:
+  version "0.11.1"
+  resolved "https://registry.yarnpkg.com/mout/-/mout-0.11.1.tgz#ba3611df5f0e5b1ffbfd01166b8f02d1f5fa2b99"
+  integrity sha512-pK9VNiLE3QgGBrC/3ICAscwOLU7oTNeK2l32uqNAioBYtB2tQAfSsGDNChUlk7CP23126mc5lUt6+na9FlN8JA==
+
 neo-async@^2.6.2:
   version "2.6.2"
   resolved "https://registry.yarnpkg.com/neo-async/-/neo-async-2.6.2.tgz#b4aafb93e3aeb2d8174ca53cf163ab7d7308305f"
@@ -678,6 +688,14 @@ shebang-regex@^3.0.0:
   version "3.0.0"
   resolved "https://registry.yarnpkg.com/shebang-regex/-/shebang-regex-3.0.0.tgz#ae16f1644d873ecad843b0307b143362d4c42172"
   integrity sha512-7++dFhtcx3353uBaq8DDR4NuxBetBzC7ZQOhmTQInHEd6bSrXdiEyzCvG07Z44UYdLShWUyXt5M/yhz8ekcb1A==
+
+sortable.js@^0.3.0:
+  version "0.3.0"
+  resolved "https://registry.yarnpkg.com/sortable.js/-/sortable.js-0.3.0.tgz#d63c2d4629321bd4bc1d8ad33c83f26077f8031d"
+  integrity sha512-sAtcxX/ff9L334IKcFPnssFt7xVwsLVoaTft3iTyARBfNl42yq6JSJLbgpImO9/TRN51f5QP+6lRUsFjmz1reQ==
+  dependencies:
+    domhelpers "^0.1.0"
+    mout "^0.11.0"
 
 source-map-support@~0.5.20:
   version "0.5.21"
