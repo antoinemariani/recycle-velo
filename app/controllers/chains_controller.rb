@@ -11,6 +11,25 @@ class ChainsController < ApplicationController
     # afficher le résultat du diagnostique
     @diag = ChainsDiag.where(chain_id: params[:id])[0]
     @diag = @diag.values_at(:state,:broken, :rust, :derail, :chainlink)
+    # Attribuer une note à l'état du vélo
+    @note = 1
+    # Vélo en bon état
+    @good_state = ["Votre chaîne est en bon état. Nettoyez et graissez-là une fois par mois.",  "Votre vélo peut rouler, veillez à suivres nos conseils d’entretien et de suivi d’usure pour roulez dans des conditions optimales !", "Continuez à bien entretenir votre transmission en suivant nos conseils afin de garder celle-ci en état de marche le plus longtemps possible... pas de changement superflu !", "Remettre sa chaîne en rail est une opération simple et utile à connaître : on vous explique comment faire, suivre le guide !"]
+    # Etat moyen
+    @middle_state = ["Effectuez un dégraissage et nettoyage approfondi de votre chaîne et des éléments de dérailleur.  Votre chaîne peut encore rouler tant qu’elle est propre et ne présente pas de traces d’usure visibles", "Vous devez changer votre chaîne pour pouvoir utiliser votre vélo. Pas d’inquiétude, c’est une opération simple et peu coûteuse !", "Utilisez un produit anti-rouille pour remettre la chaîne en état. Si la rouille ne part pas ou qu’elle a causé des dégâts visibles, envisagez un remplacement de la chaîne.", "Vous avez un maillon cassé : suivez nos conseils pour le changer et remettre votre chaîne en bon état."]
+    # Mauvais état
+    @bad_state = ["Considérez le remplacement de votre chaîne, ou la consultation d’un spécialiste pour vous aider à réparer vos pièces.","Votre transmission ou votre chaîne ont peut-être un problème, nos tutoriels sont là pour vous aider à le résoudre.", "Vous devez changer votre chaîne. Consultez nos tutoriels ou un spécialiste pour remettre votre vélo en état."]
+
+    @diag.each do |value|
+      if @good_state.include? value
+        @note += 1
+      elsif @middle_state.include? value
+        @note -= 0.5
+      elsif @bad_state.include? value
+        @note -= 1
+      end
+    end
+    raise
   end
 
   def edit; end
@@ -69,11 +88,14 @@ class ChainsController < ApplicationController
   def state_diag(chain)
     case chain.state
     when "bon" || "good"
-      return "Votre chaîne est en bon état. Nettoyez et graissez-là une fois par mois."
+      return "#{@good_state[0]}"
+      # return "Votre chaîne est en bon état. Nettoyez et graissez-là une fois par mois."
     when "moyen" || "medium"
-      return "Effectuez un dégraissage et nettoyage approfondi de votre chaîne et des éléments de dérailleur.  Votre chaîne peut encore rouler tant qu’elle est propre et ne présente pas de traces d’usure visibles"
+      return "#{@middle_state[0]}"
+      # return "Effectuez un dégraissage et nettoyage approfondi de votre chaîne et des éléments de dérailleur.  Votre chaîne peut encore rouler tant qu’elle est propre et ne présente pas de traces d’usure visibles"
     when "mauvais" || "bad"
-      return "Considérez le remplacement de votre chaîne, ou la consultation d’un spécialiste pour vous aider à réparer vos pièces."
+      return "#{@bad_state[0]}"
+      # return "Considérez le remplacement de votre chaîne, ou la consultation d’un spécialiste pour vous aider à réparer vos pièces."
     when ""
       return nil
     end
@@ -82,9 +104,11 @@ class ChainsController < ApplicationController
   def broken_diag(chain)
     case chain.broken
     when true || "oui" || "yes"
-      return "Vous devez changer votre chaîne pour pouvoir utiliser votre vélo. Pas d’inquiétude, c’est une opération simple et peu coûteuse !"
+      return "#{@middle_state[1]}"
+      # return "Vous devez changer votre chaîne pour pouvoir utiliser votre vélo. Pas d’inquiétude, c’est une opération simple et peu coûteuse !"
     when false || "non" || "no"
-      return "Votre vélo peut rouler, veillez à suivres nos conseils d’entretien et de suivi d’usure pour roulez dans des conditions optimales !"
+      return "#{@good_state[1]}"
+      # return "Votre vélo peut rouler, veillez à suivres nos conseils d’entretien et de suivi d’usure pour roulez dans des conditions optimales !"
     when "" || nil
       return nil
     end
@@ -93,9 +117,11 @@ class ChainsController < ApplicationController
   def rust_diag(chain)
     case chain.rust
     when true || "oui" || "yes"
-      return "Utilisez un produit anti-rouille pour remettre la chaîne en état. Si la rouille ne part pas ou qu’elle a causé des dégâts visibles, envisagez un remplacement de la chaîne."
+      return "#{@middle_state[2]}"
+      # return "Utilisez un produit anti-rouille pour remettre la chaîne en état. Si la rouille ne part pas ou qu’elle a causé des dégâts visibles, envisagez un remplacement de la chaîne."
     when false || "non" || "no"
-      return "Continuez à bien entretenir votre transmission en suivant nos conseils afin de garder celle-ci en état de marche le plus longtemps possible... pas de changement superflu !"
+      return "#{@good_state[2]}"
+      # return "Continuez à bien entretenir votre transmission en suivant nos conseils afin de garder celle-ci en état de marche le plus longtemps possible... pas de changement superflu !"
     when "" || nil
       return nil
     end
@@ -104,11 +130,14 @@ class ChainsController < ApplicationController
   def derail_diag(chain)
     case chain.derail
     when "oui" || "yes" || "oui, je n'arrive pas à la remettre"
-      return "Remettre sa chaîne en rail est une opération simple et utile à connaître : on vous explique comment faire, suivre le guide !"
+      return "#{@good_state[3]}"
+      # return "Remettre sa chaîne en rail est une opération simple et utile à connaître : on vous explique comment faire, suivre le guide !"
     when "oui, elle déraille dès que je la remets" || "oui, elle déraille régulièrement"
-      return "Votre transmission ou votre chaîne ont peut-être un problème, nos tutoriels sont là pour vous aider à le résoudre."
+      return "#{@bad_state[1]}"
+      # return "Votre transmission ou votre chaîne ont peut-être un problème, nos tutoriels sont là pour vous aider à le résoudre."
     when "non" || "no" || "oui, mais je sais la remettre"
-      return "Continuez à bien entretenir votre transmission en suivant nos conseils afin de garder celle-ci en état de marche le plus longtemps possible... pas de changement superflu !"
+      return "#{@good_state[2]}"
+      # return "Continuez à bien entretenir votre transmission en suivant nos conseils afin de garder celle-ci en état de marche le plus longtemps possible... pas de changement superflu !"
     when "" || nil
       return nil
     end
@@ -119,9 +148,11 @@ class ChainsController < ApplicationController
     when "oui" || "yes" || true || "" || nil
       return nil
     when "non" || "no" || "un maillon semble cassé"
-      return "Vous avez un maillon cassé : suivez nos conseils pour le changer et remettre votre chaîne en bon état."
+      return "#{@middle_state.last}"
+      # return "Vous avez un maillon cassé : suivez nos conseils pour le changer et remettre votre chaîne en bon état."
     when "la chaîne n’est plus fermée ou est en plusieurs morceaux"
-      return "Vous devez changer votre chaîne. Consultez nos tutoriels ou un spécialiste pour remettre votre vélo en état."
+      return "#{@bad_state.last}"
+      # return "Vous devez changer votre chaîne. Consultez nos tutoriels ou un spécialiste pour remettre votre vélo en état."
     end
   end
 end
