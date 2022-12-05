@@ -1,24 +1,24 @@
-<div class="card overflow-auto" id="edit-card">
+<div class="card">
     <div class="inner">
-      <%= image_tag "wheel-detail.jpg", class: "card-img-top", alt: "Roues et pneus" %>
+      <%= image_tag "handlebar-detail.jpg", class: "card-img-top", alt: "Guidon" %>
     </div>
     <div class="card-body">
-      <h5 class="card-title">Roues & Pneus</h5>
-      <p class="card-text">Tes réponses ont bien été enregistrées. Tu peux les modifier en cliquant sur le bouton ci-dessous.</p>
+      <h5 class="card-title">Guidon</h5>
+      <p class="card-text">Guidoline déchirée, guidon désaxé ou relevé... par ici !</p>
       <!-- Button trigger modal -->
-      <a href="#" class="btn btn-success text-white" data-bs-toggle="modal" data-bs-target="#wheelModal">Modifier</a>
+      <a href="#" class="btn btn-warning text-white" data-bs-toggle="modal" data-bs-target="#handlebarsModal">Remplir</a>
       <!-- Modal -->
-      <div class="modal fade" id="wheelModal" tabindex="-1" aria-labelledby="wheelModalLabel" aria-hidden="true">
+      <div class="modal fade" id="handlebarsModal" tabindex="-1" aria-labelledby="handlebarsModalLabel" aria-hidden="true">
         <div class="modal-dialog modal-xl modal-dialog-scrollable">
           <div class="modal-content">
             <div class="modal-header">
-              <h5 class="modal-title" id="wheelModalLabel">Quels sont vos problèmes de roues & pneus ? </h5>
+              <h5 class="modal-title" id="handlebarsModalLabel">Quels sont vos problèmes de guidon ? </h5>
               <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
             </div>
             <div class="modal-body">
               <div>
 
-                <%= simple_form_for [bike, wheel], method: :patch do |f| %>
+                <%= simple_form_for [bike, @wheel] do |f| %>
                   <%= f.input :puncture,
                               as: :radio_buttons,
                               label: "Vos pneus sont-ils bien gonflés?
@@ -45,7 +45,6 @@
                   <%= f.input :photos, as: :file, input_html: { multiple: true }, label: "Ajoutez toute photo utile au diagnostic" %>
                   <%= f.submit "Enregistrer", class: "btn btn-primary", data: {turbo_confirm: "Are you sure?"}%>
                 <% end %>
-
               </div>
             </div>
             <div class="modal-footer">

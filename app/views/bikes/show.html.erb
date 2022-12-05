@@ -10,18 +10,18 @@
 
       <%= render "bike-infos", bike: @bike %>
 
-      <div class="bike-schema">
-        <div class="bike-button" id="button-chains" data-bs-toggle="modal" data-bs-target="#chainModal" data-controller="popover" data-bs-toggle="popover" data-bs-trigger="hover" data-bs-placement="right" data-bs-content="Chaîne & Transmission">
-        </div>
-
-        <div class="bike-button" id="button-wheels" data-bs-toggle="modal" data-bs-target="#wheelModal" data-controller="popover" data-bs-toggle="popover" data-bs-trigger="hover" data-bs-placement="right" data-bs-content="Roues & Pneus"></div>
-
-        <div class="bike-button" id="button-brakes" data-bs-toggle="modal" data-bs-target="#brakeModal" data-controller="popover" data-bs-toggle="popover" data-bs-trigger="hover" data-bs-placement="right" data-bs-content="Système de freinage"></div>
-      </div>
+      <%= render "bike-schema" %>
 
       <div class="cards">
         <% @parts = [Chain, Brake, Wheel] %>
         <%= render "bikes/parts/parts-preview-conditional", bike: @bike, parts: @parts %>
+
+        <%# FAKE PARTS CARDS %>
+        <% fake_parts = ["handlebars", "saddles", "pedals", "frames"] %>
+        <% fake_parts.each do |parts| %>
+        <%= render "bikes/parts/modal-#{parts}", bike: @bike %>
+        <% end %>
+        <%# END OF FAKE PARTS CARDS %>
       </div>
 
       <%= render "diag-history", bike: @bike %>
