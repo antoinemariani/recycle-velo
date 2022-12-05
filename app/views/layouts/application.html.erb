@@ -32,6 +32,8 @@
     <%= csp_meta_tag %>
     <%= favicon_link_tag %>
     <%= stylesheet_link_tag "application", "data-turbo-track": "reload" %>
+    <%# <%= javascript_include_tag "https://maps.googleapis.com/maps/api/js" %>
+    <%= javascript_include_tag "https://maps.googleapis.com/maps/api/js?libraries=places&key=#{ENV['GOOGLE_API_BROWSER_KEY']}" %>
     <%= javascript_include_tag "application", "data-turbo-track": "reload", defer: true %>
   </head>
 

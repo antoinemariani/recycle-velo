@@ -1,0 +1,20 @@
+<div class="container">
+  <div class="shop-index">
+
+      <div class="shop-list">
+        <h2>Shops</h2>
+
+        <% @shops.each do |shop| %>
+        <h3><%= shop.name %></h3>
+        <p><%= shop.address %></p>
+        <% end %>
+      </div>
+
+      <div
+        id="map"
+        style="height: 600px;"
+        data-markers="<%= @markers.to_json %>"
+      >
+      </div>
+  </div>
+</div>

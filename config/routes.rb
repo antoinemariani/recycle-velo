@@ -19,4 +19,5 @@ Rails.application.routes.draw do
       get :results
     end
   end
+  resources :shops
 end

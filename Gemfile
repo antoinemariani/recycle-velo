@@ -6,6 +6,9 @@ ruby "3.1.2"
 # Faker gem for seeds
 gem 'faker'
 
+# Geocoding
+gem 'geocoder'
+
 # Cloud photo service => Cloudinary
 gem 'cloudinary'
 
