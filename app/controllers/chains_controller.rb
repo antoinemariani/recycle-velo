@@ -44,7 +44,7 @@ class ChainsController < ApplicationController
   private
 
   def chain_params
-    params.require(:chain).permit(:state, :broken, :rust, :derail, :chainlink)
+    params.require(:chain).permit(:state, :broken, :rust, :derail, :chainlink, photos: [])
   end
 
   def set_chain

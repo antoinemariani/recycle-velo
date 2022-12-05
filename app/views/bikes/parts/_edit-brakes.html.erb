@@ -24,6 +24,7 @@
                   <%= f.input :pad, as: :radio_buttons, label: "Y’a-t-il des plaquettes de frein sur chaque roue?", :collection => ["oui", "non"] %>
                   <%= f.input :wire, as: :radio_buttons, label: "Les poignées de freins actionnent-elles bien chacune un cable de freinage?", :collection => ["oui", "non", "je ne sais pas"] %>
                   <%= f.input :squeak, as: :radio_buttons, label: "Vos freins grincent-ils?", :collection => ["oui", "non", "je ne sais pas, je n’ai pas encore roulé avec le vélo"] %>
+                  <%= f.input :photos, as: :file, input_html: { multiple: true }, label: "Ajoutez toute photo utile au diagnostic" %>
                   <%= f.submit "Enregistrer", class: "btn btn-primary", data: {turbo_confirm: "Are you sure?"}%>
                 <% end %>
 

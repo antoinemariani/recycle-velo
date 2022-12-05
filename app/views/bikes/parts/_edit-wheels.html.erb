@@ -42,6 +42,7 @@
                               label: "Les pneus sont-ils présents et bien tenus dans les jantes?
                                       Si oui, ont-ils des trous, déchirures, coupures à leur surface?",
                               collection: ["les pneus sont dans les jantes et en état correct", "j’observe des coupures, déchirures ou trous dans les pneus", "un ou plusieurs pneus ne tient pas dans la jante"] %>
+                  <%= f.input :photos, as: :file, input_html: { multiple: true }, label: "Ajoutez toute photo pouvant aider au diagnostic" %>
                   <%= f.submit "Enregistrer", class: "btn btn-primary", data: {turbo_confirm: "Are you sure?"}%>
                 <% end %>
 
