@@ -1,56 +1,57 @@
-                  <div class="card">
-                      <div class="inner">
-                        <%= image_tag "wheel-detail.jpg", class: "card-img-top", alt: "Roues et pneus" %>
-                      </div>
-                      <div class="card-body">
-                        <h5 class="card-title">Roues & Pneus</h5>
-                        <p class="card-text">Une crevaison, une roue voilée, des bruits inhabituels? C'est par ici que cela se passe!</p>
-                        <!-- Button trigger modal -->
-                        <a href="#" class="btn btn-warning text-white" data-bs-toggle="modal" data-bs-target="#wheelModal">Remplir</a>
-                        <!-- Modal -->
-                        <div class="modal fade" id="wheelModal" tabindex="-1" aria-labelledby="wheelModalLabel" aria-hidden="true">
-                          <div class="modal-dialog modal-xl modal-dialog-scrollable">
-                            <div class="modal-content">
-                              <div class="modal-header">
-                                <h5 class="modal-title" id="wheelModalLabel">Quels sont vos problèmes de roues & pneus ? </h5>
-                                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-                              </div>
-                              <div class="modal-body">
-                                <div>
+<div class="card">
+    <div class="inner">
+      <%= image_tag "wheel-detail.jpg", class: "card-img-top", alt: "Roues et pneus" %>
+    </div>
+    <div class="card-body">
+      <h5 class="card-title">Roues & Pneus</h5>
+      <p class="card-text">Une crevaison, une roue voilée, des bruits inhabituels? C'est par ici que cela se passe!</p>
+      <!-- Button trigger modal -->
+      <a href="#" class="btn btn-warning text-white" data-bs-toggle="modal" data-bs-target="#wheelsModal">Remplir</a>
+      <!-- Modal -->
+      <div class="modal fade" id="wheelsModal" tabindex="-1" aria-labelledby="wheelsModalLabel" aria-hidden="true">
+        <div class="modal-dialog modal-xl modal-dialog-scrollable">
+          <div class="modal-content">
+            <div class="modal-header">
+              <h5 class="modal-title" id="wheelsModalLabel">Quels sont vos problèmes de roues & pneus ? </h5>
+              <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+              <div>
 
-                                  <%= simple_form_for [bike, @wheel] do |f| %>
-                                    <%= f.input :puncture,
-                                                as: :radio_buttons,
-                                                label: "Vos pneus sont-ils bien gonflés?
-                                                        Pour vérifier :
-                                                        vérifiez que vos pneus en sont pas plats au niveau du sol
-                                                        quand vous pincez une pneu, celui-ci doit vous résister / être dur",
-                                                collection: ["oui", "non", "je ne sais pas", "mon pneu se dégonfle et/ou je pense qu’il y a une crevaison"] %>
-                                    <%= f.input :bent,
-                                                as: :radio_buttons,
-                                                label: "Une roue est-elle voilée? (tordue/pliée, ne tourne pas droit)",
-                                                collection: ["oui", "non"] %>
-                                    <%= f.input :spoke,
-                                                as: :radio_buttons,
-                                                label: "Une roue a-t-elle des rayons manquants, cassés, ou instables?",
-                                                collection: ["oui", "non"] %>
-                                    <%= f.input :noise,
-                                                as: :radio_buttons, label: "La roue fait-elle un bruit inhabituel/désagréable lorsqu’elle tourne?",
-                                                collection: ["j’entends un grincement ou cliquetis", "non", "la roue tourne mal", "j'entends un frottement"] %>
-                                    <%= f.input :tyre,
-                                                as: :radio_buttons,
-                                                label: "Les pneus sont-ils présents et bien tenus dans les jantes?
-                                                        Si oui, ont-ils des trous, déchirures, coupures à leur surface?",
-                                                collection: ["les pneus sont dans les jantes et en état correct", "j’observe des coupures, déchirures ou trous dans les pneus", "un ou plusieurs pneus ne tient pas dans la jante"] %>
-                                    <%= f.submit "Enregistrer", class: "btn btn-primary", data: {turbo_confirm: "Are you sure?"}%>
-                                  <% end %>
-                                </div>
-                              </div>
-                              <div class="modal-footer">
-                                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Fermer</button>
-                              </div>
-                            </div>
-                          </div>
-                        </div>
-                      </div>
-                  </div>
+                <%= simple_form_for [bike, @wheel] do |f| %>
+                  <%= f.input :puncture,
+                              as: :radio_buttons,
+                              label: "Vos pneus sont-ils bien gonflés?
+                                      Pour vérifier :
+                                      vérifiez que vos pneus en sont pas plats au niveau du sol
+                                      quand vous pincez une pneu, celui-ci doit vous résister / être dur",
+                              collection: ["oui", "non", "je ne sais pas", "mon pneu se dégonfle et/ou je pense qu’il y a une crevaison"] %>
+                  <%= f.input :bent,
+                              as: :radio_buttons,
+                              label: "Une roue est-elle voilée? (tordue/pliée, ne tourne pas droit)",
+                              collection: ["oui", "non"] %>
+                  <%= f.input :spoke,
+                              as: :radio_buttons,
+                              label: "Une roue a-t-elle des rayons manquants, cassés, ou instables?",
+                              collection: ["oui", "non"] %>
+                  <%= f.input :noise,
+                              as: :radio_buttons, label: "La roue fait-elle un bruit inhabituel/désagréable lorsqu’elle tourne?",
+                              collection: ["j’entends un grincement ou cliquetis", "non", "la roue tourne mal", "j'entends un frottement"] %>
+                  <%= f.input :tyre,
+                              as: :radio_buttons,
+                              label: "Les pneus sont-ils présents et bien tenus dans les jantes?
+                                      Si oui, ont-ils des trous, déchirures, coupures à leur surface?",
+                              collection: ["les pneus sont dans les jantes et en état correct", "j’observe des coupures, déchirures ou trous dans les pneus", "un ou plusieurs pneus ne tient pas dans la jante"] %>
+                  <%= f.input :photos, as: :file, input_html: { multiple: true }, label: "Ajoutez toute photo utile au diagnostic" %>
+                  <%= f.submit "Enregistrer", class: "btn btn-primary", data: {turbo_confirm: "Are you sure?"}%>
+                <% end %>
+              </div>
+            </div>
+            <div class="modal-footer">
+              <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Fermer</button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+</div>

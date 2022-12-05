@@ -6,13 +6,13 @@
       <h5 class="card-title">Freinage</h5>
       <p class="card-text">Renseigne tes problèmes de freinage, plaquettes et autres grincements ici.</p>
       <!-- Button trigger modal -->
-      <a href="#" class="btn btn-warning text-white" data-bs-toggle="modal" data-bs-target="#brakeModal">Remplir</a>
+      <a href="#" class="btn btn-warning text-white" data-bs-toggle="modal" data-bs-target="#brakesModal">Remplir</a>
       <!-- Modal -->
-      <div class="modal fade" id="brakeModal" tabindex="-1" aria-labelledby="brakeModalLabel" aria-hidden="true">
+      <div class="modal fade" id="brakesModal" tabindex="-1" aria-labelledby="brakesModalLabel" aria-hidden="true">
         <div class="modal-dialog modal-xl modal-dialog-scrollable">
           <div class="modal-content">
             <div class="modal-header">
-              <h5 class="modal-title" id="brakeModalLabel">Quels sont vos problèmes de freinage ? </h5>
+              <h5 class="modal-title" id="brakesModalLabel">Quels sont vos problèmes de freinage ? </h5>
               <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
             </div>
             <div class="modal-body">
@@ -24,6 +24,7 @@
                   <%= f.input :pad, as: :radio_buttons, label: "Y’a-t-il des plaquettes de frein sur chaque roue?", :collection => ["oui", "non"] %>
                   <%= f.input :wire, as: :radio_buttons, label: "Les poignées de freins actionnent-elles bien chacune un cable de freinage?", :collection => ["oui", "non", "je ne sais pas"] %>
                   <%= f.input :squeak, as: :radio_buttons, label: "Vos freins grincent-ils?", :collection => ["oui", "non", "je ne sais pas, je n’ai pas encore roulé avec le vélo"] %>
+                  <%= f.input :photos, as: :file, input_html: { multiple: true }, label: "Ajoutez toute photo utile au diagnostic" %>
                   <%= f.submit "Enregistrer", class: "btn btn-primary", data: {turbo_confirm: "Are you sure?"}%>
                 <% end %>
 

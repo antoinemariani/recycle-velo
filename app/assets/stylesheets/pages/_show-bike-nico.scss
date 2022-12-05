@@ -97,6 +97,8 @@
   height: 32px;
 }
 
+// Real buttons
+
 #button-chains {
   position: relative;
   left: 23%;
@@ -111,8 +113,34 @@
 
 #button-brakes {
   position: relative;
-    left: 60%;
-    top: 1%;
+    left: 68%;
+    top: 25%;
+}
+
+// Fake buttons
+
+#button-saddles {
+  position: relative;
+    left: 40%;
+    top: -2%
+}
+
+#button-pedals {
+  position: relative;
+    top: 58%;
+    left: 48%;
+}
+
+#button-frames {
+  position: relative;
+    top: 16%;
+    left: 54%;
+}
+
+#button-handlebars {
+  position: relative;
+    top: -21%;
+    left: 65%;
 }
 
 

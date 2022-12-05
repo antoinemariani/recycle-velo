@@ -41,7 +41,7 @@ class BrakesController < ApplicationController
   private
 
   def brake_params
-    params.require(:brake).permit(:braking, :handle, :pad, :wire, :squeak)
+    params.require(:brake).permit(:braking, :handle, :pad, :wire, :squeak, photos: [])
   end
 
   def set_brake

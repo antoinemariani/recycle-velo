@@ -41,7 +41,7 @@ class WheelsController < ApplicationController
   private
 
   def wheel_params
-    params.require(:wheel).permit(:puncture, :bent, :spoke, :noise, :tyre)
+    params.require(:wheel).permit(:puncture, :bent, :spoke, :noise, :tyre, photos: [])
   end
 
   def set_wheel
