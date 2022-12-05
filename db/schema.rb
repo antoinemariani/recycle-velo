@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2022_12_01_151643) do
+ActiveRecord::Schema[7.0].define(version: 2022_12_01_151151) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
@@ -79,9 +79,9 @@ ActiveRecord::Schema[7.0].define(version: 2022_12_01_151643) do
   create_table "chains", force: :cascade do |t|
     t.bigint "bike_id", null: false
     t.string "state"
-    t.string "broken"
-    t.string "rust"
-    t.string "derail"
+    t.boolean "broken"
+    t.boolean "rust"
+    t.boolean "derail"
     t.string "chainlink"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
@@ -116,6 +116,7 @@ ActiveRecord::Schema[7.0].define(version: 2022_12_01_151643) do
   end
 
   create_table "wheels", force: :cascade do |t|
+    t.bigint "bike_id", null: false
     t.string "puncture"
     t.string "bent"
     t.string "spoke"
@@ -123,7 +124,6 @@ ActiveRecord::Schema[7.0].define(version: 2022_12_01_151643) do
     t.string "tyre"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.bigint "bike_id", null: false
     t.index ["bike_id"], name: "index_wheels_on_bike_id"
   end
 
