@@ -1,6 +1,6 @@
 <<div class="container" style="min-height:150vh; padding-top: 100px">
-    <h2 id="congrats">Félicitations ! Nous avons un résultat de diagnostic pour votre vélo : </h2>
-    <div class="d-flex justify-content-around pt-5">
+    <h2 id="congrats" class="text-center">Félicitations ! Nous avons un résultat de diagnostic pour votre vélo : </h2>
+    <div class="d-flex justify-content-around pt-4">
       <% if Chain.where(bike: @bike).last %>
         <div class="card me-2" style="width: 17rem;">
           <%= image_tag "chain-detail.jpg", class: "card-img-top", alt: "Chaine" %>
@@ -33,5 +33,10 @@
           </div>
         </div>
       <% end %>
+    </div>
+
+    <div class="pt-5">
+      <h3 id="congrats" class="text-center">Pas un pro du bricolage? Prenez rendez-vous avec un spécialiste à deux pas de chez vous !</h3>
+      <%= link_to "Je veux un vélo tout neuf !", shops_path, class: "btn btn-warning text-white col-6 mx-auto d-grid gap-2" %>
     </div>
 </div>

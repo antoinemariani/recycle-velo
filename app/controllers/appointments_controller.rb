@@ -1,6 +1,10 @@
 class AppointmentsController < ApplicationController
   before_action :set_shop, only: %i[create]
 
+  def index
+    @appointments = Appointment.where(user: current_user)
+  end
+
   def create
     @appointment = Appointment.new(appointment_params)
     @bike = Bike.find(@appointment.bike_id)
