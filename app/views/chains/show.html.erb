@@ -11,7 +11,8 @@
         <div class="card" style="width: 18rem;">
           <div class="card-body-chain pb-2">
             <p class="card-text" style="padding: 15px;"><%= problem %></p>
-            <a href="#" class="btn btn-primary">Regarder un tuto</a>
+            <%# <a href="#" class="btn btn-primary">Regarder un tuto</a> %>
+            <%= link_to "Regarder tuto", bike_chain_tutoriel_path(@bike, @chain), class: "btn btn-primary"%>
           </div>
         </div>
       <%end%>

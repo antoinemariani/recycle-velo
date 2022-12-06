@@ -1,5 +1,5 @@
 class ChainsController < ApplicationController
-  before_action :set_bike, only: %i[index show edit update create]
+  before_action :set_bike, only: %i[index show edit update create tutoriel]
   before_action :set_chain, only: %i[edit update]
 
   def index
@@ -39,6 +39,12 @@ class ChainsController < ApplicationController
     @chain = Chain.find(params[:id])
     @chain.destroy!
     redirect_to bike_path(@bike), status: :see_other
+  end
+
+  def tutoriel
+    @chain = Chain.find(params[:chain_id])
+    @diag = ChainsDiag.last
+    @diag = @diag.values_at(:state,:broken, :rust, :derail, :chainlink)
   end
 
   private

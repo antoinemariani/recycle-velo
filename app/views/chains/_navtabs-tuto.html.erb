@@ -1,0 +1,118 @@
+<div data-controller="navtabs">
+    <nav>
+      <ul>
+        <li><span data-action='click->navtabs#displayBike' data-navtabs-target="tab1">Vidéo explicative</span></li>
+        <li><span data-action='click->navtabs#displayShop' data-navtabs-target="tab2">Étape 1</span></li>
+        <li><span data-action='click->navtabs#displayRecycler' data-navtabs-target="tab3">Étape 2</span></li>
+      </ul>
+      <button> <%= link_to "Réparation Terminée", bikes_path %></button>
+    </nav>
+    <div class="tabs-boy">
+      <div class="tabs-content" data-navtabs-target="bikes">
+        <div class="photos">
+          <div class="card-tuto">
+            <h5 style="text-align: center;">Comment réparer sa roue creuvée ? </h5>
+            <img src="https://images.unsplash.com/photo-1485965120184-e220f721d03e?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1470&q=80" style="max-width: 70vw; padding-left: 4vw;">
+          </div>
+        </div>
+      </div>
+      <div class="tabs-content d-none" data-navtabs-target="shops">
+        <div class="photos">
+          <div class="card-tuto">
+            <h5>1ère Etape</h5>
+            <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Nostrum maiores dolorem repellat magnam dicta sed?</p>
+            <div style="display: grid; grid-template-columns: 2fr 1fr; border-top: 1px solid grey; padding-top: 16px;">
+              <div>
+                <li style="margin: 5vh 0;">Lorem ipsum dolor sit, amet consectetur adipisicing elit. Natus, nulla.</li>
+                <li style="margin: 5vh 0;">Lorem ipsum dolor sit, amet consectetur adipisicing elit. Natus, nulla.</li>
+                <li style="margin: 5vh 0;">Lorem ipsum dolor sit, amet consectetur adipisicing elit. Natus, nulla.</li>
+              </div>
+              <div>
+                <img src="https://contents.mediadecathlon.com/p2092558/k$8d60d54dadd2dd2934615dfdf5f233ff/1180x0/4224pt3168/8448xcr5376/default.jpg?format=auto&quality=80" style= "object-fit: cover; max-width: 100%;">
+              </div>
+            </div>
+            <div style="display: grid; grid-template-columns: 2fr 1fr; border-top: 1px solid grey; padding-top: 16px;">
+              <div>
+                <li style="margin: 5vh 0;">Lorem ipsum dolor sit, amet consectetur adipisicing elit. Natus, nulla.</li>
+                <li style="margin: 5vh 0;">Lorem ipsum dolor sit, amet consectetur adipisicing elit. Natus, nulla.</li>
+                <li style="margin: 5vh 0;">Lorem ipsum dolor sit, amet consectetur adipisicing elit. Natus, nulla.</li>
+              </div>
+              <div>
+                <img src="https://contents.mediadecathlon.com/p2092558/k$8d60d54dadd2dd2934615dfdf5f233ff/1180x0/4224pt3168/8448xcr5376/default.jpg?format=auto&quality=80" style= "object-fit: cover; max-width: 100%;">
+              </div>
+            </div>
+            <div style="display: grid; grid-template-columns: 2fr 1fr; border-top: 1px solid grey; padding-top: 16px;">
+              <div>
+                <li style="margin: 5vh 0;">Lorem ipsum dolor sit, amet consectetur adipisicing elit. Natus, nulla.</li>
+                <li style="margin: 5vh 0;">Lorem ipsum dolor sit, amet consectetur adipisicing elit. Natus, nulla.</li>
+                <li style="margin: 5vh 0;">Lorem ipsum dolor sit, amet consectetur adipisicing elit. Natus, nulla.</li>
+              </div>
+              <div>
+                <img src="https://contents.mediadecathlon.com/p2092558/k$8d60d54dadd2dd2934615dfdf5f233ff/1180x0/4224pt3168/8448xcr5376/default.jpg?format=auto&quality=80" style= "object-fit: cover; max-width: 100%;">
+              </div>
+            </div>
+            <div style="display: grid; grid-template-columns: 2fr 1fr; border-top: 1px solid grey; padding-top: 16px;">
+              <div>
+                <li style="margin: 5vh 0;">Lorem ipsum dolor sit, amet consectetur adipisicing elit. Natus, nulla.</li>
+                <li style="margin: 5vh 0;">Lorem ipsum dolor sit, amet consectetur adipisicing elit. Natus, nulla.</li>
+                <li style="margin: 5vh 0;">Lorem ipsum dolor sit, amet consectetur adipisicing elit. Natus, nulla.</li>
+              </div>
+              <div>
+                <img src="https://contents.mediadecathlon.com/p2092558/k$8d60d54dadd2dd2934615dfdf5f233ff/1180x0/4224pt3168/8448xcr5376/default.jpg?format=auto&quality=80" style= "object-fit: cover; max-width: 100%;">
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="tabs-content d-none" data-navtabs-target="recyclers">
+        <div class="photos">
+          <div class="card-tuto">
+            <h5>2ère Etape</h5>
+            <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Nostrum maiores dolorem repellat magnam dicta sed?</p>
+            <div style="display: grid; grid-template-columns: 2fr 1fr; border-top: 1px solid grey; padding-top: 16px;">
+              <div>
+                <li style="margin: 5vh 0;">Lorem ipsum dolor sit, amet consectetur adipisicing elit. Natus, nulla.</li>
+                <li style="margin: 5vh 0;">Lorem ipsum dolor sit, amet consectetur adipisicing elit. Natus, nulla.</li>
+                <li style="margin: 5vh 0;">Lorem ipsum dolor sit, amet consectetur adipisicing elit. Natus, nulla.</li>
+              </div>
+              <div>
+                <img src="https://contents.mediadecathlon.com/p2092558/k$8d60d54dadd2dd2934615dfdf5f233ff/1180x0/4224pt3168/8448xcr5376/default.jpg?format=auto&quality=80" style= "object-fit: cover; max-width: 100%;">
+              </div>
+            </div>
+            <div style="display: grid; grid-template-columns: 2fr 1fr; border-top: 1px solid grey; padding-top: 16px;">
+              <div>
+                <li style="margin: 5vh 0;">Lorem ipsum dolor sit, amet consectetur adipisicing elit. Natus, nulla.</li>
+                <li style="margin: 5vh 0;">Lorem ipsum dolor sit, amet consectetur adipisicing elit. Natus, nulla.</li>
+                <li style="margin: 5vh 0;">Lorem ipsum dolor sit, amet consectetur adipisicing elit. Natus, nulla.</li>
+              </div>
+              <div>
+                <img src="https://contents.mediadecathlon.com/p2092558/k$8d60d54dadd2dd2934615dfdf5f233ff/1180x0/4224pt3168/8448xcr5376/default.jpg?format=auto&quality=80" style= "object-fit: cover; max-width: 100%;">
+              </div>
+            </div>
+            <div style="display: grid; grid-template-columns: 2fr 1fr; border-top: 1px solid grey; padding-top: 16px;">
+              <div>
+                <li style="margin: 5vh 0;">Lorem ipsum dolor sit, amet consectetur adipisicing elit. Natus, nulla.</li>
+                <li style="margin: 5vh 0;">Lorem ipsum dolor sit, amet consectetur adipisicing elit. Natus, nulla.</li>
+                <li style="margin: 5vh 0;">Lorem ipsum dolor sit, amet consectetur adipisicing elit. Natus, nulla.</li>
+              </div>
+              <div>
+                <img src="https://contents.mediadecathlon.com/p2092558/k$8d60d54dadd2dd2934615dfdf5f233ff/1180x0/4224pt3168/8448xcr5376/default.jpg?format=auto&quality=80" style= "object-fit: cover; max-width: 100%;">
+              </div>
+            </div>
+            <div style="display: grid; grid-template-columns: 2fr 1fr; border-top: 1px solid grey; padding-top: 16px;">
+              <div>
+                <li style="margin: 5vh 0;">Lorem ipsum dolor sit, amet consectetur adipisicing elit. Natus, nulla.</li>
+                <li style="margin: 5vh 0;">Lorem ipsum dolor sit, amet consectetur adipisicing elit. Natus, nulla.</li>
+                <li style="margin: 5vh 0;">Lorem ipsum dolor sit, amet consectetur adipisicing elit. Natus, nulla.</li>
+              </div>
+              <div>
+                <img src="https://contents.mediadecathlon.com/p2092558/k$8d60d54dadd2dd2934615dfdf5f233ff/1180x0/4224pt3168/8448xcr5376/default.jpg?format=auto&quality=80" style= "object-fit: cover; max-width: 100%;">
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+    </div>
+</div>
