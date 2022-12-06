@@ -9,17 +9,6 @@
   font-family: $body-font;
 }
 
-ul {
-  list-style-type: none;
-  margin: 0;
-  padding: 0;
-  display: flex;
-  align-items: center;
-}
-
-a {
-  text-decoration: none;
-}
 
 .header-wrapper header {
   width: 100%;
@@ -81,6 +70,14 @@ a {
   position: relative;
   margin: 35px 0;
 }
+.header-wrapper .cols-container .left-col .about ul {
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  align-items: center;
+}
+
 
 .header-wrapper .cols-container .left-col .about li {
   display: flex;
@@ -111,6 +108,12 @@ a {
 }
 
 .header-wrapper .cols-container .content ul {
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  align-items: center;
+
   gap: 20px;
   justify-content: center;
   align-items: center;
@@ -148,6 +151,12 @@ a {
 }
 
 .header-wrapper .cols-container .right-col nav ul {
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  align-items: center;
+
   display: flex;
   gap: 20px;
   flex-direction: column;
@@ -169,6 +178,7 @@ a {
 
 .header-wrapper .cols-container .right-col nav button a {
   color: white;
+  text-decoration: none;
 }
 
 // .header-wrapper .cols-container .right-col nav ul li:nth-child(1) span {
@@ -184,6 +194,11 @@ a {
   display: grid;
   grid-template-columns: repeat(auto-fill, minmax(190px, 1fr));
   gap: 20px;
+  justify-items: center;
+}
+
+.card-bike{
+  justify-items: center;
 }
 
 .header-wrapper .cols-container .right-col .photos .card-bike img {

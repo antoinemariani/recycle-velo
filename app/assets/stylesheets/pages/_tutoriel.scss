@@ -1,0 +1,143 @@
+.container-tuto{
+  width: 100%;
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  min-height: 100vh;
+  font-family: $body-font;
+}
+
+.header-wrapper-tuto header {
+  width: 100%;
+  background: url(https://images.unsplash.com/photo-1562615193-cbeef074a501?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1538&q=80) no-repeat 50% 60% / cover;
+  min-height: calc(110px + 18vh);
+}
+
+
+.header-wrapper-tuto header h1 {
+  padding: 100px;
+  color: aliceblue;
+  display: flex;
+  justify-content: center;
+}
+
+/* Profile 1ère row : Infos sur bike, daig, button */
+.cols-container-tuto{
+  display: flex;
+  justify-items: center;
+  flex-direction: column;
+  align-items: center;
+}
+
+.infos-container-tuto{
+  width: 72vw;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.infos-container-tuto button{
+  background: $orange;
+  border: none;
+  padding: 10px 20px;
+  border-radius: 4px;
+  cursor: pointer;
+  margin : 0 5px;
+}
+
+/* Profile 2ème row : navs tabs */
+.header-wrapper-tuto .cols-container-tuto .right-col-tuto{
+  max-width: 72%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  border-top: 1px solid grey;
+  border-top-style: dashed;
+  margin-top: 32px;
+}
+
+.header-wrapper-tuto .cols-container-tuto h2 {
+  margin : 16px 0
+}
+.header-wrapper-tuto .cols-container-tuto .right-col-tuto h2 {
+  margin : 16px 0
+}
+
+
+.header-wrapper-tuto .cols-container-tuto .right-col-tuto nav {
+  display: flex;
+  align-items: center;
+  padding: 16px 0;
+  justify-content: center;
+  flex-direction: row;
+}
+
+.header-wrapper-tuto .cols-container-tuto .right-col-tuto nav ul {
+  display: flex;
+  gap: 30px;
+  flex-direction: row;
+  cursor: pointer;
+
+}
+
+.header-wrapper-tuto .cols-container-tuto .right-col-tuto nav ul li span {
+  text-transform: uppercase;
+  color: grey;
+  font-size: larger;
+  border-bottom: 1px solid grey;
+}
+
+.header-wrapper-tuto .cols-container-tuto .right-col-tuto nav button {
+  background: rgb(71, 71, 207);
+  border: none;
+  padding: 10px 25px;
+  border-radius: 4px;
+  cursor: pointer;
+  margin: 8px;
+  margin-left: 8%;
+}
+
+.header-wrapper-tuto .cols-container-tuto .right-col-tuto nav button a {
+  color: white;
+}
+
+.header-wrapper-tuto .cols-container-tuto .right-col-tuto nav button:hover {
+  opacity: 0.8;
+}
+
+.header-wrapper-tuto .cols-container-tuto .right-col-tuto .photos-tuto {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(190px, 1fr));
+  gap: 20px;
+  justify-items: center;
+}
+
+.card-tuto{
+  vertical-align: middle;
+  width: 72vw;
+  object-fit: cover;
+  display: flex;
+  flex-direction: column;
+}
+
+
+.header-wrapper-tuto .cols-container-tuto .right-col-tuto .photos-tuto .card-tuto h5 {
+  // padding-top: 2%;
+  text-align: center;
+  font-weight: 400;
+  // border: 1px solid #ccc;
+}
+
+.header-wrapper-tuto .cols-container-tuto .right-col-tuto .photos-tuto .card-tuto .infos-tuto {
+  height: 16vh;
+}
+
+
+/* Navs-Tabs Select */
+.header-wrapper-tuto .cols-container-tuto .right-col-tuto nav ul li .tab-active {
+  color: #1d1d1d;
+  font-weight: 600;
+  border-bottom: 1px solid rgb(0, 0, 0);
+}
+
+/* Responsive */

@@ -5,13 +5,14 @@
 
   <div class="container pt-5"></div>
     <div class="cards-chain d-flex justify-content-around">
-    <% @diag.each do |problem| %>
+    <% @diag_values.each do |problem| %>
       <%# check if problem != nil %>
       <% if problem %>
         <div class="card" style="width: 18rem;">
           <div class="card-body-chain pb-2">
             <p class="card-text" style="padding: 15px;"><%= problem %></p>
-            <a href="#" class="btn btn-primary">Regarder un tuto</a>
+            <%# <a href="#" class="btn btn-primary">Regarder un tuto</a> %>
+            <%= link_to "Regarder tuto", bike_chain_tutoriel_path(@bike, @chain), class: "btn btn-primary"%>
           </div>
         </div>
       <%end%>

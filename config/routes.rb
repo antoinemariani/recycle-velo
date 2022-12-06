@@ -12,7 +12,10 @@ Rails.application.routes.draw do
 
   # BIKES
   resources :bikes do
-    resources :chains
+    resources :chains do
+      # resources :tutoriel, only: %I[show]
+      get '/tutoriel', to: 'chains#tutoriel', as: 'tutoriel'
+    end
     resources :wheels
     resources :brakes
     member do
