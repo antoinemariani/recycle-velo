@@ -65,9 +65,9 @@ class WheelsController < ApplicationController
 
   def puncture_diag(wheel)
     case wheel.puncture
-    when "true" || true || "oui"
+    when "true" || "oui"
       return "Tout roule, on dirait ! Saviez-vous que la pression recommandée pour le gonflage est généralement écrite sur le flan du pneu? Veillez à bien respecter celle-ci : un pneu sous ou sur-gonflé présente un risque accru de crevaison !"
-    when "false" || false || "non"
+    when "false" || "non"
       return "Rien de plus normal... les pneus, ça se dégonfle... on vous explique comment bien regonfler vos pneus."
     when "je ne sais pas"
       return "Et si on révisait ensemble les bases du gonflage? Rien de mieux pour rouler en toute sécurité !"
@@ -78,25 +78,25 @@ class WheelsController < ApplicationController
 
   def bent_diag(wheel)
     case wheel.bent
-    when "true" || true || "oui"
+    when "true" || "oui"
       return "Votre roue est voilée, ne roulez pas avec le vélo. Deux solutions s’offrent à vous : faire dévoiler la roue par un professionnel, ou bien la remplacer si la torsion est trop importante."
-    when "false" || false || "non"
+    when "false" || "non"
       return "Tout va bien ! Des micros voilages peuvent apparaître avec le temps : les roues sont fortement sollicitées en roulant. Les voilages légers peuvent être corrigés grâce à une clef à rayon, ou directement via un professionnel."
     end
   end
 
   def spoke_diag(wheel)
     case wheel.spoke
-    when "true" || true || "oui"
+    when "true" || "oui"
       return "Les casses de rayon peuvent être dangereuses s’il y en a plusieurs sur une même roue. Dans ce cas, il est conseillé de faire changer votre jante auprès d’un réparateur proche de chez vous."
-    when "false" || false || "non"
+    when "false" || "non"
       return "Votre roue est prête pour affronter la route et les pavés (si elle tourne droite, bien entendu!)."
     end
   end
 
   def noise_diag(wheel)
     case wheel.noise
-    when "false" || false || "non"
+    when "false" || "non"
       return "Quoi de plus doux et mélodieux que le son d’une roue libre?"
     when "j’entends un grincement ou un cliquetis"
       return "Les bruits de roulement sont sans gravité la plupart du temps, mais mieux vaut en connaître la provenance pour éviter tout désagrément. On vous aide à en comprendre l’origine?"

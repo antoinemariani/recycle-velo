@@ -1,20 +1,23 @@
-<div class="container">
+<%# <div class="container" style="margin: 0;"> %>
   <div class="shop-index">
 
-      <div class="shop-list">
+      <div class="shops">
         <h2>Shops</h2>
-
-        <% @shops.each do |shop| %>
-        <h3><%= shop.name %></h3>
-        <p><%= shop.address %></p>
-        <% end %>
+        <ul class="shop-list">
+          <% @shops.each do |shop| %>
+          <div class="shop-card">
+            <h3><%= shop.name %></h3>
+            <p><%= shop.address %></p>
+          </li>
+          <% end %>
+        </ul>
       </div>
 
       <div
         id="map"
-        style="height: 600px;"
+        style="min-height: 100%;"
         data-markers="<%= @markers.to_json %>"
       >
       </div>
   </div>
-</div>
+<%# </div> %>

@@ -19,7 +19,7 @@ class ChainsController < ApplicationController
     @chain = Chain.new(chain_params)
     @chain.bike = @bike
     if @chain.save!
-      create_chains_diag(@chain)
+      @chains_diag = create_chains_diag(@chain)
       if @chains_diag.save!
         redirect_to bike_path(@bike)
       else
@@ -56,7 +56,7 @@ class ChainsController < ApplicationController
   end
 
   def create_chains_diag(chain)
-    @chains_diag = ChainsDiag.new(
+    ChainsDiag.new(
       chain:,
       state: state_diag(chain),
       broken: broken_diag(chain),
@@ -73,6 +73,7 @@ class ChainsController < ApplicationController
     when "moyen" || "medium"
       return "Effectuez un dégraissage et nettoyage approfondi de votre chaîne et des éléments de dérailleur.  Votre chaîne peut encore rouler tant qu’elle est propre et ne présente pas de traces d’usure visibles"
     when "mauvais" || "bad"
+      debugger
       return "Considérez le remplacement de votre chaîne, ou la consultation d’un spécialiste pour vous aider à réparer vos pièces."
     when ""
       return nil
@@ -81,9 +82,9 @@ class ChainsController < ApplicationController
 
   def broken_diag(chain)
     case chain.broken
-    when true || "oui" || "yes"
+    when "oui" || "yes"
       return "Vous devez changer votre chaîne pour pouvoir utiliser votre vélo. Pas d’inquiétude, c’est une opération simple et peu coûteuse !"
-    when false || "non" || "no"
+    when "non" || "no"
       return "Votre vélo peut rouler, veillez à suivres nos conseils d’entretien et de suivi d’usure pour roulez dans des conditions optimales !"
     when "" || nil
       return nil
@@ -92,9 +93,9 @@ class ChainsController < ApplicationController
 
   def rust_diag(chain)
     case chain.rust
-    when true || "oui" || "yes"
+    when "oui" || "yes"
       return "Utilisez un produit anti-rouille pour remettre la chaîne en état. Si la rouille ne part pas ou qu’elle a causé des dégâts visibles, envisagez un remplacement de la chaîne."
-    when false || "non" || "no"
+    when "non" || "no"
       return "Continuez à bien entretenir votre transmission en suivant nos conseils afin de garder celle-ci en état de marche le plus longtemps possible... pas de changement superflu !"
     when "" || nil
       return nil
@@ -116,7 +117,7 @@ class ChainsController < ApplicationController
 
   def chainlink_diag(chain)
     case chain.chainlink
-    when "oui" || "yes" || true || "" || nil
+    when "oui" || "yes" || "" || nil
       return nil
     when "non" || "no" || "un maillon semble cassé"
       return "Vous avez un maillon cassé : suivez nos conseils pour le changer et remettre votre chaîne en bon état."
