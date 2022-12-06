@@ -10,9 +10,8 @@ export default class extends Controller {
 
   updateNavbar() {
     if (window.location.pathname === "/") {
-      if (window.scrollY <= (0.5 * window.innerHeight)) {
-        this.element.classList.add("navbar-lewagon-transparent")
-      } else {
+      this.element.classList.add("navbar-lewagon-transparent")
+      if (window.scrollY > 380 ) {
         this.element.classList.remove("navbar-lewagon-transparent")
       }
     }
