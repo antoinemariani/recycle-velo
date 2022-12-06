@@ -1,0 +1,50 @@
+
+.shop-index {
+  width: 100%;
+  display: flex;
+  flex-direction: row;
+  margin: 0 auto;
+  justify-content: space-between;
+  position: relative;
+  top: 64px;
+}
+
+.shops {
+  align-items: center;
+}
+
+.shop-list {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  flex-grow: 1;
+}
+
+.shop-card{
+  width: 100%;
+  padding: 1rem;
+}
+
+.shop-card-border {
+  border: 1px solid rgba(0, 0, 0, 0.175);
+  border-radius: 16px;
+  background: white;
+  box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;
+}
+
+
+
+
+
+
+
+#map {
+  height: 100vh;
+  width: 60%;
+  position: fixed;
+  z-index: 1;
+  top: 0px;
+  bottom: 0px;
+  overflow-y: auto;
+  right: 0px;
+}

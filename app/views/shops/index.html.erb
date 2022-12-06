@@ -5,10 +5,10 @@
         <h2>Shops</h2>
         <ul class="shop-list">
           <% @shops.each do |shop| %>
-          <div class="shop-card card-border">
+          <div class="shop-card shop-card-border">
             <h3><%= shop.name %></h3>
             <p><%= shop.address %></p>
-          </li>
+          </div>
           <% end %>
         </ul>
       </div>
