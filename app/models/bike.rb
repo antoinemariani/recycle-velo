@@ -5,4 +5,5 @@ class Bike < ApplicationRecord
   has_many :chains
   has_many :wheels
   has_many :brakes
+  has_many :appointments
 end
