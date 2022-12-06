@@ -126,7 +126,6 @@ ActiveRecord::Schema[7.0].define(version: 2022_12_06_113501) do
   end
 
   create_table "wheels", force: :cascade do |t|
-    t.bigint "bike_id", null: false
     t.string "puncture"
     t.string "bent"
     t.string "spoke"
@@ -134,6 +133,7 @@ ActiveRecord::Schema[7.0].define(version: 2022_12_06_113501) do
     t.string "tyre"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.bigint "bike_id", null: false
     t.index ["bike_id"], name: "index_wheels_on_bike_id"
   end
 

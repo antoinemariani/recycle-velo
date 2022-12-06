@@ -10,6 +10,13 @@
 
 // @import "shops-index"; => IMPORT FAILURE, putting code below
 
+.card-border {
+  border: 1px solid rgba(0, 0, 0, 0.175) !important;
+  border-radius: 2px !important;
+  box-shadow: none !important;
+  word-wrap: break-word !important;
+}
+
 .shop-index {
   width: 100%;
   display: flex;
@@ -41,4 +48,3 @@
   overflow-y: auto;
   right: 0px;
 }
-
