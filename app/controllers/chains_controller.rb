@@ -31,7 +31,6 @@ class ChainsController < ApplicationController
     # afficher le résultat du diagnostique
     @diag = ChainsDiag.where(chain: @chain)[0]
     @diag_values = @diag.values_at(:state,:broken, :rust, :derail, :chainlink, :note)
-    end
   end
 
   def edit; end

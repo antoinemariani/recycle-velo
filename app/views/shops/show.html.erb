@@ -1,0 +1,11 @@
+
+<div class="container" style="padding-top:100px;">
+
+<%= simple_form_for [@shop, @appointment], data: { controller: 'flatpickr' } do |f| %>
+  <%= f.input :bike_id, label: "Vélo", :collection => Bike.where(user: current_user) %>
+  <%= f.input :start_time, as: :string, input_html: { "data-action": "click->flatpickr#update", data: { flatpickr_target: "startTime" } } %>
+  <%= f.input :end_time, as: :string, input_html: { data: { flatpickr_target: "endTime" } } %>
+  <%= f.submit 'Prendre rendez-vous', class: "btn btn-warning text-white" %>
+<% end %>
+
+</div>
