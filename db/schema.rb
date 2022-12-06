@@ -10,11 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-<<<<<<< HEAD
-ActiveRecord::Schema[7.0].define(version: 2022_12_01_151151) do
-=======
-ActiveRecord::Schema[7.0].define(version: 2022_12_05_134841) do
->>>>>>> ac2036d126b172fadfc0440d14f1df3d4fd506ae
+ActiveRecord::Schema[7.0].define(version: 2022_12_06_113501) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
@@ -83,9 +79,9 @@ ActiveRecord::Schema[7.0].define(version: 2022_12_05_134841) do
   create_table "chains", force: :cascade do |t|
     t.bigint "bike_id", null: false
     t.string "state"
-    t.boolean "broken"
-    t.boolean "rust"
-    t.boolean "derail"
+    t.string "broken"
+    t.string "rust"
+    t.string "derail"
     t.string "chainlink"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
@@ -101,6 +97,7 @@ ActiveRecord::Schema[7.0].define(version: 2022_12_05_134841) do
     t.string "chainlink"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.float "note"
     t.index ["chain_id"], name: "index_chains_diags_on_chain_id"
   end
 
