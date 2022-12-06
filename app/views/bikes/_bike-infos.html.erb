@@ -1,6 +1,6 @@
 <div class="bike-infos">
 
-  <div class="card-product">
+  <div class="card-product card-border">
     <% if @bike.photo.attached? %>
       <%= cl_image_tag @bike.photo.key %>
     <% else %>
