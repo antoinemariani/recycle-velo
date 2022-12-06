@@ -7,44 +7,6 @@
 @import "show-chains";
 @import "profile";
 @import "tutoriel";
+@import "shops-index";
 
 // @import "shops-index"; => IMPORT FAILURE, putting code below
-
-.card-border {
-  border: 1px solid rgba(0, 0, 0, 0.175) !important;
-  border-radius: 2px !important;
-  box-shadow: none !important;
-  word-wrap: break-word !important;
-}
-
-.shop-index {
-  width: 100%;
-  display: flex;
-  flex-direction: row;
-  margin: 0 auto;
-  justify-content: space-between;
-  position: relative;
-  top: 64px;
-}
-
-.shop-list {
-  display: flex;
-  flex-direction: column;
-  align-items: flex-start;
-  flex-grow: 1;
-}
-
-.shops {
-  align-items: center;
-}
-
-#map {
-  height: 100vh;
-  width: 60%;
-  position: fixed;
-  z-index: 1;
-  top: 0px;
-  bottom: 0px;
-  overflow-y: auto;
-  right: 0px;
-}
