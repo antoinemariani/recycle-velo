@@ -65,9 +65,9 @@ class BrakesController < ApplicationController
 
   def braking_diag(brake)
     case brake.braking
-    when "true" || true || "oui" || "il freine bien"
+    when "true" || "oui" || "il freine bien"
       return ""
-    when "false" || false || "non" || "il freine mal"
+    when "false" || "non" || "il freine mal"
       return "Un simple réglage de la tension des câbles de freinage et des plaquette devrait suffire, suivez le guide !"
     when "il ne freine pas du tout"
       return "Il va vous falloir résoudre les différents problèmes listés ci-dessous pour que votre vélo fonctionne à nouveau"
@@ -76,27 +76,27 @@ class BrakesController < ApplicationController
 
   def handle_diag(brake)
     case brake.handle
-    when "true" || true || "oui"
+    when "true" || "oui"
       return "Bonne nouvelle ! Regardons comment les régler pour que leur souplesse soit optimale et que vous ne vous fassiez pas de crampes en roulant !"
-    when "false" || false || "non"
+    when "false" || "non"
       return nil
     end
   end
 
   def pad_diag(brake)
     case brake.pad
-    when "true" || true || "oui"
+    when "true" || "oui"
       return nil
-    when "false" || false || "non"
+    when "false" || "non"
       return "Il va vous falloir impérativement monter des plaquettes sur votre vélo pour pouvoir rouler, suivez notre guide sur le sujet pour en savoir plus."
     end
   end
 
   def wire_diag(brake)
     case brake.wire
-    when "true" || true || "oui"
+    when "true" || "oui"
       return nil
-    when "false" || false || "non"
+    when "false" || "non"
       return "Faisons le point ensemble sur vos câbles de frein pour les réparer ou les remplacer."
     when "je ne sais pas"
       return "Regardons ensemble où se trouvent les câbles de freinage et s’ils fonctionnent bien."
@@ -105,9 +105,9 @@ class BrakesController < ApplicationController
 
   def squeak_diag(brake)
     case brake.squeak
-    when "true" || true || "oui"
+    when "true" || "oui"
       return "On a tous déjà roulé avec des freins qui grincent ! Un petit réglage en suivant notre tuto et le tour sera joué!"
-    when "false" || false || "non"
+    when "false" || "non"
       return "Tout va bien !"
     when "je ne sais pas"
       return "Lorsque vous roulerez avec votre vélo, testez les freins progressivement, et voyez leur réaction. S’ils grincent, revenez ici et regardez nos conseils pour en parfaire les réglages."
