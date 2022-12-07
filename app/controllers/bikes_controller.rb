@@ -36,7 +36,13 @@ class BikesController < ApplicationController
     redirect_to bikes_path, status: :see_other
   end
 
-  def results; end
+  def results
+    # note globale du vélo
+    ChainsDiag.where(chain: @bike.chains.last).last.nil? ? chain_note = 2 : chain_note = ChainsDiag.where(chain_id: Chain.where(bike_id: @bike.id))[0].note
+    WheelsDiag.where(wheel: @bike.wheels.last).last.nil? ? wheel_note = 2 : wheel_note = WheelsDiag.where(wheel_id: Wheel.where(bike_id: @bike.id))[0].note
+
+    @bike_note = (((chain_note + wheel_note + 6) / 3) * 10).round
+  end
 
   private
 

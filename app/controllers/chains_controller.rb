@@ -43,7 +43,6 @@ class ChainsController < ApplicationController
     if @chain.save!
       @chains_diag = create_chains_diag(@chain)
       if @chains_diag.save!
-        flash[:notice] = "Votre bilan a bien été sauvegardé."
         redirect_to bike_path(@bike)
       else
         render :new, status: :unprocessable_entity
@@ -55,7 +54,6 @@ class ChainsController < ApplicationController
 
   def update
     @chain.update!(chain_params)
-    flash[:notice] = "Votre bilan a bien été sauvegardé."
     redirect_to bike_path(@bike)
   end
 
