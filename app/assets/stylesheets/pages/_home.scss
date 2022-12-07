@@ -10,11 +10,13 @@
   margin: 40px 0px;
 }
 
+
 p {
   font-weight: 400;
   font-size: 14px;
   line-height: 21px;
 }
+
 
 h1 {
   font-weight: 700;
@@ -22,12 +24,14 @@ h1 {
   line-height: 72px;
 }
 
+
 h2 {
   font-weight: 600;
   font-size: 26px;
   line-height: 39px;
   margin: 20px 0px;
 }
+
 
 h3 {
   font-weight: 500;
@@ -42,6 +46,7 @@ h3 {
 .start-button {
   border-radius: 20px;
   color: white;
+  font-size: 1.3rem;
 }
 
 .start-button:hover {
@@ -72,7 +77,8 @@ h3 {
 .rc-banner-text {
   width: 100%;
   vertical-align: bottom;
-  margin-bottom: 100px;
+  // margin-bottom: 100px;
+  margin: 4vh auto;
   color: white;
 }
 
@@ -81,6 +87,7 @@ h3 {
 #second-banner {
   background-color: $orange;
   color: $yellow;
+  height: 100vh;
 }
 
 #second-banner>.container {
@@ -110,3 +117,37 @@ h3 {
 .details-category > .spacer {
   border: 1px solid $yellow;
 }
+
+.carousel-home {
+  width: 32vw;
+  height: 32vh;
+  margin: 6vh auto;
+}
+
+
+/* Selector CSS : */
+
+  // TOP BANNER //
+  .container .rc-banner-text h1{
+    font-size: 4rem;
+  }
+
+  .container .rc-banner-text h2{
+    font-size: 2rem;
+  }
+
+  .container .rc-banner-text p{
+    font-size: 1rem;
+  }
+
+
+  // SECOND BANNER //
+
+  .details-category p {
+    margin-bottom: 1vh;
+  }
+
+  .details-category h2 {
+    font-size: 2rem;
+    margin: 3.5vh 0px;
+  }
