@@ -30,7 +30,7 @@ class ChainsController < ApplicationController
     @chain = Chain.find(params[:id])
     # afficher le résultat du diagnostique
     @diag = ChainsDiag.where(chain: @chain)[0]
-    @diag_values = @diag.values_at(:state,:broken, :rust, :derail, :chainlink, :note)
+    @diag_values = @diag.values_at(:state, :broken, :rust, :derail, :chainlink, :note)
     @display_note = @diag_values.last / 10 * 100
   end
 

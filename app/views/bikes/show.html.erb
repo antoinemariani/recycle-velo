@@ -1,11 +1,16 @@
 
 <div>
 
-  <div class="container" style="padding-top:60px;"></div>
+  <div class="container" style="padding-top:100px;"></div>
 
   <div class="container">
+      <%= render "diag-progress", bike: Bike.new %>
 
-      <%= render "bike-infos", bike: @bike %>
+        <div class="top-navigation-btn" style="align-items:center;">
+          <%= link_to "◀︎ Retour", bikes_path, class: "btn btn-warning text-white" %>
+          <%= render "bike-infos", bike: @bike %>
+          <%= link_to "Obtenir mon bilan ▶︎", profile_path(current_user), class: "btn btn-success text-white" %>
+        </div>
 
       <%= render "bike-schema" %>
 
@@ -22,7 +27,6 @@
       </div>
 
       <%= render "diag-history", bike: @bike %>
-
   </div>
 
 </div>

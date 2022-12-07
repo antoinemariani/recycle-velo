@@ -1,42 +1,48 @@
-<<div class="container" style="min-height:150vh; padding-top: 100px">
-    <h2 id="congrats" class="text-center">Félicitations ! Nous avons un résultat de diagnostic pour votre vélo : </h2>
-    <div class="d-flex justify-content-around pt-4">
-      <% if Chain.where(bike: @bike).last %>
-        <div class="card me-2" style="width: 17rem;">
-          <%= image_tag "chain-detail.jpg", class: "card-img-top", alt: "Chaine" %>
-          <div class="card-body">
-            <h5 class="card-title">Révise la chaîne du vélo</h5>
-            <p class="card-text">La chaîne de ton vélo est peut-être mal graissée ou un maillon a éventuellement sauté.</p>
-            <%= link_to "Entretenir ma chaîne", bike_chain_path(@bike, @bike.chains.last), class: "btn btn-warning text-white" %>
-          </div>
-        </div>
-      <% end %>
+<div class="container" style="min-height:150vh; padding-top: 100px">
 
-      <% if Wheel.where(bike: @bike).last %>
-        <div class="card me-2" style="width: 17rem;">
-          <%= image_tag "wheel-detail.jpg", class: "card-img-top", alt: "Roues et pneus" %>
-          <div class="card-body">
-            <h5 class="card-title">Répare tes pneus</h5>
-            <p class="card-text">Tout va bien au niveau des roues, mais quelques réparations sont à prévoir au niveau des pneus</p>
-            <%= link_to "Voir les réparations", bike_wheel_path(@bike, @bike.wheels.last), class: "btn btn-warning text-white" %>
-          </div>
-        </div>
-      <% end %>
+  <div class="top-navigation-btn">
+    <%= link_to "◀︎ Retour", bike_path(@bike), class: "btn btn-warning text-white" %>
+    <%= link_to "Profile ▶︎", profile_path(current_user), class: "btn btn-warning text-white" %>
+  </div>
 
-      <% if Brake.where(bike: @bike).last %>
-        <div class="card me-2" style="width: 17rem;">
-          <%= image_tag "brake-detail.jpg", class: "card-img-top", alt: "Freinage" %>
-          <div class="card-body">
-            <h5 class="card-title">Règle tes freins</h5>
-            <p class="card-text">Tes freins méritent quelques réglages simples, regardons ensemble le détail - pas d'inquiétude, c'est facile !</p>
-            <%= link_to "En savoir plus", bike_brake_path(@bike, @bike.brakes.last), class: "btn btn-warning text-white" %>
-          </div>
+  <h2 id="congrats" class="text-center">Félicitations ! Nous avons un résultat de diagnostic pour votre vélo : </h2>
+  <div class="d-flex justify-content-around pt-4">
+    <% if Chain.where(bike: @bike).last %>
+      <div class="card me-2" style="width: 17rem;">
+        <%= image_tag "chain-detail.jpg", class: "card-img-top", alt: "Chaine" %>
+        <div class="card-body">
+          <h5 class="card-title">Révise la chaîne du vélo</h5>
+          <p class="card-text">La chaîne de ton vélo est peut-être mal graissée ou un maillon a éventuellement sauté.</p>
+          <%= link_to "Entretenir ma chaîne", bike_chain_path(@bike, @bike.chains.last), class: "btn btn-warning text-white" %>
         </div>
-      <% end %>
-    </div>
+      </div>
+    <% end %>
 
-    <div class="pt-5">
-      <h3 id="congrats" class="text-center">Pas un pro du bricolage? Prenez rendez-vous avec un spécialiste à deux pas de chez vous !</h3>
-      <%= link_to "Je veux un vélo tout neuf !", shops_path, class: "btn btn-warning text-white col-6 mx-auto d-grid gap-2" %>
-    </div>
+    <% if Wheel.where(bike: @bike).last %>
+      <div class="card me-2" style="width: 17rem;">
+        <%= image_tag "wheel-detail.jpg", class: "card-img-top", alt: "Roues et pneus" %>
+        <div class="card-body">
+          <h5 class="card-title">Répare tes pneus</h5>
+          <p class="card-text">Tout va bien au niveau des roues, mais quelques réparations sont à prévoir au niveau des pneus</p>
+          <%= link_to "Voir les réparations", bike_wheel_path(@bike, @bike.wheels.last), class: "btn btn-warning text-white" %>
+        </div>
+      </div>
+    <% end %>
+
+    <% if Brake.where(bike: @bike).last %>
+      <div class="card me-2" style="width: 17rem;">
+        <%= image_tag "brake-detail.jpg", class: "card-img-top", alt: "Freinage" %>
+        <div class="card-body">
+          <h5 class="card-title">Règle tes freins</h5>
+          <p class="card-text">Tes freins méritent quelques réglages simples, regardons ensemble le détail - pas d'inquiétude, c'est facile !</p>
+          <%= link_to "En savoir plus", bike_brake_path(@bike, @bike.brakes.last), class: "btn btn-warning text-white" %>
+        </div>
+      </div>
+    <% end %>
+  </div>
+
+  <div class="pt-5">
+    <h3 id="congrats" class="text-center">Pas un pro du bricolage? Prenez rendez-vous avec un spécialiste à deux pas de chez vous !</h3>
+    <%= link_to "Je veux un vélo tout neuf !", shops_path, class: "btn btn-warning text-white col-6 mx-auto d-grid gap-2" %>
+  </div>
 </div>

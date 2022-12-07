@@ -1,23 +1,61 @@
-<div class="container pt-4"></div>
 <div class="bg-image">
-<h1 class="title-chain pt-4">L'état de votre Chaîne:</h1></div>
-<div class="progress" style="width: 80%">
-  <div class="progress-bar progress-bar-striped bg-warning" role="progressbar" aria-label="Warning striped example" style="width: <%=@display_note%>%;" aria-valuenow="75" aria-valuemin="0" aria-valuemax="100"></div>
+  <h1 class="title-chain pt-4">⛓ Chaîne - Réparations :</h1>
 </div>
-<div class= "note" style="margin: 10px 50px 20px 10px">
-  <p><%= @display_note.integer? ? @display_note : @display_note.truncate()%> / 100</p>
+
+<div class="top-navigation-btn">
+  <%= link_to "◀︎ Retour", results_bike_path(@bike), class: "btn btn-warning text-white" %>
+  <%= link_to "Profil ▶︎", profile_path, class: "btn btn-warning text-white d-none" %>
 </div>
-<div class="container pt-3 text-center">
-  <div class="container pt-5"></div>
-    <div class="cards-chain d-flex justify-content-around">
+
+<div class="container pt-4 text-center">
+  <% if @display_note >= 60 %>
+
+      <div style="width: 80%; margin: 0 auto;">
+        <h3>Note d'état : <%= @display_note.integer? ? @display_note : @display_note.truncate()%> / 100</h3>
+        <h3>Votre transmission est en bon état. Vous pouvez rouler avec, à condition de l'entretenir régulièrement en suivant nos conseils !</h3>
+      </div>
+
+      <div class="progress" style="width: 80%">
+        <div class="progress-bar progress-bar-striped bg-success" role="progressbar" aria-label="Warning striped example" style="width: <%=@display_note%>%;" aria-valuenow="75" aria-valuemin="0" aria-valuemax="100">
+        </div>
+      </div>
+
+  <% elsif @display_note >= 30 %>
+
+      <div style="width: 80%; margin: 0 auto;">
+        <h3>Note d'état : <%= @display_note.integer? ? @display_note : @display_note.truncate()%> / 100</h3>
+        <h3>Votre transmission a besoin d'un peu d'entretien, et devrait continuer à rouler encore longtemps ! Suivez notre guide d'entretien ci-dessous.</h3>
+      </div>
+
+      <div class="progress" style="width: 80%">
+        <div class="progress-bar progress-bar-striped bg-warning" role="progressbar" aria-label="Warning striped example" style="width: <%=@display_note%>%;" aria-valuenow="75" aria-valuemin="0" aria-valuemax="100">
+        </div>
+      </div>
+
+  <% else %>
+
+      <div style="width: 80%; margin: 0 auto;">
+        <h3>Note d'état : <%= @display_note.integer? ? @display_note : @display_note.truncate()%> / 100</h3>
+        <h3>Votre transmission est en mauvais état. Nous vous proposons plusieurs réparations et changements simples ci-dessous afin de pouvoir rouler à nouveau.</h3>
+      </div>
+
+      <div class="progress" style="width: 80%">
+        <div class="progress-bar progress-bar-striped bg-danger" role="progressbar" aria-label="Warning striped example" style="width: <%=@display_note%>%;" aria-valuenow="75" aria-valuemin="0" aria-valuemax="100">
+        </div>
+      </div>
+
+  <% end %>
+
+
+  <div class="cards-chain d-flex justify-content-around">
     <% @diag_values.each do |problem| %>
-      <% if problem.is_a? String  || problem %>
+      <% if problem.is_a? String || problem %>
         <div class="card" style="width: 18rem;">
           <div class="card-body-chain pb-2">
             <p class="card-text" style="padding: 15px;"><%= problem %></p>
             <%# <a href="#" class="btn btn-primary">Regarder un tuto</a> %>
-            <%= link_to "Regarder tuto", bike_chain_tutoriel_path(@bike, @chain), class: "btn btn-primary"%>
           </div>
+            <%= link_to "Tutoriel", bike_chain_tutoriel_path(@bike, @chain), class: "btn btn-warning text-white"%>
         </div>
       <%end%>
     <%end%>

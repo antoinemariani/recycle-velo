@@ -1,38 +1,110 @@
-<div class="container">
-  <div class="bikes-banner">
+<div class="container" style="margin-top:100px;">
+  <%= render "diag-progress", bike: Bike.new %>
 
-    <div class="bike-form">
-      <h3> Ajoute un nouveau vélo à diagnostiquer : </h3>
-      <%= simple_form_for @bike do |f| %>
-      <%= f.input :name, label: "Nom de ton vélo (celui que tu souhaites, pour le retrouver plus tard)", input_html: {class: "bg-white"} %>
-      <%= f.input :model, label: "Modèle du vélo (si tu le connais)", input_html: {class: "bg-white"} %>
-      <%= f.input :brand, label: "Marque du vélo (si visible)", input_html: {class: "bg-white"} %>
-      <%= f.input :photo, as: :file, input_html: {class: "bg-white"}, label: "Une photo de ton vélo pour le retrouver facilement" %>
-      <%= f.submit "Ajouter", class: "btn btn-warning text-white rounded" %>
-      <% end %>
-      <br>
+  <div class="top-navigation-btn" style="align-items:center;">
+        <%= link_to "◀︎ Profil", profile_path, class: "btn btn-warning text-white" %>
+        <%= link_to "Profil ▶︎", profile_path, class: "btn btn-success text-white d-none" %>
+  </div>
+
+
+  <div class="accordion accordion-flush" id="accordionBikes">
+    <div class="accordion-item">
+      <h2 class="accordion-header" id="headingOne">
+        <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
+          Nouveau vélo
+        </button>
+      </h2>
+      <div id="collapseOne" class="accordion-collapse collapse show" aria-labelledby="headingOne" data-bs-parent="#accordionBikes">
+        <div class="accordion-body">
+          <h3> Ajoute un nouveau vélo à diagnostiquer : </h3>
+          <%= simple_form_for @bike do |f| %>
+          <%= f.input :name, label: "Nom de ton vélo (celui que tu souhaites, pour le retrouver plus tard)", input_html: {class: "bg-white"} %>
+          <%= f.input :model, label: "Modèle du vélo (si tu le connais)", input_html: {class: "bg-white"} %>
+          <%= f.input :brand, label: "Marque du vélo (si visible)", input_html: {class: "bg-white"} %>
+          <%= f.input :photo, as: :file, input_html: {class: "bg-white"}, label: "Une photo de ton vélo pour le retrouver facilement" %>
+          <%= f.submit "Ajouter", class: "btn btn-warning text-white rounded" %>
+          <% end %>
+        </div>
+      </div>
     </div>
-
-    <div class="bike-list">
-      <h3> Ou bien choisis un vélo parmi ceux que tu as déjà : </h3>
-        <% @bikes.each do |bike| %>
-            <%= simple_form_for bike, method: "get" do |f| %>
-              <div class="card-product card-border">
-                <% if bike.photo.attached? %>
-                  <%= cl_image_tag bike.photo.key, class: "card-photo" %>
-                <% else %>
-                  <%= image_tag "avatar-default.jpg" %>
-                <% end %>
-                <div class="card-product-infos">
-                  <h2><%= bike.name  %></h2>
-                  <p><%= bike.brand %> - <em><%= bike.model %></em></p>
+    <div class="accordion-item">
+      <h2 class="accordion-header" id="headingTwo">
+        <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
+          Choisir un vélo de ma collection
+        </button>
+      </h2>
+      <div id="collapseTwo" class="accordion-collapse collapse" aria-labelledby="headingTwo" data-bs-parent="#accordionBikes">
+        <div class="accordion-body">
+          <% @bikes.reverse.each do |bike| %>
+              <%= simple_form_for bike, method: "get" do |f| %>
+                <div class="card-product" style="box-shadow: none;">
+                  <% if bike.photo.attached? %>
+                    <%= cl_image_tag bike.photo.key, class: "card-photo" %>
+                  <% else %>
+                    <%= image_tag "avatar-default.jpg" %>
+                  <% end %>
+                  <div class="card-product-infos">
+                    <h2><%= bike.name  %></h2>
+                    <p><%= bike.brand %> - <em><%= bike.model %></em></p>
+                  </div>
+                  <div class="card-product-infos">
+                    <p>Chaîne : <%= !ChainsDiag.where(chain: bike.chains.last).last.nil? ? "#{ChainsDiag.where(chain: bike.chains.last).last.note}/100" : "pas de note" %></p>
+                    <p>Roues & Pneus : <%= !WheelsDiag.where(wheel: bike.wheels.last).last.nil? ? "#{WheelsDiag.where(wheel: bike.wheels.last).last.note}/100" : "pas de note" %></p>
+                    <p>Freinage : <%= !BrakesDiag.where(brake: bike.brakes.last).last.nil? ? "#{BrakesDiag.where(brake: bike.brakes.last).last.note}/100" : "pas de note" %></p>
+                  </div>
+                    <%= f.submit "Diagnostiquer", class: "btn btn-warning text-white roundedme-2" %>
                 </div>
-                  <%= f.submit "Diagnostiquer", class: "btn btn-warning text-white roundedme-2" %>
-              </div>
-              <br>
-            <% end %>
-        <% end %>
+                <br>
+              <% end %>
+          <% end %>
+        </div>
+      </div>
     </div>
-
   </div>
 </div>
+
+<%# <div class="bikes-banner">
+  <%# <div class="bike-form">
+    <h3> Ajoute un nouveau vélo à diagnostiquer : </h3>
+    <%= simple_form_for @bike do |f| %>
+    <%# <%= f.input :name, label: "Nom de ton vélo (celui que tu souhaites, pour le retrouver plus tard)", input_html: {class: "bg-white"} %>
+    <%# <%= f.input :model, label: "Modèle du vélo (si tu le connais)", input_html: {class: "bg-white"} %>
+    <%# <%= f.input :brand, label: "Marque du vélo (si visible)", input_html: {class: "bg-white"} %>
+    <%# <%= f.input :photo, as: :file, input_html: {class: "bg-white"}, label: "Une photo de ton vélo pour le retrouver facilement" %>
+    <%# <%= f.submit "Ajouter", class: "btn btn-warning text-white rounded" %>
+    <%# <% end %>
+    <%# <br>
+  </div>
+
+  <div class="bike-list">
+    <h3> Ou bien choisis un vélo parmi ceux que tu as déjà : </h3>
+      <% @bikes.reverse.each do |bike| %>
+          <%# <%= simple_form_for bike, method: "get" do |f| %>
+            <%#<div class="card-product card-border">
+              <% if bike.photo.attached? %>
+                <%#<%= cl_image_tag bike.photo.key, class: "card-photo" %>
+              <%#<% else %>
+                <%#<%= image_tag "avatar-default.jpg" %>
+              <%#<% end %>
+              <%#<div class="card-product-infos">
+                <%#<h2><%= bike.name  %>
+                <%#</h2>
+                <%#<p><%= bike.brand %>
+                <%#<em><%= bike.model %>
+                <%#</em></p>
+              <%# </div>
+              <%#<div class="card-product-infos">
+                <%# <p>Chaîne : <%= bike.chains.exists? ? "#{bike.chains.last.note}/100" : "pas de note" %>
+                <%#</p>
+                <%# <p>Roues & Pneus : <%= bike.wheels.exists? ? "#{bike.chains.last.note}/100" : "pas de note" %>
+                <%#</p>
+                <%# <p>Freinage : <%= bike.brakes.exists? ? "#{bike.chains.last.note}/100" : "pas de note" %>
+                <%#</p>
+              </div>
+                <%= f.submit "Diagnostiquer", class: "btn btn-warning text-white roundedme-2" %>
+            <%#</div>
+            <br>
+          <% end %>
+      <%#<% end %>
+  <%#</div>
+</div> %>
