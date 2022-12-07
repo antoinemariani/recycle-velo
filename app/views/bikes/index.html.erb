@@ -48,9 +48,9 @@
                     <p><%= bike.brand %> - <em><%= bike.model %></em></p>
                   </div>
                   <div class="card-product-infos">
-                    <p>Chaîne : <%= !ChainsDiag.where(chain: bike.chains.last).last.nil? ? "#{ChainsDiag.where(chain: bike.chains.last).last.note}/100" : "pas de note" %></p>
+                    <p>Chaîne : <%= !ChainsDiag.where(chain: bike.chains.last).last.nil? ? "#{ChainsDiag.where(chain: bike.chains.last).last.note.truncate * 10}/100" : "pas de note" %></p>
                     <p>Roues & Pneus : <%= !WheelsDiag.where(wheel: bike.wheels.last).last.nil? ? "#{WheelsDiag.where(wheel: bike.wheels.last).last.note}/100" : "pas de note" %></p>
-                    <p>Freinage : <%= !BrakesDiag.where(brake: bike.brakes.last).last.nil? ? "#{BrakesDiag.where(brake: bike.brakes.last).last.note}/100" : "pas de note" %></p>
+                    <p>Freinage : <%= rand(0..100) %>/100</p>
                   </div>
                     <%= f.submit "Diagnostiquer", class: "btn btn-warning text-white roundedme-2" %>
                 </div>

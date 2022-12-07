@@ -10,7 +10,7 @@ class ChainsController < ApplicationController
     }
 
     MIDDLE_STATE = {
-      state: "Effectuez un dégraissage et nettoyage approfondi de votre chaîne et des éléments de dérailleur. Votre chaîne peut encore rouler tant qu’elle est propre et ne présente pas de traces d’usure visibles",
+      state: "Effectuez un dégraissage et nettoyage approfondi de votre chaîne et des éléments de dérailleur. Votre chaîne peut encore rouler tant qu’elle est propre et ne présente pas de traces d’usure visibles.",
       broken: "Vous devez changer votre chaîne pour pouvoir utiliser votre vélo. Pas d’inquiétude, c’est une opération simple et peu coûteuse !",
       rust: "Utilisez un produit anti-rouille pour remettre la chaîne en état. Si la rouille ne part pas ou qu’elle a causé des dégâts visibles, envisagez un remplacement de la chaîne.",
       chainlink: "Vous avez un maillon cassé : suivez nos conseils pour le changer et remettre votre chaîne en bon état."
@@ -103,7 +103,7 @@ class ChainsController < ApplicationController
       # return "Votre chaîne est en bon état. Nettoyez et graissez-là une fois par mois."
     when "moyen" || "medium"
       return MIDDLE_STATE[:state]
-      # return "Effectuez un dégraissage et nettoyage approfondi de votre chaîne et des éléments de dérailleur. Votre chaîne peut encore rouler tant qu’elle est propre et ne présente pas de traces d’usure visibles"
+      # return "Effectuez un dégraissage et nettoyage approfondi de votre chaîne et des éléments de dérailleur. Votre chaîne peut encore rouler tant qu’elle est propre et ne présente pas de traces d’usure visibles."
     when "mauvais" || "bad"
       return BAD_STATE[:state]
       # return "Considérez le remplacement de votre chaîne, ou la consultation d’un spécialiste pour vous aider à réparer vos pièces."
