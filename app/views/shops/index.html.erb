@@ -6,18 +6,22 @@
         <ul class="shop-list">
           <% @shops.each do |shop| %>
           <div class="shop-card shop-card-border">
-            <h3><%= shop.name %></h3>
+              <%= image_tag "shop-photo-test.jpeg" %>
+            <div class="shop-infos">
+              <h3><%= shop.name %></h3>
             <p><%= shop.address %></p>
+            <button>Prendre Rendez-vous</button>
+            </div>
           </div>
           <% end %>
         </ul>
       </div>
 
-      <div
-        id="map"
-        style="min-height: 100%;"
-        data-markers="<%= @markers.to_json %>"
-      >
+      <div id="wrapper-sticky">
+        <div
+          id="map" data-markers="<%= @markers.to_json %>">
+        </div>
       </div>
+
   </div>
 <%# </div> %>
