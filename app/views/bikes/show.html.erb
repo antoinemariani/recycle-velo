@@ -9,7 +9,7 @@
         <div class="top-navigation-btn" style="align-items:center;">
           <%= link_to "◀︎ Retour", bikes_path, class: "btn btn-warning text-white" %>
           <%= render "bike-infos", bike: @bike %>
-          <%= link_to "Obtenir mon bilan ▶︎", profile_path(current_user), class: "btn btn-success text-white" %>
+          <%= link_to "Obtenir mon bilan ▶︎", results_bike_path(@bike), class: "btn btn-success text-white" %>
         </div>
 
       <%= render "bike-schema" %>

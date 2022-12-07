@@ -20,7 +20,7 @@ class BikesController < ApplicationController
     @bike.user = current_user
     @bike.save!
     flash[:success] = "Votre nouveau vélo a bien été ajouté !"
-    redirect_to bikes_path
+    redirect_to bike_path(@bike)
   end
 
   def edit; end
