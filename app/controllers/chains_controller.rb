@@ -31,7 +31,7 @@ class ChainsController < ApplicationController
     # afficher le résultat du diagnostique
     @diag = ChainsDiag.where(chain: @chain)[0]
     @diag_values = @diag.values_at(:state,:broken, :rust, :derail, :chainlink, :note)
-    end
+    @display_note = @diag_values.last / 10 * 100
   end
 
   def edit; end
@@ -169,7 +169,7 @@ class ChainsController < ApplicationController
 
   def create_note(diag)
     # Attribuer une note à l'état du vélo
-    note = 1
+    note = 5
     iterator = {state: diag.state, broken: diag.broken, rust: diag.rust, derail: diag.derail, chainlink: diag.chainlink}
     iterator.each_pair do |key, value|
       if GOOD_STATE.value? value
