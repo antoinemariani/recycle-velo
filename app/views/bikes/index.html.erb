@@ -16,13 +16,13 @@
       </h2>
       <div id="collapseOne" class="accordion-collapse collapse show" aria-labelledby="headingOne" data-bs-parent="#accordionBikes">
         <div class="accordion-body">
-          <h3> Ajoute un nouveau vélo à diagnostiquer : </h3>
+          <h3> Nouveau vélo : </h3>
           <%= simple_form_for @bike do |f| %>
           <%= f.input :name, label: "Nom de ton vélo (celui que tu souhaites, pour le retrouver plus tard)", input_html: {class: "bg-white"} %>
           <%= f.input :model, label: "Modèle du vélo (si tu le connais)", input_html: {class: "bg-white"} %>
           <%= f.input :brand, label: "Marque du vélo (si visible)", input_html: {class: "bg-white"} %>
           <%= f.input :photo, as: :file, input_html: {class: "bg-white"}, label: "Une photo de ton vélo pour le retrouver facilement" %>
-          <%= f.submit "Ajouter", class: "btn btn-warning text-white rounded" %>
+          <%= f.submit "Diagnostiquer", class: "btn btn-warning text-white rounded" %>
           <% end %>
         </div>
       </div>
