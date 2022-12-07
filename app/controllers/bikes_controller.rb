@@ -7,12 +7,12 @@ class BikesController < ApplicationController
   end
 
   def show
-    @chain = Chain.new
-    @chains = Chain.all
-    @wheel = Wheel.new
-    @wheels = Wheel.all
-    @brake = Brake.new
-    @brakes = Brake.all
+    @chain = Chain.new(bike: @bike)
+    @chains = Chain.where(bike: @bike)
+    @wheel = Wheel.new(bike: @bike)
+    @wheels = Wheel.where(bike: @bike)
+    @brake = Brake.new(bike: @bike)
+    @brakes = Brake.where(bike: @bike)
   end
 
   def create
