@@ -22,5 +22,8 @@ Rails.application.routes.draw do
       get :results
     end
   end
-  resources :shops
+  resources :shops do
+    resources :appointments, only: %i[create]
+  end
+  resources :appointments, only: %i[show index update destroy]
 end

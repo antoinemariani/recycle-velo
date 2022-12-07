@@ -18,6 +18,7 @@ class WheelsController < ApplicationController
     if @wheel.save!
       create_wheels_diag(@wheel)
       if @wheels_diag.save!
+        flash[:notice] = "Votre bilan a bien été sauvegardé."
         redirect_to bike_path(@bike)
       else
         render :new, status: :unprocessable_entity
@@ -29,6 +30,7 @@ class WheelsController < ApplicationController
 
   def update
     @wheel.update!(wheel_params)
+    flash[:notice] = "Votre bilan a bien été sauvegardé."
     redirect_to bike_path(@bike)
   end
 

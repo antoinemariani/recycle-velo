@@ -1,0 +1,29 @@
+<div class="container" style="padding-top:100px;">
+
+  <h3>Mes rendez-vous à venir :</h3>
+    <% @appointments.each do |rdv| %>
+      <% if rdv.start_time > DateTime.now %>
+        <div class="card">
+          <div class="card-infos">
+            <h3>Vélo : <%= rdv.bike.name %></h3>
+            <p>Date : <%= rdv.start_time %></p>
+            <p>Atelier : <%= rdv.shop.name %>, <%= rdv.shop.address %></p>
+          </div>
+        </div>
+      <% end %>
+    <% end %>
+
+  <h3>Mes rendez-vous passés :</h3>
+  <% @appointments.each do |rdv| %>
+    <% if rdv.start_time < DateTime.now %>
+      <div class="card">
+        <div class="card-infos">
+            <h3>Vélo : <%= rdv.bike.name %></h3>
+            <p>Date : <%= rdv.start_time %></p>
+            <p>Atelier : <%= rdv.shop.name %>, <%= rdv.shop.address %></p>
+        </div>
+      </div>
+    <% end %>
+  <% end %>
+
+</div>
