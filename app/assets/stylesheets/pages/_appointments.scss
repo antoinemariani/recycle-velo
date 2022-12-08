@@ -1,0 +1,65 @@
+
+.container-appointments {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+// .container-appointments h3 {
+//   font-size: 3rem;
+// }
+
+
+.cards-appointments {
+  max-width: 80%;
+  // background: white;
+  // box-shadow: rgba(50, 50, 93, 0.25) 0px 2px 5px -1px, rgba(0, 0, 0, 0.3) 0px 1px 3px -1px;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-evenly;
+  align-items: center;
+  flex-wrap: wrap;
+  padding-top: 2vh;
+}
+
+.card-appointment {
+  max-width: 25%;
+  background: white;
+  box-shadow: rgba(50, 50, 93, 0.25) 0px 2px 5px -1px, rgba(0, 0, 0, 0.3) 0px 1px 3px -1px;
+  padding: 3vh 1vw;
+  margin: 3vh 1vw;
+  border-radius: 16px;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+}
+
+.card-appointment-img {
+  height: 2vh;
+  img {
+    min-width: 5vw;
+    min-height: 5vw;
+    max-width: 5vw;
+    max-height: 5vw;
+    border-radius: 50%;
+    object-fit: cover;
+    bottom: 25vh;
+    left: 14.5vw;
+    position: relative;
+  }
+}
+
+
+
+.card-appointment-infos {
+  // h3 {
+  //   border-bottom: 1px solid grey;
+  // }
+}
+
+.spacer-appointment {
+  max-width: 80%;
+  border: 1px solid grey;
+}
