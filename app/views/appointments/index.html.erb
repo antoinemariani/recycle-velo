@@ -3,8 +3,9 @@
   <h3>Mes rendez-vous à venir :</h3>
     <% @appointments.each do |rdv| %>
       <% if rdv.start_time > DateTime.now %>
-        <div class="card">
-          <div class="card-infos">
+        <div class="card-product" style="margin:16px 0px;">
+          <%# <%= cl_image_tag rdv.bike.photo.key %>
+          <div class="card-product-infos">
             <h3>Vélo : <%= rdv.bike.name %></h3>
             <p>Date : <%= rdv.start_time %></p>
             <p>Atelier : <%= rdv.shop.name %>, <%= rdv.shop.address %></p>
@@ -16,11 +17,12 @@
   <h3>Mes rendez-vous passés :</h3>
   <% @appointments.each do |rdv| %>
     <% if rdv.start_time < DateTime.now %>
-      <div class="card">
-        <div class="card-infos">
-            <h3>Vélo : <%= rdv.bike.name %></h3>
-            <p>Date : <%= rdv.start_time %></p>
-            <p>Atelier : <%= rdv.shop.name %>, <%= rdv.shop.address %></p>
+      <div class="card-product" style="margin:16px 0px;">
+        <%# <%= cl_image_tag rdv.shop.photo.key %>
+        <div class="card-product-infos">
+          <h3>Vélo : <%= rdv.bike.name %></h3>
+          <p>Date : <%= rdv.start_time %></p>
+          <p>Atelier : <%= rdv.shop.name %>, <%= rdv.shop.address %></p>
         </div>
       </div>
     <% end %>
