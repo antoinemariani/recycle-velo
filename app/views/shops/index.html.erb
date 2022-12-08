@@ -10,7 +10,27 @@
             <div class="shop-infos">
               <h3><%= shop.name %></h3>
             <p><%= shop.address %></p>
-            <button>Prendre Rendez-vous</button>
+            <!-- Button trigger modal -->
+            <button type="button" data-bs-toggle="modal" data-bs-target="#exampleModal">Prendre Rendez-vous</button>
+            <!-- Modal -->
+            <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+              <div class="modal-dialog">
+                <div class="modal-content">
+                  <div class="modal-header">
+                    <h1 class="modal-title fs-5" id="exampleModalLabel">Rendez-vous : </h1>
+                  </div>
+                  <div class="modal-body">
+                    Test
+                    Lorem ipsum, dolor sit amet consectetur adipisicing elit. Similique maxime excepturi eius dolore sit, nobis ad itaque minima voluptas reprehenderit quas molestias exercitationem dolorum quis, culpa nesciunt. Soluta, nostrum inventore.
+                  </div>
+                  <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Fermer</button>
+                    <%# <button type="button" class="btn btn-primary">Enregistrer</button> %>
+                  </div>
+                </div>
+              </div>
+            </div>
+
             </div>
           </div>
           <% end %>
