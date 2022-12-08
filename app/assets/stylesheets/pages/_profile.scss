@@ -69,6 +69,7 @@
   justify-content: space-between;
   position: relative;
   margin: 35px 0;
+  padding-left: 0px;
 }
 .header-wrapper .cols-container .left-col .about ul {
   list-style-type: none;
@@ -181,11 +182,6 @@
   text-decoration: none;
 }
 
-// .header-wrapper .cols-container .right-col nav ul li:nth-child(1) span {
-//   color: #1d1d1d;
-//   font-weight: 600;
-// }
-
 .header-wrapper .cols-container .right-col nav button:hover {
   opacity: 0.8;
 }
@@ -199,6 +195,41 @@
 
 .card-bike{
   justify-items: center;
+}
+.card-bike button {
+  border: none;
+  width: 100%;
+  color: white;
+  font-weight: bold;
+  background: $orange;
+  border-radius: 5px;
+  padding: 1vh 2vw;
+  // box-shadow: rgba(50, 50, 93, 0.25) 0px 2px 5px -1px, rgba(0, 0, 0, 0.3) 0px 1px 3px -1px;
+}
+.card-bike button:hover {
+  opacity: 0.8;
+}
+
+.card-bike-navs-infos{
+  height: 45%;
+  margin: 1vh 1vw;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+.card-bike-navs-bikes{
+  height: 30%;
+  margin: 1vh 1vw;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+.card-bike-navs-recyclers{
+  height: 25%;
+  margin: 1vh 0vw;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
 }
 
 .header-wrapper .cols-container .right-col .photos .card-bike img {
@@ -250,7 +281,7 @@
   }
 
   .header-wrapper .cols-container .right-col .photos {
-    height: 365px;
+    height: 68vh;
     overflow: auto;
     padding: 0 0 30px;
   }
