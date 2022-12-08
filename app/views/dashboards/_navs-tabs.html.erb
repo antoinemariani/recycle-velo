@@ -11,41 +11,50 @@
       <div class="tabs-content" data-navtabs-target="bikes">
         <div class="photos">
           <% current_user.bikes.each do |b| %>
+            <div class="card-bike">
+              <button><%= b.name %></button>
+              <div class="card-bike-navs-bikes">
+                <p>Modèle : <%= b.model %></p>
+                <p>Marque : <%= b.brand %></p>
+                <p>Crée le : <%= b.created_at.to_date %></p>
+                <p>Dernier changement le : <%= b.updated_at.to_date %></p>
+              </div>
             <% if b.photo.key %>
-              <div class="card-bike">
-                <h5><%= b.name %></h5>
                 <%= cl_image_tag b.photo.key%>
-              </div>
             <% else %>
-              <div class="card-bike">
-                <h5><%= b.name %></h5>
                 <%= image_tag "https://images.unsplash.com/photo-1485965120184-e220f721d03e?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1470&q=80"%>
-              </div>
             <% end %>
+            </div>
           <% end %>
         </div>
       </div>
       <div class="tabs-content d-none" data-navtabs-target="shops">
         <div class="photos">
           <div class="card-bike">
-            <h5>Culture Vélo</h5>
-            <p>CD2 Rue de la Bastidonne, 13400 AUBAGNE</p>
-            <p>Tél. 04 42 70 84 72</p>
-            <p>Email: 13marseille-est@culturevelo.com</p>
+            <div class="card-bike-navs-infos">
+              <h5>Culture Vélo</h5>
+              <p>CD2 Rue de la Bastidonne, 13400 AUBAGNE</p>
+              <p>Tél. 04 42 70 84 72</p>
+              <p>Email: 13marseille-est@culturevelo.com</p>
+            </div>
             <img src="https://www.culturevelo.com/IMG/jpg/dsc_0360-2.jpg" alt="Culture Vélo">
           </div>
           <div class="card-bike">
-            <h5>Vélo Station Marseille</h5>
-            <p>56 Av. Robert Schuman, 13002 Marseille</p>
-            <p>Tél. 04 91 89 38 62</p>
-            <p>https://velo-electrique-marseille.fr/</p>
+            <div class="card-bike-navs-infos">
+              <h5>Vélo Station Marseille</h5>
+              <p>56 Av. Robert Schuman, 13002 Marseille</p>
+              <p>Tél. 04 91 89 38 62</p>
+              <p>https://velo-electrique-marseille.fr/</p>
+            </div>
             <img src="https://static.cyclelab.eu/magasins/vs/VS131/magasin_copyright_ghislain_dubois.jpg" alt="Vélo station">
           </div>
           <div class="card-bike">
-            <h5>l'Etape Vélo</h5>
-            <p>50 Rue Perrin Solliers, 13006 Marseille</p>
-            <p>Tél. 06 18 16 46 12</p>
-            <p>https://etape-velo-reparation-marseille.fr/</p>
+            <div class="card-bike-navs-infos">
+              <h5>l'Etape Vélo</h5>
+              <p>50 Rue Perrin Solliers, 13006 Marseille</p>
+              <p>Tél. 06 18 16 46 12</p>
+              <p>https://etape-velo-reparation-marseille.fr/</p>
+            </div>
             <img src="https://www.cyclable.com/wp-content/uploads/2019/02/magasin-de-velos-lille.jpg" alt="Vélo">
           </div>
         </div>
@@ -53,20 +62,24 @@
       <div class="tabs-content d-none" data-navtabs-target="recyclers">
         <div class="photos">
           <div class="card-bike">
-            <div class="infos-profile-card">
+            <div class="card-bike-navs-recyclers">
               <h5>Gérome Gaillard</h5>
               <p>11 rue Auguste Blanqui, 13006 Marseille <br>Email: g.gaillard@gmail.com</p>
             </div>
             <img src="https://images.unsplash.com/photo-1628890920690-9e29d0019b9b?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=687&q=80" alt="profile picture">
           </div>
           <div class="card-bike">
-            <h5>Nicolas Fernand</h5>
-            <p>17 Rue Haxo, 13001 Marseille <br>Email: n.fernand@gmail.com</p>
+            <div class="card-bike-navs-recyclers">
+              <h5>Nicolas Fernand</h5>
+              <p>17 Rue Haxo, 13001 Marseille <br>Email: n.fernand@gmail.com</p>
+            </div>
             <img src="https://images.unsplash.com/photo-1629467057571-42d22d8f0cbd?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=698&q=80" alt="profile picture">
           </div>
           <div class="card-bike">
-            <h5>Lena Legendre</h5>
-            <p>23 Pl. Jean Jaurès, 13005 Marseille <br>Email: a.legrendre@gmail.com</p>
+            <div class="card-bike-navs-recyclers">
+              <h5>Lena Legendre</h5>
+              <p>23 Pl. Jean Jaurès, 13005 Marseille <br>Email: a.legrendre@gmail.com</p>
+            </div>
             <img src="https://images.unsplash.com/photo-1630883665215-dc90914c334b?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=687&q=80" alt="profile picture">
           </div>
         </div>

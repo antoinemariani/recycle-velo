@@ -11,6 +11,7 @@
   width: 100%;
   background: url(https://images.unsplash.com/photo-1562615193-cbeef074a501?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1538&q=80) no-repeat 50% 60% / cover;
   min-height: calc(110px + 18vh);
+  opacity: 1.2;
 }
 
 
@@ -19,6 +20,7 @@
   color: aliceblue;
   display: flex;
   justify-content: center;
+  box-shadow: rgba(0, 0, 0, 0.1) 0px 1px 3px 0px, rgba(0, 0, 0, 0.06) 0px 1px 2px 0px;
 }
 
 /* Profile 1ère row : Infos sur bike, daig, button */
@@ -35,7 +37,9 @@
   flex-direction: column;
   align-items: center;
 }
-
+.infos-container-tuto .buttons-tuto{
+  display: flex;
+}
 .infos-container-tuto button{
   background: $orange;
   border: none;
@@ -44,8 +48,15 @@
   cursor: pointer;
   margin : 0 5px;
 }
+.infos-container-tuto button:hover {
+  opacity: 0.8;
+}
 
 /* Profile 2ème row : navs tabs */
+
+.right-col-tuto li {
+  list-style-type: none;
+}
 .header-wrapper-tuto .cols-container-tuto .right-col-tuto{
   max-width: 72%;
   display: flex;
@@ -56,15 +67,15 @@
   margin-top: 32px;
 }
 
-.header-wrapper-tuto .cols-container-tuto h2 {
-  margin : 16px 0
-}
-.header-wrapper-tuto .cols-container-tuto .right-col-tuto h2 {
-  margin : 16px 0
+.right-col-tuto h2 {
+  margin : 16px 0;
+  font-size: 2.5rem;
 }
 
-
-.header-wrapper-tuto .cols-container-tuto .right-col-tuto nav {
+.right-col-tuto ul{
+  display: flex;
+}
+.right-col-tuto nav {
   display: flex;
   align-items: center;
   padding: 16px 0;
@@ -72,22 +83,21 @@
   flex-direction: row;
 }
 
-.header-wrapper-tuto .cols-container-tuto .right-col-tuto nav ul {
+.right-col-tuto nav ul {
   display: flex;
   gap: 30px;
   flex-direction: row;
   cursor: pointer;
-
 }
 
-.header-wrapper-tuto .cols-container-tuto .right-col-tuto nav ul li span {
+.right-col-tuto nav ul li span {
   text-transform: uppercase;
   color: grey;
   font-size: larger;
   border-bottom: 1px solid grey;
 }
 
-.header-wrapper-tuto .cols-container-tuto .right-col-tuto nav button {
+.right-col-tuto nav button {
   background: rgb(71, 71, 207);
   border: none;
   padding: 10px 25px;
@@ -97,15 +107,16 @@
   margin-left: 8%;
 }
 
-.header-wrapper-tuto .cols-container-tuto .right-col-tuto nav button a {
+.right-col-tuto nav button a {
   color: white;
+  text-decoration: none;
 }
 
-.header-wrapper-tuto .cols-container-tuto .right-col-tuto nav button:hover {
+.right-col-tuto nav button:hover {
   opacity: 0.8;
 }
 
-.header-wrapper-tuto .cols-container-tuto .right-col-tuto .photos-tuto {
+.right-col-tuto .photos-tuto {
   display: grid;
   grid-template-columns: repeat(auto-fill, minmax(190px, 1fr));
   gap: 20px;
@@ -121,20 +132,31 @@
 }
 
 
-.header-wrapper-tuto .cols-container-tuto .right-col-tuto .photos-tuto .card-tuto h5 {
+.right-col-tuto .photos-tuto .card-tuto h5 {
   // padding-top: 2%;
   text-align: center;
   font-weight: 400;
+  font-size: 3rem;
   // border: 1px solid #ccc;
 }
 
-.header-wrapper-tuto .cols-container-tuto .right-col-tuto .photos-tuto .card-tuto .infos-tuto {
+.right-col-tuto .photos-tuto .card-tuto .infos-tuto {
   height: 16vh;
+}
+
+.card-tuto-step {
+  display: grid;
+  grid-template-columns: 2fr 1fr;
+  border-top: 1px solid grey;
+  padding-top: 16px;
+}
+.card-tuto-step-infos {
+  margin-right: 2vw;
 }
 
 
 /* Navs-Tabs Select */
-.header-wrapper-tuto .cols-container-tuto .right-col-tuto nav ul li .tab-active {
+.right-col-tuto nav ul li .tab-active {
   color: #1d1d1d;
   font-weight: 600;
   border-bottom: 1px solid rgb(0, 0, 0);

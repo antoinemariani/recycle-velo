@@ -5,60 +5,57 @@
         <li><span data-action='click->navtabs#displayShop' data-navtabs-target="tab2">Étape 1</span></li>
         <li><span data-action='click->navtabs#displayRecycler' data-navtabs-target="tab3">Étape 2</span></li>
       </ul>
-      <button> <%= link_to "Réparation Terminée", bikes_path %></button>
+      <button> <%= link_to "Réparation Terminée", root_path %></button>
     </nav>
     <div class="tabs-boy">
       <div class="tabs-content" data-navtabs-target="bikes">
         <div class="photos">
           <div class="card-tuto">
-            <h5 style="text-align: center;">Comment réparer sa roue creuvée ? </h5>
-            <img src="https://images.unsplash.com/photo-1485965120184-e220f721d03e?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1470&q=80" style="max-width: 70vw; padding-left: 4vw;">
+            <h5 style="text-align: center; font-size: 2rem;">Comment réparer sa chaine ? </h5>
+            <div style="max-width: 70vw; padding: 3vw; margin: auto;">
+              <iframe width="860" height="515" src="https://www.youtube.com/embed/w-kwFPXXfqM" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+            </div>
           </div>
         </div>
       </div>
       <div class="tabs-content d-none" data-navtabs-target="shops">
         <div class="photos">
           <div class="card-tuto">
-            <h5>1ère Etape</h5>
-            <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Nostrum maiores dolorem repellat magnam dicta sed?</p>
-            <div style="display: grid; grid-template-columns: 2fr 1fr; border-top: 1px solid grey; padding-top: 16px;">
-              <div>
-                <li style="margin: 5vh 0;">Lorem ipsum dolor sit, amet consectetur adipisicing elit. Natus, nulla.</li>
-                <li style="margin: 5vh 0;">Lorem ipsum dolor sit, amet consectetur adipisicing elit. Natus, nulla.</li>
-                <li style="margin: 5vh 0;">Lorem ipsum dolor sit, amet consectetur adipisicing elit. Natus, nulla.</li>
+            <h5>1ère Étape</h5>
+            <%if @diag[0] != nil %>
+              <p><%= @diag[0] %></p>
+            <% end %>
+            <%if @diag[1] != nil %>
+              <p><%= @diag[1] %></p>
+            <% end %>
+            <div class="card-tuto-step">
+              <div class="card-tuto-step-infos">
+                <li style="margin: 5vh 0;">Un bon nettoyage aura un effet immédiat : toute la saleté accumulée en roulant créée des frictions superflues qui entraînent une déperdition d'énergie importante (jusqu'à 15Watts).</li>
+                <li style="margin: 5vh 0;">Cette déperdition d'énergie a des grandes conséquences sur les performances des cyclistes quelque soit leur niveau ou leur usage.</li>
+                <li style="margin: 5vh 0;">Non seulement, vous gagnerez en efficacité pour pédaler mais vous améliorez également la durée de vie de votre vélo.</li>
               </div>
               <div>
-                <img src="https://contents.mediadecathlon.com/p2092558/k$8d60d54dadd2dd2934615dfdf5f233ff/1180x0/4224pt3168/8448xcr5376/default.jpg?format=auto&quality=80" style= "object-fit: cover; max-width: 100%;">
-              </div>
-            </div>
-            <div style="display: grid; grid-template-columns: 2fr 1fr; border-top: 1px solid grey; padding-top: 16px;">
-              <div>
-                <li style="margin: 5vh 0;">Lorem ipsum dolor sit, amet consectetur adipisicing elit. Natus, nulla.</li>
-                <li style="margin: 5vh 0;">Lorem ipsum dolor sit, amet consectetur adipisicing elit. Natus, nulla.</li>
-                <li style="margin: 5vh 0;">Lorem ipsum dolor sit, amet consectetur adipisicing elit. Natus, nulla.</li>
-              </div>
-              <div>
-                <img src="https://contents.mediadecathlon.com/p2092558/k$8d60d54dadd2dd2934615dfdf5f233ff/1180x0/4224pt3168/8448xcr5376/default.jpg?format=auto&quality=80" style= "object-fit: cover; max-width: 100%;">
+                <img src="https://www.velo-cyclisme.com/wp-content/uploads/2015/12/pi%C3%A8ce-d%C3%A9railleur-v%C3%A9lo.png" style= "object-fit: cover; max-width: 100%; margin-top: 2vh;">
               </div>
             </div>
-            <div style="display: grid; grid-template-columns: 2fr 1fr; border-top: 1px solid grey; padding-top: 16px;">
-              <div>
-                <li style="margin: 5vh 0;">Lorem ipsum dolor sit, amet consectetur adipisicing elit. Natus, nulla.</li>
-                <li style="margin: 5vh 0;">Lorem ipsum dolor sit, amet consectetur adipisicing elit. Natus, nulla.</li>
-                <li style="margin: 5vh 0;">Lorem ipsum dolor sit, amet consectetur adipisicing elit. Natus, nulla.</li>
+            <div class="card-tuto-step">
+              <div class="card-tuto-step-infos">
+                <li style="margin: 5vh 0;">Lors du lavage de votre chaîne profitez-en pour nettoyer l'ensemble de la transmission : dérailleurs avant et arrière, cassette et plateaux.</li>
+                <li style="margin: 5vh 0;">Pour que la lubrification soit performante, la chaîne doit être propre, sèche et totalement dégraissée.</li>
+                <li style="margin: 5vh 0;">Pour un lavage rapide de votre chaîne, vous pourrez directement l'effectuer sur votre vélo, sans aucun démontage.</li>
               </div>
               <div>
-                <img src="https://contents.mediadecathlon.com/p2092558/k$8d60d54dadd2dd2934615dfdf5f233ff/1180x0/4224pt3168/8448xcr5376/default.jpg?format=auto&quality=80" style= "object-fit: cover; max-width: 100%;">
+                <img src="https://contents.mediadecathlon.com/p2092541/k$5552ebe915eeb02e93d0be42655d651a/1180x0/4224pt3168/8448xcr6144/default.jpg?format=auto&quality=80" style= "object-fit: cover; max-width: 100%; margin-top: 2vh;">
               </div>
             </div>
-            <div style="display: grid; grid-template-columns: 2fr 1fr; border-top: 1px solid grey; padding-top: 16px;">
-              <div>
-                <li style="margin: 5vh 0;">Lorem ipsum dolor sit, amet consectetur adipisicing elit. Natus, nulla.</li>
-                <li style="margin: 5vh 0;">Lorem ipsum dolor sit, amet consectetur adipisicing elit. Natus, nulla.</li>
-                <li style="margin: 5vh 0;">Lorem ipsum dolor sit, amet consectetur adipisicing elit. Natus, nulla.</li>
+            <div class="card-tuto-step">
+              <div class="card-tuto-step-infos">
+                <li style="margin: 5vh 0;">Utilisez un produit dégraissant, de l'huile de coude ou du liquide vaisselle pour enlever les saletés et le cambouis puis frottez à l'aide d'une brosse.</li>
+                <li style="margin: 5vh 0;">Ensuite, rincez et séchez votre chaîne avant de la lubrifier. Vous pouvez aussi utiliser un lave-chaîne, qui facilitera l'opération.</li>
+                <li style="margin: 5vh 0;">Pensez tout de même à effectuer un lavage complet de votre chaîne régulièrement : le démontage de la chaîne est conseillé et vous pourrez également nettoyer l'ensemble de votre transmission de chaîne. Découvrez toutes les étapes pour un bon nettoyage, dans l'onglet "étape 2".</li>
               </div>
               <div>
-                <img src="https://contents.mediadecathlon.com/p2092558/k$8d60d54dadd2dd2934615dfdf5f233ff/1180x0/4224pt3168/8448xcr5376/default.jpg?format=auto&quality=80" style= "object-fit: cover; max-width: 100%;">
+                <img src="https://cdn.shopify.com/s/files/1/0017/1065/3506/products/cover_8085c7ce-09f6-45c5-8afa-c73612bb0b89_grande.jpg?v=1537234995" style= "object-fit: cover; max-width: 100%; margin-top: 2vh;">
               </div>
             </div>
           </div>
@@ -68,46 +65,44 @@
       <div class="tabs-content d-none" data-navtabs-target="recyclers">
         <div class="photos">
           <div class="card-tuto">
-            <h5>2ère Etape</h5>
-            <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Nostrum maiores dolorem repellat magnam dicta sed?</p>
-            <div style="display: grid; grid-template-columns: 2fr 1fr; border-top: 1px solid grey; padding-top: 16px;">
-              <div>
-                <li style="margin: 5vh 0;">Lorem ipsum dolor sit, amet consectetur adipisicing elit. Natus, nulla.</li>
-                <li style="margin: 5vh 0;">Lorem ipsum dolor sit, amet consectetur adipisicing elit. Natus, nulla.</li>
-                <li style="margin: 5vh 0;">Lorem ipsum dolor sit, amet consectetur adipisicing elit. Natus, nulla.</li>
+            <h5>2ème Étape</h5>
+            <%if @diag[2] != nil %>
+              <p><%= @diag[2] %></p>
+            <% end %>
+            <%if @diag[3] != nil %>
+              <p><%= @diag[3]%></p>
+            <% end %>
+            <%if @diag[4] != nil %>
+              <p><%= @diag[4] %></p>
+            <% end %>
+            <div class="card-tuto-step">
+              <div class="card-tuto-step-infos">
+                <li style="margin: 5vh 0;">L'idéal pour un bon nettoyage est de démonter votre chaine de vélo qui sera plus pratique à laver une fois libérée de la transmission. Prenez le temps de bien mémoriser ou de prendre en photo le système afin de remonter votre chaîne correctement par la suite.</li>
+                <li style="margin: 5vh 0;">Enfin, mettez de l'huile sur la chaine (comme sur la photo) et tourner la pédale afin de répartir l'huile sur la chaine.</li>
+                <li style="margin: 5vh 0;">Si votre chaîne comporte un maillon rapide, vous pouvez à main nue et en forçant un peu défaire l'attache rapide. </li>
               </div>
               <div>
-                <img src="https://contents.mediadecathlon.com/p2092558/k$8d60d54dadd2dd2934615dfdf5f233ff/1180x0/4224pt3168/8448xcr5376/default.jpg?format=auto&quality=80" style= "object-fit: cover; max-width: 100%;">
-              </div>
-            </div>
-            <div style="display: grid; grid-template-columns: 2fr 1fr; border-top: 1px solid grey; padding-top: 16px;">
-              <div>
-                <li style="margin: 5vh 0;">Lorem ipsum dolor sit, amet consectetur adipisicing elit. Natus, nulla.</li>
-                <li style="margin: 5vh 0;">Lorem ipsum dolor sit, amet consectetur adipisicing elit. Natus, nulla.</li>
-                <li style="margin: 5vh 0;">Lorem ipsum dolor sit, amet consectetur adipisicing elit. Natus, nulla.</li>
-              </div>
-              <div>
-                <img src="https://contents.mediadecathlon.com/p2092558/k$8d60d54dadd2dd2934615dfdf5f233ff/1180x0/4224pt3168/8448xcr5376/default.jpg?format=auto&quality=80" style= "object-fit: cover; max-width: 100%;">
+                <img src="https://media.3-en-un.fr/app/uploads/2022/02/27134033/chaine-velo-entretien.jpg" style= "object-fit: cover; max-width: 100%; margin-top: 2vh;">
               </div>
             </div>
-            <div style="display: grid; grid-template-columns: 2fr 1fr; border-top: 1px solid grey; padding-top: 16px;">
-              <div>
-                <li style="margin: 5vh 0;">Lorem ipsum dolor sit, amet consectetur adipisicing elit. Natus, nulla.</li>
-                <li style="margin: 5vh 0;">Lorem ipsum dolor sit, amet consectetur adipisicing elit. Natus, nulla.</li>
-                <li style="margin: 5vh 0;">Lorem ipsum dolor sit, amet consectetur adipisicing elit. Natus, nulla.</li>
+            <div class="card-tuto-step">
+              <div class="card-tuto-step-infos">
+                <li style="margin: 5vh 0;">Pour ça, pressez fort sur les extrémités de ce maillon pour ouvrir votre chaîne et la sortir facilement de la transmission.</li>
+                <li style="margin: 5vh 0;">Si votre chaîne de vélo n'a pas de maillon rapide, vous devez avoir un dérive chaîne pour pouvoir l'ouvrir et l'enlever de l'ensemble de la transmission.</li>
+                <li>L'idéal est d'avoir une chaîne détendue pour poser le dérive chaîne, vous pouvez donc la sortir du plateau avant comme si vous aviez déraillé.</li>
               </div>
               <div>
-                <img src="https://contents.mediadecathlon.com/p2092558/k$8d60d54dadd2dd2934615dfdf5f233ff/1180x0/4224pt3168/8448xcr5376/default.jpg?format=auto&quality=80" style= "object-fit: cover; max-width: 100%;">
+                <img src="https://contents.mediadecathlon.com/p1660865/k$69b123966102c2f3f55a3acf29da8f28/1200x0/1.91cr1/lubrifier-chaine-velo.jpg?format=auto" style= "object-fit: cover; max-width: 100%; margin-top: 2vh;">
               </div>
             </div>
-            <div style="display: grid; grid-template-columns: 2fr 1fr; border-top: 1px solid grey; padding-top: 16px;">
-              <div>
-                <li style="margin: 5vh 0;">Lorem ipsum dolor sit, amet consectetur adipisicing elit. Natus, nulla.</li>
-                <li style="margin: 5vh 0;">Lorem ipsum dolor sit, amet consectetur adipisicing elit. Natus, nulla.</li>
-                <li style="margin: 5vh 0;">Lorem ipsum dolor sit, amet consectetur adipisicing elit. Natus, nulla.</li>
+            <div class="card-tuto-step">
+              <div class="card-tuto-step-infos">
+                <li style="margin: 5vh 0;">Positionnez le dérive chaîne bien droit sur un des maillons de votre chaîne puis vissez en veillant à ce que la pointe du dérive chaîne vienne prendre appuis sur l'axe. </li>
+                <li style="margin: 5vh 0;">Serrez ensuite le dérive chaîne doucement jusqu'à sentir un point dur, à ce moment faites seulement un tour de plus et desserrez votre dérive chaîne. Cette manipulation permet de ne pas sortir entièrement l'axe du maillon, ce sera ensuite plus facile à remonter.</li>
+                <li style="margin: 5vh 0;">Une fois votre chaîne ouverte, vous pouvez la libérer de l'ensemble de la transmission.</li>
               </div>
               <div>
-                <img src="https://contents.mediadecathlon.com/p2092558/k$8d60d54dadd2dd2934615dfdf5f233ff/1180x0/4224pt3168/8448xcr5376/default.jpg?format=auto&quality=80" style= "object-fit: cover; max-width: 100%;">
+                <img src="https://contents.mediadecathlon.com/p2092558/k$8d60d54dadd2dd2934615dfdf5f233ff/1180x0/4224pt3168/8448xcr5376/default.jpg?format=auto&quality=80" style= "object-fit: cover; max-width: 100%; margin-top: 2vh;">
               </div>
             </div>
           </div>

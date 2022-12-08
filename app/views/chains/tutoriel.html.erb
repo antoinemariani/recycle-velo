@@ -1,10 +1,10 @@
 <div class="container-tuto">
   <div class="header-wrapper-tuto">
-    <header><h1>Chain : remplacer une roue creuvée</h1></header>
+    <header><h1>Réparation de la chaine</h1></header>
     <div class="cols-container-tuto">
       <div class="first-row-tuto">
         <div class="infos-container-tuto">
-          <h2><%= @bike.name%></h2>
+          <h2 style="font-size: 2.5rem;">Mon vélo : <%= @bike.name%></h2>
             <div style="margin-bottom: 16px;">
               <% @diag.each do |problem| %>
                 <%if problem %>
@@ -12,27 +12,28 @@
                 <%end %>
               <%end %>
             </div>
-          <ul>
-            <li><button>Acheter le matériel nécessaire</button></li>
-            <li><button>Rechercher un réparateur pro</button></li>
-            <li><button>Rechercher un Recycler</button></li>
-          </ul>
+            <div class="buttons-tuto">
+              <button>Acheter le matériel nécessaire</button>
+              <button>Rechercher un réparateur pro</button>
+              <button>Rechercher un Recycler</button>
+            </div>
+
         </div>
       </div>
       <div class="right-col-tuto">
         <h2>Mode réparation : </h2>
         <h5>Matériel nécessaire : </h5>
         <ul>
-          <li style="margin-right: 24px;">❶ Matériel</li>
-          <li style="margin-right: 24px;">❷ Matériel</li>
-          <li style="margin-right: 24px;">❸ Matériel</li>
+          <li style="margin-right: 24px;">❶ Dégraissant Vélo</li>
+          <li style="margin-right: 24px;">❷ Une brosse spéciale chaîne</li>
+          <li style="margin-right: 24px;">❸ Un chiffon</li>
         </ul>
         <ul>
-          <li style="margin-right: 24px;">❹ Matériel</li>
-          <li style="margin-right: 24px;">❺ Matériel</li>
-          <li style="margin-right: 24px;">❻ Matériel</li>
+          <li style="margin-right: 24px;">❹ Une bassine</li>
+          <li style="margin-right: 24px;">❺ Lubrifiant (WD-40)</li>
+          <li style="margin-right: 24px;">❻ Des gants</li>
         </ul>
-        <%= render "navtabs-tuto" %>
+        <%= render "navtabs-tuto", diag: @diag %>
       </div>
     </div>
   </div>
