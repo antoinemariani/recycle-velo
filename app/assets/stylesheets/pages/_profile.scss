@@ -171,7 +171,7 @@
 .header-wrapper .cols-container .right-col nav button {
   background: rgb(71, 71, 207);
   border: none;
-  padding: 10px 25px;
+  padding: 10px 20px;
   border-radius: 4px;
   cursor: pointer;
   margin-top: 20px;
@@ -196,6 +196,7 @@
 .card-bike{
   justify-items: center;
 }
+
 .card-bike button {
   border: none;
   width: 100%;
@@ -209,6 +210,12 @@
 .card-bike button:hover {
   opacity: 0.8;
 }
+.card-bike button a{
+  text-decoration: none;
+  color: white;
+  font-weight: bold;
+}
+
 
 .card-bike-navs-infos{
   height: 45%;
@@ -277,7 +284,7 @@
 
   .header-wrapper .cols-container .right-col nav ul {
     flex-direction: row;
-    gap: 30px;
+    gap: 46px;
   }
 
   .header-wrapper .cols-container .right-col .photos {
