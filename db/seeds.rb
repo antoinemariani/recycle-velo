@@ -78,21 +78,30 @@ require 'faker'
 ###################### SEEDING REAL BIKES WORKSHOPS IN MARSEILLE #######################
 
 shops = {
-  "l'Etape Vélo" => "50 Rue Perrin Solliers, 13006 Marseille",
-  "VÉLO AZUR" => "37 Rue Goudard, 13005 Marseille",
-  "Cycle Du Coin & Doctor Bike" => "Cycle Du Coin & Doctor Bike",
-  "Vélo Sapiens" => "39 Rue Mazagran, 13001 Marseille",
-  "Mimosa Bike Repair" => "312 Rue d'Endoume, 13007 Marseille",
-  "Bicyclettes La Guibole" => "41 Rue Saint-Pierre, 13005 Marseille",
-  "Repair And Run Marseille République" => "31 Rue de la République, 13002 Marseille",
-  "ZZ VÉLO VINTAGE" => "4 Rue de la Bibliothèque, 13001 Marseille",
-  "Steedy Bike" => "17 Rue du Dr Fiolle, 13006 Marseille",
-  "Atelier 1 Vélo" => "71 Bd Gillibert, 13009 Marseille",
-  "Road ID" => "56T Rue d'Italie, 13006 Marseille",
-  "BHT BIKE" => "15 Rue Raymond Teisseire, 13008 Marseille",
-  "Bobine" => "54 Av. du Prado, 13006 Marseille",
-  "BeCycles" => "19 Rue Joël Recher, 13007 Marseille",
-  "Collectif Vélos en Ville" => "24 Rue Jean-Pierre-Moustier, 13001 Marseille"
+  "l'Etape Vélo" => ["50 Rue Perrin Solliers, 13006 Marseille", "https://www.barelli.fr/img/cms/magasin.jpg"],
+  "VÉLO AZUR" => ["37 Rue Goudard, 13005 Marseille", "https://www.shcycles.fr/wa_images/cycles-sh-magasin-velo-electrique-specialiste-artisan_(1).jpg?v=1hnclv9"],
+  "Cycle Du Coin & Doctor Bike" => ["Cycle Du Coin & Doctor Bike", "https://rueil-malmaison.cyclable.com/wp-content/uploads/sites/46/2021/08/conseillers-velo-rueil-malmaison-600x430.jpg"],
+  "Vélo Sapiens" => ["39 Rue Mazagran, 13001 Marseille", "https://www.weelz.fr/fr/wp-content/uploads/2020/03/velo-randonnee-lille.jpg"],
+  "Mimosa Bike Repair" => ["312 Rue d'Endoume, 13007 Marseille", "https://www.weelz.fr/fr/wp-content/uploads/2020/03/velo-cargo-lille-2.jpg"],
+  "Bicyclettes La Guibole" => ["41 Rue Saint-Pierre, 13005 Marseille", "https://lvdneng.rosselcdn.net/sites/default/files/dpistyles_v2/ena_16_9_extra_big/2020/12/14/node_907736/49885823/public/2020/12/14/B9725520504Z.1_20201214183845_000%2BGH5H7UOGM.2-0.jpg?itok=z0essfcM1607967536"],
+  "Repair And Run Marseille République" => ["31 Rue de la République, 13002 Marseille", "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQPVGdJOQHtwbPnm8g0Qby1iyUoqoVkoVE7oQ&usqp=CAU"],
+  "ZZ VÉLO VINTAGE" => ["4 Rue de la Bibliothèque, 13001 Marseille", "https://bouticycle.com/IMG/jpg/0c3b3635.jpg"],
+  "Steedy Bike" => ["17 Rue du Dr Fiolle, 13006 Marseille", "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQZXGlQSH4luerRohc07f4UUqcuzMit9qrEDg&usqp=CAU"],
+  "Atelier 1 Vélo" => ["71 Bd Gillibert, 13009 Marseille", "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSXaPVffl0KdKG4vCphYmuBCqMoY4i7ogJ5Xg&usqp=CAU"],
+  "Road ID" => ["56T Rue d'Italie, 13006 Marseille", "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQj5BbvJoKYz2ViKVfMes7mI8u_6qcJfAKezA&usqp=CAU"],
+  "BHT BIKE" => ["15 Rue Raymond Teisseire, 13008 Marseille", "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRb26x-u3nmOkko1cJOXRBYHWCjV5d6yhAQnQ&usqp=CAU"],
+  "Bobine" => ["54 Av. du Prado, 13006 Marseille", "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSsBPUm9ip0QawIEckyV7ECcmI9lmSNOjmV6A&usqp=CAU"],
+  "BeCycles" => ["19 Rue Joël Recher, 13007 Marseille", "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRqOoLEgNi8hX50lDBL8OegMxDs0wDX2bGhiw&usqp=CAU"],
+  "Collectif Vélos en Ville" => ["24 Rue Jean-Pierre-Moustier, 13001 Marseille", "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTUacbAZf1I-qpbKwYCAam_rDjUS6ERfYfPew&usqp=CAU"]
 }
 
-shops.each { |key, value| Shop.create(name: key, address: value) }
+shops.each { |key, value|
+  shop = Shop.new(name: key, address: value[0])
+  file = URI.open(value[1])
+  shop.photo.attach(
+    io: file,
+    filename: "#{shop.id}.png",
+    content_type: "image/png"
+  )
+  puts "success" if shop.save!
+}
