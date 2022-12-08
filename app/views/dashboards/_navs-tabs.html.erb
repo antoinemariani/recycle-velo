@@ -5,6 +5,7 @@
         <li><span data-action='click->navtabs#displayShop' data-navtabs-target="tab2">Mes Shops</span></li>
         <li><span data-action='click->navtabs#displayRecycler' data-navtabs-target="tab3">Recyclers</span></li>
       </ul>
+      <button> <%= link_to "Mes Rendez-vous", appointments_path %></button>
       <button> <%= link_to "Ajouter un Vélo", bikes_path %></button>
     </nav>
     <div class="tabs-boy">
@@ -12,7 +13,7 @@
         <div class="photos">
           <% current_user.bikes.each do |b| %>
             <div class="card-bike">
-              <button><%= b.name %></button>
+              <button><%= link_to b.name, results_bike_path(b)%></button>
               <div class="card-bike-navs-bikes">
                 <p>Modèle : <%= b.model %></p>
                 <p>Marque : <%= b.brand %></p>
