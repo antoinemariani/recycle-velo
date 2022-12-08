@@ -1,5 +1,5 @@
 class ShopsController < ApplicationController
-  before_action :set_shop, only: %i[show index]
+  before_action :set_shop, only: %i[show]
 
   def index
     @shops = Shop.where.not(latitude: nil, longitude: nil)
