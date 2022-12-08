@@ -1,7 +1,25 @@
-
-<%= simple_form_for [@shop, @appointment], data: { controller: 'flatpickr' } do |f| %>
-  <%= f.input :bike_id, label: "Vélo", :collection => Bike.where(user: current_user) %>
-  <%= f.input :start_time, as: :string, input_html: { "data-action": "click->flatpickr#update", data: { flatpickr_target: "startTime" } } %>
-  <%= f.input :end_time, as: :string, input_html: { data: { flatpickr_target: "endTime" } } %>
-  <%= f.submit 'Prendre rendez-vous', class: "btn btn-warning text-white" %>
-<% end %>
+<!-- Button trigger modal -->
+  <button type="button" data-bs-toggle="modal" data-bs-target="#exampleModal">Prendre Rendez-vous</button>
+  <!-- Modal -->
+  <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h1 class="modal-title fs-5" id="exampleModalLabel">Rendez-vous : </h1>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="modal-body">
+          <%= simple_form_for [@shop, @appointment], data: { controller: 'flatpickr' } do |f| %>
+            <%= f.input :bike_id, label: "Vélo", :collection => Bike.where(user: current_user) %>
+            <%= f.input :start_time, as: :string, input_html: { "data-action": "click->flatpickr#update", data: { flatpickr_target: "startTime" } } %>
+            <%= f.input :end_time, as: :string, input_html: { data: { flatpickr_target: "endTime" } } %>
+            <%= f.submit 'Prendre rendez-vous', class: "btn btn-warning text-white" %>
+          <% end %>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+          <button type="button" class="btn btn-primary">Save changes</button>
+        </div>
+      </div>
+    </div>
+  </div>
