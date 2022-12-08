@@ -1,8 +1,10 @@
 class ShopsController < ApplicationController
-  before_action :set_shop, only: %i[show]
+  before_action :set_shop, only: %i[show index]
 
   def index
     @shops = Shop.where.not(latitude: nil, longitude: nil)
+    @bike = Bike.where(user: current_user).last
+    @appointment = Appointment.new(bike: @bike, user: @current_user)
     @markers = @shops.map do |shop|
       {
         lat: shop.latitude,

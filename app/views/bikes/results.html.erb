@@ -6,6 +6,46 @@
   </div>
 
   <h2 id="congrats" class="text-center">Félicitations ! Nous avons un résultat de diagnostic pour votre vélo : </h2>
+
+  <div class="container pt-4 text-center">
+  <% if @bike_note >= 60 %>
+
+      <div style="width: 80%; margin: 0 auto;">
+        <h3>Note générale : <%= @bike_note.integer? ? @bike_note : @bike_note.truncate()%> / 100</h3>
+        <h3>Votre vélo est en bon état. Vous pouvez rouler avec, à condition de l'entretenir régulièrement en suivant nos conseils !</h3>
+      </div>
+
+      <div class="progress" style="width: 80%">
+        <div class="progress-bar progress-bar-striped bg-success" role="progressbar" aria-label="Warning striped example" style="width: <%=@bike_note%>%;" aria-valuenow="75" aria-valuemin="0" aria-valuemax="100">
+        </div>
+      </div>
+
+  <% elsif @bike_note >= 30 %>
+
+      <div style="width: 80%; margin: 0 auto;">
+        <h3>Note générale : <%= @bike_note.integer? ? @bike_note : @bike_note.truncate()%> / 100</h3>
+        <h3>Votre vélo a besoin d'un peu d'entretien, et devrait continuer à rouler encore longtemps ! Suivez notre guide d'entretien ci-dessous.</h3>
+      </div>
+
+      <div class="progress" style="width: 80%">
+        <div class="progress-bar progress-bar-striped bg-warning" role="progressbar" aria-label="Warning striped example" style="width: <%=@bike_note%>%;" aria-valuenow="75" aria-valuemin="0" aria-valuemax="100">
+        </div>
+      </div>
+
+  <% else %>
+
+      <div style="width: 80%; margin: 0 auto;">
+        <h3>Note générale : <%= @bike_note.integer? ? @bike_note : @bike_note.truncate()%> / 100</h3>
+        <h3>Votre vélo est en mauvais état. Nous vous proposons plusieurs réparations et changements simples ci-dessous afin de pouvoir rouler à nouveau.</h3>
+      </div>
+
+      <div class="progress" style="width: 80%">
+        <div class="progress-bar progress-bar-striped bg-danger" role="progressbar" aria-label="Warning striped example" style="width: <%=@bike_note%>%;" aria-valuenow="75" aria-valuemin="0" aria-valuemax="100">
+        </div>
+      </div>
+
+  <% end %>
+
   <div class="d-flex justify-content-around pt-4">
     <% if Chain.where(bike: @bike).last %>
       <div class="card me-2" style="width: 17rem;">

@@ -2,4 +2,4 @@
 import "@hotwired/turbo-rails"
 import "./controllers"
 import "bootstrap"
-import "./custom/map.js";
+// import "./custom/map.js";
