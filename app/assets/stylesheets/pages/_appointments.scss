@@ -24,7 +24,10 @@
 }
 
 .card-appointment {
-  max-width: 25%;
+  max-width: 18vw;
+  min-width: 18vw;
+  max-height: 28vh;
+  min-height: 28vh;
   background: white;
   box-shadow: rgba(50, 50, 93, 0.25) 0px 2px 5px -1px, rgba(0, 0, 0, 0.3) 0px 1px 3px -1px;
   padding: 3vh 1vw;
@@ -45,9 +48,10 @@
     max-height: 5vw;
     border-radius: 50%;
     object-fit: cover;
-    bottom: 25vh;
+    bottom: 24vh;
     left: 14.5vw;
     position: relative;
+    box-shadow: rgba(50, 50, 93, 0.25) 0px 2px 5px -1px, rgba(0, 0, 0, 0.3) 0px 1px 3px -1px;
   }
 }
 
@@ -57,6 +61,19 @@
   // h3 {
   //   border-bottom: 1px solid grey;
   // }
+  button {
+    border: none;
+    color: white;
+    font-weight: bold;
+    background: $orange;
+    border-radius: 5px;
+    padding: 1vh 5vw;
+    box-shadow: rgba(50, 50, 93, 0.25) 0px 2px 5px -1px, rgba(0, 0, 0, 0.3) 0px 1px 3px -1px;
+    margin-left: 0.8vw;
+  }
+  button:hover{
+    opacity: 0.8;
+  }
 }
 
 .spacer-appointment {
