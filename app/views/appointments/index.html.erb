@@ -2,11 +2,9 @@
   <div class="container-appointments">
     <h1>Mes rendez-vous à venir :</h1>
     <div class="cards-appointments">
-        <% current_user.bikes.each do |b| %>
           <% @appointments.each do |rdv| %>
             <% if rdv.start_time > DateTime.now %>
               <div class="card-appointment">
-                <%# <%= cl_image_tag rdv.bike.photo.key %>
                 <div class="card-appointment-infos">
                   <h3>Vélo : <%= rdv.bike.name %></h3>
                   <div class="spacer-appointment">
@@ -14,8 +12,8 @@
                   <p>Date : <%= rdv.start_time %></p>
                   <p>Atelier : <%= rdv.shop.name %>, <%= rdv.shop.address %></p>
                   <div class="card-appointment-img">
-                    <% if b.photo.key %>
-                      <%= cl_image_tag b.photo.key%>
+                    <% if rdv.bike.photo.key %>
+                      <%= cl_image_tag rdv.bike.photo.key %>
                     <% else %>
                       <%= image_tag "https://images.unsplash.com/photo-1485965120184-e220f721d03e?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1470&q=80"%>
                     <% end %>
@@ -24,12 +22,10 @@
               </div>
             <% end %>
           <% end %>
-        <% end %>
     </div>
 
     <h1>Mes rendez-vous passés :</h1>
     <div class="cards-appointments">
-      <% current_user.bikes.each do |b| %>
         <% @appointments.each do |rdv| %>
           <% if rdv.start_time < DateTime.now %>
             <div class="card-appointment">
@@ -41,8 +37,8 @@
                 <p>Date : <%= rdv.start_time %></p>
                 <p>Atelier : <%= rdv.shop.name %>, <%= rdv.shop.address %></p>
                 <div class="card-appointment-img">
-                    <% if b.photo.key %>
-                      <%= cl_image_tag b.photo.key%>
+                    <% if rdv.bike.photo.key %>
+                      <%= cl_image_tag rdv.bike.photo.key %>
                     <% else %>
                       <%= image_tag "https://images.unsplash.com/photo-1485965120184-e220f721d03e?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1470&q=80"%>
                     <% end %>
@@ -51,7 +47,6 @@
             </div>
           <% end %>
         <% end %>
-      <% end %>
     </div>
   </div>
 

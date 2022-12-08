@@ -20,7 +20,7 @@
 
         <ul class="about">
           <li><span><%= current_user.bikes.size %></span>Vélos</li>
-          <li><span><%= current_user.bikes.chain.size %></span>Diagnostiques</li>
+          <li><span><%= current_user.bikes.chain.size %></span>Diagnostics</li>
           <li><span>5</span>Réparations</li>
         </ul>
 
@@ -28,9 +28,9 @@
           <p>J'adore le vélo, mais je ne sais pas du tout les réparer... j'aimerais en savoir un peu plus, je me suis donc inscrit sur re:cycle dans l'espoir d'apprendre des techniques de réparation !</p>
 
           <ul>
-            <li><button class="button-profile">Rechercher un pack répare</button></li> <!-- possible lien avec un fab (icone texte)-->
-            <li><button class="button-profile">Trouver un Recycler</button></li> <!-- possible lien avec un fab (icone texte)-->
-            <li><button class="button-profile">Rechercher un magasin</button></li> <!-- possible lien avec un fab (icone texte)-->
+            <li><%= link_to "Mes vélos", bikes_path, class: "btn btn-warning text-white rounded" %></li> <!-- possible lien avec un fab (icone texte)-->
+            <li><%= link_to "Trouver un atelier", shops_path, class: "btn btn-warning text-white rounded" %></li> <!-- possible lien avec un fab (icone texte)-->
+            <li><%= link_to "Chercher un re:cycleur", root_path, class: "btn btn-warning text-white rounded" %></li> <!-- possible lien avec un fab (icone texte)-->
           </ul>
         </div>
       </div>
