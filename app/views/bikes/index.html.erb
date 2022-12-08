@@ -1,10 +1,10 @@
 <div class="container" style="margin-top:100px;">
   <%= render "diag-progress", bike: Bike.new %>
 
-  <div class="top-navigation-btn" style="align-items:center;">
-        <%= link_to "◀︎ Profil", profile_path, class: "btn btn-warning text-white" %>
-        <%= link_to "Profil ▶︎", profile_path, class: "btn btn-success text-white d-none" %>
-  </div>
+  <%# <div class="top-navigation-btn" style="align-items:center;"> %>
+        <%# <%= link_to "◀︎ Profil", profile_path, class: "btn btn-warning text-white" %>
+        <%# <%= link_to "Profil ▶︎", profile_path, class: "btn btn-success text-white d-none" %>
+  <%# </div> %>
 
 
   <div class="accordion accordion-flush" id="accordionBikes">
@@ -35,7 +35,10 @@
       </h2>
       <div id="collapseTwo" class="accordion-collapse collapse" aria-labelledby="headingTwo" data-bs-parent="#accordionBikes">
         <div class="accordion-body">
-          <% @bikes.reverse.each do |bike| %>
+          <% if @bikes.empty? %>
+          <p>Vous n'avez pas encore de vélo, veuillez en ajouter pour commencer votre diagnostic.</p>
+          <% else %>
+            <% @bikes.reverse.each do |bike| %>
               <%= simple_form_for bike, method: "get" do |f| %>
                 <div class="card-product" style="box-shadow: none;">
                   <% if bike.photo.attached? %>
@@ -56,6 +59,7 @@
                 </div>
                 <br>
               <% end %>
+            <% end %>
           <% end %>
         </div>
       </div>
