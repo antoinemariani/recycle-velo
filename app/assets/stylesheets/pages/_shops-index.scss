@@ -39,9 +39,9 @@
   // justify-content: space-evenly;
   // align-items: center;
   // margin: 8px;
-
+  min-height: 15vh;
   width: 100%;
-  padding: 5vh 1vw;
+  // padding: 5vh 1vw;
   display: grid;
   grid-template-columns: 1fr 1fr;
   flex-direction: row;
@@ -58,11 +58,12 @@
 }
 
 .shop-card img {
+  overflow: hidden;
+  width: 80%;
   max-width: 26vw;
   max-height: 26vh;
   object-fit: cover;
   border-radius: 5px;
-  margin-left: 1vw;
 }
 
 .shop-infos button {
