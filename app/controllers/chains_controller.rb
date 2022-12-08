@@ -2,25 +2,27 @@ class ChainsController < ApplicationController
   before_action :set_bike, only: %i[index show edit update create tutoriel]
   before_action :set_chain, only: %i[edit update]
 
-    GOOD_STATE = {
-      state: "Votre chaîne est en bon état. Nettoyez et graissez-là une fois par mois.",
-      broken: "Votre vélo peut rouler, veillez à suivres nos conseils d’entretien et de suivi d’usure pour roulez dans des conditions optimales !",
-      rust: "Continuez à bien entretenir votre transmission en suivant nos conseils afin de garder celle-ci en état de marche le plus longtemps possible... pas de changement superflu !",
-      derail: ["Remettre sa chaîne en rail est une opération simple et utile à connaître : on vous explique comment faire, suivre le guide !", "Continuez à bien entretenir votre transmission en suivant nos conseils afin de garder celle-ci en état de marche le plus longtemps possible... pas de changement superflu !"]
-    }
+  GOOD_STATE = {
+    state: "Votre chaîne est en bon état. Nettoyez et graissez-là une fois par mois.",
+    broken: "Votre vélo peut rouler, veillez à suivres nos conseils d’entretien et de suivi d’usure pour roulez dans des conditions optimales !",
+    rust: "Continuez à bien entretenir votre transmission en suivant nos conseils afin de garder celle-ci en état de marche le plus longtemps possible... pas de changement superflu !",
+    derail: [
+      "Remettre sa chaîne en rail est une opération simple et utile à connaître : on vous explique comment faire, suivre le guide !", "Continuez à bien entretenir votre transmission en suivant nos conseils afin de garder celle-ci en état de marche le plus longtemps possible... pas de changement superflu !"
+    ]
+  }
 
-    MIDDLE_STATE = {
-      state: "Effectuez un dégraissage et nettoyage approfondi de votre chaîne et des éléments de dérailleur. Votre chaîne peut encore rouler tant qu’elle est propre et ne présente pas de traces d’usure visibles.",
-      broken: "Vous devez changer votre chaîne pour pouvoir utiliser votre vélo. Pas d’inquiétude, c’est une opération simple et peu coûteuse !",
-      rust: "Utilisez un produit anti-rouille pour remettre la chaîne en état. Si la rouille ne part pas ou qu’elle a causé des dégâts visibles, envisagez un remplacement de la chaîne.",
-      chainlink: "Vous avez un maillon cassé : suivez nos conseils pour le changer et remettre votre chaîne en bon état."
-    }
+  MIDDLE_STATE = {
+    state: "Effectuez un dégraissage et nettoyage approfondi de votre chaîne et des éléments de dérailleur. Votre chaîne peut encore rouler tant qu’elle est propre et ne présente pas de traces d’usure visibles.",
+    broken: "Vous devez changer votre chaîne pour pouvoir utiliser votre vélo. Pas d’inquiétude, c’est une opération simple et peu coûteuse !",
+    rust: "Utilisez un produit anti-rouille pour remettre la chaîne en état. Si la rouille ne part pas ou qu’elle a causé des dégâts visibles, envisagez un remplacement de la chaîne.",
+    chainlink: "Vous avez un maillon cassé : suivez nos conseils pour le changer et remettre votre chaîne en bon état."
+  }
 
-    BAD_STATE = {
-      state: "Considérez le remplacement de votre chaîne, ou la consultation d’un spécialiste pour vous aider à réparer vos pièces.",
-      derail: "Votre transmission ou votre chaîne ont peut-être un problème, nos tutoriels sont là pour vous aider à le résoudre.",
-      chainlink: "Vous devez changer votre chaîne. Consultez nos tutoriels ou un spécialiste pour remettre votre vélo en état."
-    }
+  BAD_STATE = {
+    state: "Considérez le remplacement de votre chaîne, ou la consultation d’un spécialiste pour vous aider à réparer vos pièces.",
+    derail: "Votre transmission ou votre chaîne ont peut-être un problème, nos tutoriels sont là pour vous aider à le résoudre.",
+    chainlink: "Vous devez changer votre chaîne. Consultez nos tutoriels ou un spécialiste pour remettre votre vélo en état."
+  }
 
   def index
     @chains = @bike.chains
@@ -66,7 +68,7 @@ class ChainsController < ApplicationController
   def tutoriel
     @chain = Chain.find(params[:chain_id])
     @diag = ChainsDiag.last
-    @diag = @diag.values_at(:state,:broken, :rust, :derail, :chainlink)
+    @diag = @diag.values_at(:state, :broken, :rust, :derail, :chainlink)
   end
 
   private
@@ -170,8 +172,9 @@ class ChainsController < ApplicationController
   def create_note(diag)
     # Attribuer une note à l'état du vélo
     note = 5
-    iterator = {state: diag.state, broken: diag.broken, rust: diag.rust, derail: diag.derail, chainlink: diag.chainlink}
-    iterator.each_pair do |key, value|
+    iterator = { state: diag.state, broken: diag.broken, rust: diag.rust, derail: diag.derail,
+                 chainlink: diag.chainlink }
+    iterator.each_pair do |_key, value|
       if GOOD_STATE.value? value
         note += 1
       elsif MIDDLE_STATE.value? value

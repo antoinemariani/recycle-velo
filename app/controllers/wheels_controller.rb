@@ -3,7 +3,9 @@ class WheelsController < ApplicationController
   before_action :set_wheel, only: %i[edit update]
 
   GOOD_STATE = {
-    puncture: ["Tout roule, on dirait ! Saviez-vous que la pression recommandée pour le gonflage est généralement écrite sur le flan du pneu? Veillez à bien respecter celle-ci : un pneu sous ou sur-gonflé présente un risque accru de crevaison !", "Et si on révisait ensemble les bases du gonflage? Rien de mieux pour rouler en toute sécurité !"],
+    puncture: [
+      "Tout roule, on dirait ! Saviez-vous que la pression recommandée pour le gonflage est généralement écrite sur le flan du pneu? Veillez à bien respecter celle-ci : un pneu sous ou sur-gonflé présente un risque accru de crevaison !", "Et si on révisait ensemble les bases du gonflage? Rien de mieux pour rouler en toute sécurité !"
+    ],
     bent: "Tout va bien ! Des micros voilages peuvent apparaître avec le temps : les roues sont fortement sollicitées en roulant. Les voilages légers peuvent être corrigés grâce à une clef à rayon, ou directement via un professionnel.",
     spoke: "Votre roue est prête pour affronter la route et les pavés (si elle tourne droite, bien entendu!).",
     noise: "Quoi de plus doux et mélodieux que le son d’une roue libre?",
@@ -148,8 +150,8 @@ class WheelsController < ApplicationController
   def create_note(diag)
     # Attribuer une note à l'état du vélo
     note = 5
-    iterator = {puncture: diag.puncture, bent: diag.bent, spoke: diag.spoke, noise: diag.noise, tyre: diag.tyre}
-    iterator.each_pair do |key, value|
+    iterator = { puncture: diag.puncture, bent: diag.bent, spoke: diag.spoke, noise: diag.noise, tyre: diag.tyre }
+    iterator.each_pair do |_key, value|
       if GOOD_STATE.value? value
         note += 1
       elsif MIDDLE_STATE.value? value

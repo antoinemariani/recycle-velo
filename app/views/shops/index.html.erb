@@ -25,7 +25,7 @@
                         <%= f.input :bike_id, label: "Vélo", :collection => Bike.where(user: current_user) %>
                         <%= f.input :start_time, as: :string, input_html: { "data-action": "click->flatpickr#update", data: { flatpickr_target: "startTime" } } %>
                         <%# <%= f.input :end_time, as: :string, input_html: { data: { flatpickr_target: "endTime" } } %>
-                        <%= f.submit 'Prendre rendez-vous', class: "btn btn-warning text-white" %>
+                        <%= f.submit 'Prendre rendez-vous', class: "btn btn-warning rounded text-white" %>
                       <% end %>
                     </div>
                     <div class="modal-footer">

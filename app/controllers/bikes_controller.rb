@@ -37,7 +37,7 @@ class BikesController < ApplicationController
   end
 
   def results
-    # note globale du vélo
+    # NOTE: globale du vélo
     ChainsDiag.where(chain: @bike.chains.last).last.nil? ? chain_note = 2 : chain_note = ChainsDiag.where(chain: Chain.where(bike: @bike)).last.note
     WheelsDiag.where(wheel: @bike.wheels.last).last.nil? ? wheel_note = 2 : wheel_note = WheelsDiag.where(wheel: Wheel.where(bike: @bike)).last.note
 
