@@ -12,7 +12,7 @@ class AppointmentsController < ApplicationController
     @appointment.user = @appointment.bike.user
     @appointment.shop = @shop
     @appointment.save!
-    redirect_to shops_path
+    redirect_to appointments_path
   end
 
   private

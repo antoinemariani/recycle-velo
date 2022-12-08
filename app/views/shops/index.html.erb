@@ -5,34 +5,38 @@
         <h2>Shops</h2>
         <ul class="shop-list">
           <% @shops.each do |shop| %>
-          <div class="shop-card shop-card-border">
-              <%= image_tag "shop-photo-test.jpg" %>
-            <div class="shop-infos">
-              <h3><%= shop.name %></h3>
-            <p><%= shop.address %></p>
-            <!-- Button trigger modal -->
-            <button type="button" data-bs-toggle="modal" data-bs-target="#exampleModal">Prendre Rendez-vous</button>
-            <!-- Modal -->
-            <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-              <div class="modal-dialog">
-                <div class="modal-content">
-                  <div class="modal-header">
-                    <h1 class="modal-title fs-5" id="exampleModalLabel">Rendez-vous : </h1>
-                  </div>
-                  <div class="modal-body">
-                    Test
-                    Lorem ipsum, dolor sit amet consectetur adipisicing elit. Similique maxime excepturi eius dolore sit, nobis ad itaque minima voluptas reprehenderit quas molestias exercitationem dolorum quis, culpa nesciunt. Soluta, nostrum inventore.
-                  </div>
-                  <div class="modal-footer">
-                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Fermer</button>
-                    <%# <button type="button" class="btn btn-primary">Enregistrer</button> %>
+            <div class="shop-card shop-card-border">
+                <%= image_tag "shop-photo-test.jpg" %>
+              <div class="shop-infos">
+                <h3><%= shop.name %></h3>
+              <p><%= shop.address %></p>
+              <!-- Button trigger modal -->
+              <button type="button" data-bs-toggle="modal" data-bs-target="#exampleModal">Prendre Rendez-vous</button>
+              <!-- Modal -->
+              <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                <div class="modal-dialog">
+                  <div class="modal-content">
+                    <div class="modal-header">
+                      <h1 class="modal-title fs-5" id="exampleModalLabel">Rendez-vous : </h1>
+                    </div>
+                    <div class="modal-body">
+                      <%= simple_form_for [shop, @appointment], data: { controller: 'flatpickr' } do |f| %>
+                        <%= f.input :bike_id, label: "Vélo", :collection => Bike.where(user: current_user) %>
+                        <%= f.input :start_time, as: :string, input_html: { "data-action": "click->flatpickr#update", data: { flatpickr_target: "startTime" } } %>
+                        <%# <%= f.input :end_time, as: :string, input_html: { data: { flatpickr_target: "endTime" } } %>
+                        <%= f.submit 'Prendre rendez-vous', class: "btn btn-warning text-white" %>
+                      <% end %>
+                    </div>
+                    <div class="modal-footer">
+                      <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Fermer</button>
+                      <%# <button type="button" class="btn btn-primary">Enregistrer</button> %>
+                    </div>
                   </div>
                 </div>
               </div>
-            </div>
 
+              </div>
             </div>
-          </div>
           <% end %>
         </ul>
       </div>
