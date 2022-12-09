@@ -20,7 +20,7 @@
         </div>
       </div>
 
-  <% elsif @bike_note >= 30 %>
+  <% elsif @bike_note >= 31 %>
 
       <div style="width: 80%; margin: 0 auto;">
         <h3>Note générale : <%= @bike_note.integer? ? @bike_note : @bike_note.truncate()%> / 100</h3>
