@@ -1,1 +1,3 @@
-Rails app generated with [lewagon/rails-templates](https://github.com/lewagon/rails-templates), created by the [Le Wagon coding bootcamp](https://www.lewagon.com) team.
+# re:Cycle
+
+re:Cycle is a webapp designed to offer to the largest amount of users a free bike diagnosis online, with repair solutions (autorepair + local workshop appointments).
